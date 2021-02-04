@@ -21,7 +21,7 @@ import java.util.List;
 
 @SpringBootApplication
 @EnableMongoRepositories(basePackageClasses = ClientRepository.class)
-public class Mongock4Spring5SpringData3App {
+public class Spring5SpringData3Builder {
 
     public final static String CLIENTS_COLLECTION_NAME = "clientCollection";
 
@@ -31,7 +31,7 @@ public class Mongock4Spring5SpringData3App {
 
 
     private static SpringApplicationBuilder getSpringAppBuilder() {
-        return new SpringApplicationBuilder().sources(Mongock4Spring5SpringData3App.class);
+        return new SpringApplicationBuilder().sources(Spring5SpringData3Builder.class);
     }
 
     @Bean

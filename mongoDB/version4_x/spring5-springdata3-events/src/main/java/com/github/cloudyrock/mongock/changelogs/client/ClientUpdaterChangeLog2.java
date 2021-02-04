@@ -6,7 +6,7 @@ import com.github.cloudyrock.mongock.ChangeSet;
 import com.github.cloudyrock.mongock.client.Client;
 import com.github.cloudyrock.mongock.driver.mongodb.springdata.v3.decorator.impl.MongockTemplate;
 
-import static com.github.cloudyrock.mongock.Mongock4Spring5SpringData3App.CLIENTS_COLLECTION_NAME;
+import static com.github.cloudyrock.mongock.Spring5SpringDataEventsApp3.CLIENTS_COLLECTION_NAME;
 
 @ChangeLog(order = "3")
 public class ClientUpdaterChangeLog2 {

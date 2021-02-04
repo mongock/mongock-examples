@@ -22,7 +22,7 @@ import java.util.List;
 @EnableMongock
 @SpringBootApplication
 @EnableMongoRepositories(basePackageClasses = ClientRepository.class)
-public class Mongock4Spring5SpringData3App {
+public class Spring5SpringDataEventsApp3 {
 
     public final static String CLIENTS_COLLECTION_NAME = "clientCollection";
 
@@ -32,7 +32,7 @@ public class Mongock4Spring5SpringData3App {
 
 
     public static SpringApplicationBuilder getSpringAppBuilder() {
-        return new SpringApplicationBuilder().sources(Mongock4Spring5SpringData3App.class);
+        return new SpringApplicationBuilder().sources(Spring5SpringDataEventsApp3.class);
     }
 
 

@@ -1,6 +1,6 @@
 package com.github.cloudyrock.mongock.client;
 
-import com.github.cloudyrock.mongock.Mongock4Spring5SpringData3App;
+import com.github.cloudyrock.mongock.Spring5SpringData3App;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.CompoundIndex;
 import org.springframework.data.mongodb.core.index.CompoundIndexes;
@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import java.time.ZonedDateTime;
 import java.util.Objects;
 
-@Document(collection = Mongock4Spring5SpringData3App.CLIENTS_COLLECTION_NAME)
+@Document(collection = Spring5SpringData3App.CLIENTS_COLLECTION_NAME)
 @CompoundIndexes({
     @CompoundIndex(def = "{'name':1, 'deleted':1}", name = "user_name_idx"),
     @CompoundIndex(def = "{'email':1, 'deleted':1}", name = "user_email_idx"),

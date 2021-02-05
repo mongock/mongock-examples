@@ -1,13 +1,1 @@
-mongock:
-  change-logs-scan-package:
-    - com.github.cloudyrock.mongock.changelogs.client
-  trackIgnored: true
 
-
-
-
-spring:
-  data:
-    mongodb:
-      host: localhost
-      port: 27017

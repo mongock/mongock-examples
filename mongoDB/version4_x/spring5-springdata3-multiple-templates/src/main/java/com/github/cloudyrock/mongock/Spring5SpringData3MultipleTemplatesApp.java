@@ -5,12 +5,10 @@ import com.github.cloudyrock.mongock.client.ClientRepository;
 import com.github.cloudyrock.mongock.driver.mongodb.springdata.v3.SpringDataMongoV3Driver;
 import com.github.cloudyrock.mongock.spring.DateToZonedDateTimeConverter;
 import com.github.cloudyrock.mongock.spring.ZonedDateTimeToDateConverter;
-import com.github.cloudyrock.spring.v5.EnableMongock;
 import com.github.cloudyrock.spring.v5.MongockSpring5;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
@@ -27,7 +25,7 @@ import java.util.List;
 
 @SpringBootApplication
 @EnableMongoRepositories(basePackageClasses = ClientRepository.class)
-public class Spring5SpringData3App {
+public class Spring5SpringData3MultipleTemplatesApp {
 
     public final static String CLIENTS_COLLECTION_NAME = "clientCollection";
 
@@ -37,7 +35,7 @@ public class Spring5SpringData3App {
 
 
     public static SpringApplicationBuilder getSpringAppBuilder() {
-        return new SpringApplicationBuilder().sources(Spring5SpringData3App.class);
+        return new SpringApplicationBuilder().sources(Spring5SpringData3MultipleTemplatesApp.class);
     }
 
     @Bean

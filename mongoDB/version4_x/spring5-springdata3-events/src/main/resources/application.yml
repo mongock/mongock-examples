@@ -1,5 +1,0 @@
-mongock:
-  change-logs-scan-package:
-    - com.github.cloudyrock.mongock.changelogs.client
-  trackIgnored: true
-

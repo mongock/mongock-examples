@@ -3,3 +3,4 @@ mongock:
     - com.github.cloudyrock.mongock.changelogs.client
   trackIgnored: true
 
+

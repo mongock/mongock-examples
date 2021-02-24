@@ -28,7 +28,7 @@
             <dependency>
                 <groupId>com.github.cloudyrock.mongock</groupId>
                 <artifactId>mongock-bom</artifactId>
-                <version>4.3.2</version>
+                <version>4.3.5-SNAPSHOT</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

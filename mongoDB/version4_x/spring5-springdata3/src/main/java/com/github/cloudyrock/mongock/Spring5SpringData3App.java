@@ -4,7 +4,7 @@ package com.github.cloudyrock.mongock;
 import com.github.cloudyrock.mongock.client.ClientRepository;
 import com.github.cloudyrock.mongock.spring.DateToZonedDateTimeConverter;
 import com.github.cloudyrock.mongock.spring.ZonedDateTimeToDateConverter;
-import com.github.cloudyrock.spring.v5.EnableMongock;
+import com.github.cloudyrock.springboot.v2_2.EnableMongock;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Bean;

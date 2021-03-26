@@ -1,6 +1,6 @@
 package com.github.cloudyrock.mongock.events;
 
-import com.github.cloudyrock.spring.util.events.SpringMigrationSuccessEvent;
+import com.github.cloudyrock.springboot.v2_2.events.SpringMigrationSuccessEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 

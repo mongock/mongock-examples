@@ -42,6 +42,9 @@ public class Client {
 
   @Field("deleted")
   private boolean deleted;
+  
+  @Field("counter")
+  private int counter;
 
   public Client() {
     this.dateTime = ZonedDateTime.now();
@@ -59,6 +62,7 @@ public class Client {
     this.country = country;
     this.activation = activation;
     this.deleted = false;
+    this.counter = 0;
   }
 
   // setters returning 'this' for fluent use in stream. Shouldn't be taken as precedent
@@ -101,6 +105,11 @@ public class Client {
     this.dateTime = dateTime;
     return this;
   }
+  
+  public Client setCounter(int counter) {
+    this.counter = counter;
+    return this;
+  }
 
   public String getId() {
     return id;
@@ -133,6 +142,10 @@ public class Client {
   public ZonedDateTime getDateTime() {
     return dateTime;
   }
+  
+  public int getCounter() {
+    return counter;
+  }
 
 
   @Override
@@ -149,6 +162,7 @@ public class Client {
     if (o == null || getClass() != o.getClass()) return false;
     Client client = (Client) o;
     return deleted == client.deleted &&
+            counter == client.counter &&
             Objects.equals(id, client.id) &&
             Objects.equals(dateTime, client.dateTime) &&
             Objects.equals(name, client.name) &&
@@ -160,6 +174,6 @@ public class Client {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, dateTime, name, email, phone, country, activation, deleted);
+    return Objects.hash(id, dateTime, name, email, phone, country, activation, deleted, counter);
   }
 }

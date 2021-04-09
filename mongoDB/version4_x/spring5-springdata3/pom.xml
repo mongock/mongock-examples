@@ -79,7 +79,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.github.cloudyrock.mongock.Spring5SpringData3App</mainClass>
+                    <mainClass>com.github.cloudyrock.mongock.examples.Spring5SpringData3App</mainClass>
                 </configuration>
 
                 <executions>

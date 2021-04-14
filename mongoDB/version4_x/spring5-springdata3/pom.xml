@@ -28,7 +28,7 @@
             <dependency>
                 <groupId>com.github.cloudyrock.mongock</groupId>
                 <artifactId>mongock-bom</artifactId>
-                <version>4.3.8</version>
+                <version>5.0.0.BETA-SNAPSHOT</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -51,7 +51,7 @@
 
         <dependency>
             <groupId>com.github.cloudyrock.mongock</groupId>
-            <artifactId>mongock-spring-v5</artifactId>
+            <artifactId>mongock-springboot-v2.2</artifactId>
         </dependency>
 
 
@@ -79,7 +79,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.github.cloudyrock.mongock.Spring5SpringData3App</mainClass>
+                    <mainClass>com.github.cloudyrock.mongock.examples.Spring5SpringData3App</mainClass>
                 </configuration>
 
                 <executions>

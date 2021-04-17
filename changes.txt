@@ -5,6 +5,5 @@
 - package renamed: com.github.cloudyrock.spring.v5.* -> import com.github.cloudyrock.springboot.v2_X.*;
 - package renamed: com.github.cloudyrock.spring.util.events.* -> com.github.cloudyrock.springboot.v2_X.events.*;
 - class renamed: MongockSpring5 -> MongockSpringbootV2_X
-
-
-
+- DependencyContext interface methods changed: now they return Optional and don't throw DependencyNotFound exception.
+- Exception class deleted: com.github.cloudyrock.mongock.runner.core.executor.DependencyNotFound

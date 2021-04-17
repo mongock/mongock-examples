@@ -5,6 +5,5 @@
 - package renamed: com.github.cloudyrock.spring.v5.* -> import com.github.cloudyrock.springboot.v2_X.*;
 - package renamed: com.github.cloudyrock.spring.util.events.* -> com.github.cloudyrock.springboot.v2_X.events.*;
 - class renamed: MongockSpring5 -> MongockSpringbootV2_X
-
-
-
+- Moved DecoratorDiverted from package "com.github.cloudyrock.mongock.internal" to package "com.github.cloudyrock.mongock.internal" (only internal use)
+- Moved NonLockGuarded and NonLockGuardedType from package "com.github.cloudyrock.mongock.internal" to package "com.github.cloudyrock.mongock".

@@ -4,7 +4,7 @@ import com.github.cloudyrock.mongock.ChangeLog;
 import com.github.cloudyrock.mongock.ChangeSet;
 import com.github.cloudyrock.mongock.examples.client.Client;
 import com.github.cloudyrock.mongock.examples.client.ClientRepository;
-import io.changock.migration.api.annotations.NonLockGuarded;
+import com.github.cloudyrock.mongock.NonLockGuarded;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.stream.Collectors;

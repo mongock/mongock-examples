@@ -1,11 +1,11 @@
 package com.github.cloudyrock.mongock.examples;
 
 
-import com.github.cloudyrock.mongock.examples.client.ClientRepository;
 import com.github.cloudyrock.mongock.driver.mongodb.springdata.v3.SpringDataMongoV3Driver;
+import com.github.cloudyrock.mongock.examples.client.ClientRepository;
 import com.github.cloudyrock.mongock.examples.spring.DateToZonedDateTimeConverter;
 import com.github.cloudyrock.mongock.examples.spring.ZonedDateTimeToDateConverter;
-import com.github.cloudyrock.springboot.v2_2.MongockSpringbootV2_2;
+import com.github.cloudyrock.springboot.v2_2.MongockSpringbootV2_4;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
@@ -35,12 +35,12 @@ public class Spring5SpringData3Builder {
     }
 
     @Bean
-    public MongockSpringbootV2_2.MongockApplicationRunner mongockApplicationRunner(
+    public MongockSpringbootV2_4.MongockApplicationRunner mongockApplicationRunner(
             ApplicationContext springContext,
             MongoTemplate mongoTemplate,
             ApplicationEventPublisher eventPublisher) {
 
-        return MongockSpringbootV2_2.builder()
+        return MongockSpringbootV2_4.builder()
                 .setDriver(SpringDataMongoV3Driver.withDefaultLock(mongoTemplate))
                 .addChangeLogsScanPackage("com.github.cloudyrock.mongock.examples.changelogs.client")
                 .setSpringContext(springContext)

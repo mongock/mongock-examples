@@ -5,7 +5,7 @@ import com.github.cloudyrock.mongock.examples.client.ClientRepository;
 import com.github.cloudyrock.mongock.driver.mongodb.springdata.v3.SpringDataMongoV3Driver;
 import com.github.cloudyrock.mongock.examples.spring.DateToZonedDateTimeConverter;
 import com.github.cloudyrock.mongock.examples.spring.ZonedDateTimeToDateConverter;
-import com.github.cloudyrock.springboot.v2_2.MongockSpringbootV2_2;
+import com.github.cloudyrock.springboot.v2_2.MongockSpringbootV2_4;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -57,7 +57,7 @@ public class Spring5SpringData3MultipleTemplatesApp {
     }
 
     @Bean
-    public MongockSpringbootV2_2.MongockApplicationRunner mongockApplicationRunner(
+    public MongockSpringbootV2_4.MongockApplicationRunner mongockApplicationRunner(
             ApplicationContext springContext,
             @Qualifier("mongoTemplate") MongoTemplate mongoTemplate,
             ApplicationEventPublisher eventPublisher) {
@@ -65,7 +65,7 @@ public class Spring5SpringData3MultipleTemplatesApp {
         if(!"test".equals(mongoTemplate.getDb().getName())) {
             throw new RuntimeException("Wrong MongoTemplate injected to MongockRunner");
         }
-        return MongockSpringbootV2_2.builder()
+        return MongockSpringbootV2_4.builder()
                 .setDriver(SpringDataMongoV3Driver.withDefaultLock(mongoTemplate))
                 .addChangeLogsScanPackage("com.github.cloudyrock.mongock.examples.changelogs.client")
                 .setSpringContext(springContext)

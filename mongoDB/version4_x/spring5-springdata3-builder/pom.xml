@@ -28,7 +28,7 @@
             <dependency>
                 <groupId>com.github.cloudyrock.mongock</groupId>
                 <artifactId>mongock-bom</artifactId>
-                <version>5.0.0.BETA-SNAPSHOT</version>
+                <version>5.0.1.BETA</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -51,7 +51,7 @@
 
         <dependency>
             <groupId>com.github.cloudyrock.mongock</groupId>
-            <artifactId>mongock-springboot-v2.2</artifactId>
+            <artifactId>mongock-springboot-v2.4</artifactId>
         </dependency>
 
 

@@ -80,3 +80,6 @@ Vagrantfile
 #Ignoring OSX files
 **/.DS_Store
 .DS_Store
+
+#Factorypath files
+**/.factorypath

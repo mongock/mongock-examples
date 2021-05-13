@@ -1,0 +1,9 @@
+mongock:
+  change-logs-scan-package:
+    - com.github.cloudyrock.mongock.examples.changelogs.client
+  trackIgnored: true
+  mongo-db:
+    read-concern: local
+
+
+

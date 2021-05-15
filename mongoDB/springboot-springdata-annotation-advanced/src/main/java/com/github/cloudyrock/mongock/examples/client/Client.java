@@ -1,16 +1,16 @@
 package com.github.cloudyrock.mongock.examples.client;
 
-import com.github.cloudyrock.mongock.examples.SpringBootSpringDataAnnotationBasicApp;
+import com.github.cloudyrock.mongock.examples.SpringBootSpringDataAnnotationAdvancedApp;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.CompoundIndex;
 import org.springframework.data.mongodb.core.index.CompoundIndexes;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.util.Objects;
 
-@Document(collection = SpringBootSpringDataAnnotationBasicApp.CLIENTS_COLLECTION_NAME)
+@Document(collection = SpringBootSpringDataAnnotationAdvancedApp.CLIENTS_COLLECTION_NAME)
 @CompoundIndexes({
     @CompoundIndex(def = "{'name':1, 'deleted':1}", name = "user_name_idx"),
     @CompoundIndex(def = "{'email':1, 'deleted':1}", name = "user_email_idx"),
@@ -23,7 +23,7 @@ public class Client {
   private String id;
 
   @Field
-  private LocalDateTime dateTime;
+  private ZonedDateTime dateTime;
 
   @Field("name")
   private String name;
@@ -47,7 +47,7 @@ public class Client {
   private int counter;
 
   public Client() {
-    this.dateTime = LocalDateTime.now();
+    this.dateTime = ZonedDateTime.now();
   }
 
   public Client(String name, String email, String phone, String country) {
@@ -101,7 +101,7 @@ public class Client {
     return this;
   }
 
-  public Client setDateTime(LocalDateTime dateTime) {
+  public Client setDateTime(ZonedDateTime dateTime) {
     this.dateTime = dateTime;
     return this;
   }
@@ -139,7 +139,7 @@ public class Client {
     return deleted;
   }
 
-  public LocalDateTime getDateTime() {
+  public ZonedDateTime getDateTime() {
     return dateTime;
   }
   

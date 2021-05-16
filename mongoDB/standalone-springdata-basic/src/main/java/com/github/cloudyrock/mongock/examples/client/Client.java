@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.index.CompoundIndexes;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Document(collection = StandaloneSpringDataBasicApp.CLIENTS_COLLECTION_NAME)
@@ -23,7 +23,7 @@ public class Client {
   private String id;
 
   @Field
-  private ZonedDateTime dateTime;
+  private LocalDateTime dateTime;
 
   @Field("name")
   private String name;
@@ -47,7 +47,7 @@ public class Client {
   private int counter;
 
   public Client() {
-    this.dateTime = ZonedDateTime.now();
+    this.dateTime = LocalDateTime.now();
   }
 
   public Client(String name, String email, String phone, String country) {
@@ -101,7 +101,7 @@ public class Client {
     return this;
   }
 
-  public Client setDateTime(ZonedDateTime dateTime) {
+  public Client setDateTime(LocalDateTime dateTime) {
     this.dateTime = dateTime;
     return this;
   }
@@ -139,7 +139,7 @@ public class Client {
     return deleted;
   }
 
-  public ZonedDateTime getDateTime() {
+  public LocalDateTime getDateTime() {
     return dateTime;
   }
   

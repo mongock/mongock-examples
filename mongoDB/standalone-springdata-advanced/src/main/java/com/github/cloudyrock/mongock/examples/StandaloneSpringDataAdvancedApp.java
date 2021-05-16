@@ -68,7 +68,6 @@ public class StandaloneSpringDataAdvancedApp {
    * Adding MongoDatabase dependency we can access mongodb secondary databases.
    * Secondary database should be used only for read, because it won't be
    * managed by Mongock. We can inject it in ChangeSets this way:
-   *
    * @Named("secondaryDb") @NonLockGuarded MongoDatabase secondaryDb In this
    * example we are connecting to a single mongodb server, but we could connect
    * to a different server in the same way.
@@ -82,7 +81,6 @@ public class StandaloneSpringDataAdvancedApp {
    * Also we can add MongoTemplate as a dependency to access mongodb secondary
    * databases. Secondary template should be used only for read, because it
    * won't be managed by Mongock. We can inject it in ChangeSets this way:
-   *
    * @Named("secondaryMongoTemplate") @NonLockGuarded MongoTemplate
    * secondaryTemplate In this example we are connecting to a single mongodb
    * server, but we could connect to a different server in the same way.

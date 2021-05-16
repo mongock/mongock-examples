@@ -1,6 +1,6 @@
 package com.github.cloudyrock.mongock.examples.client;
 
-import java.time.ZonedDateTime;
+import java.time.LocalDateTime;
 import java.util.Objects;
 import org.bson.codecs.pojo.annotations.BsonId;
 import org.bson.types.ObjectId;
@@ -10,7 +10,7 @@ public class Client {
   @BsonId
   private ObjectId id;
 
-  private ZonedDateTime dateTime;
+  private LocalDateTime dateTime;
 
   private String name;
 
@@ -27,7 +27,7 @@ public class Client {
   private int counter;
 
   public Client() {
-    this.dateTime = ZonedDateTime.now();
+    this.dateTime = LocalDateTime.now();
   }
 
   public Client(String name, String email, String phone, String country) {
@@ -81,7 +81,7 @@ public class Client {
     return this;
   }
 
-  public Client setDateTime(ZonedDateTime dateTime) {
+  public Client setDateTime(LocalDateTime dateTime) {
     this.dateTime = dateTime;
     return this;
   }
@@ -119,7 +119,7 @@ public class Client {
     return deleted;
   }
 
-  public ZonedDateTime getDateTime() {
+  public LocalDateTime getDateTime() {
     return dateTime;
   }
   

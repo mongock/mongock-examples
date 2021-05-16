@@ -1,7 +1,6 @@
 package com.github.cloudyrock.mongock.examples;
 
 import com.github.cloudyrock.mongock.driver.mongodb.sync.v4.driver.MongoSync4Driver;
-import com.github.cloudyrock.mongock.examples.codec.ZonedDateTimeCodec;
 import com.github.cloudyrock.mongock.examples.events.MongockEventListener;
 import com.github.cloudyrock.standalone.MongockStandalone;
 import com.github.cloudyrock.standalone.StandaloneRunner;
@@ -12,7 +11,6 @@ import com.mongodb.client.MongoClients;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 
-import static org.bson.codecs.configuration.CodecRegistries.fromCodecs;
 import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
 import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 
@@ -28,8 +26,7 @@ public class StandaloneMongoDbBasicApp {
   private static StandaloneRunner getStandaloneRunner() {
 
     ConnectionString connectionString = new ConnectionString("mongodb://localhost:27017");
-    CodecRegistry codecRegistry = fromRegistries(fromCodecs(new ZonedDateTimeCodec()),
-                                                  MongoClientSettings.getDefaultCodecRegistry(), 
+    CodecRegistry codecRegistry = fromRegistries(MongoClientSettings.getDefaultCodecRegistry(), 
                                                   fromProviders(PojoCodecProvider.builder().automatic(true).build()));
 
     MongoClient mongoClient = MongoClients.create(MongoClientSettings.builder()

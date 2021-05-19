@@ -2,8 +2,8 @@ package com.github.cloudyrock.mongock.examples;
 
 import com.github.cloudyrock.mongock.driver.mongodb.springdata.v3.SpringDataMongoV3Driver;
 import com.github.cloudyrock.mongock.examples.events.MongockEventListener;
+import com.github.cloudyrock.mongock.runner.core.executor.MongockRunner;
 import com.github.cloudyrock.standalone.MongockStandalone;
-import com.github.cloudyrock.standalone.StandaloneRunner;
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClient;
@@ -19,7 +19,7 @@ public class StandaloneSpringDataBasicApp {
     getStandaloneRunner().execute();
   }
 
-  private static StandaloneRunner getStandaloneRunner() {
+  private static MongockRunner getStandaloneRunner() {
 
     ConnectionString connectionString = new ConnectionString("mongodb://localhost:27017");
 

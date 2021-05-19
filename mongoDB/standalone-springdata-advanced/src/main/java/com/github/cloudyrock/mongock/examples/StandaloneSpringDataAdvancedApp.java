@@ -4,8 +4,8 @@ import com.github.cloudyrock.mongock.driver.mongodb.springdata.v3.SpringDataMong
 import com.github.cloudyrock.mongock.examples.events.MongockEventListener;
 import com.github.cloudyrock.mongock.examples.spring.DateToZonedDateTimeConverter;
 import com.github.cloudyrock.mongock.examples.spring.ZonedDateTimeToDateConverter;
+import com.github.cloudyrock.mongock.runner.core.executor.MongockRunner;
 import com.github.cloudyrock.standalone.MongockStandalone;
-import com.github.cloudyrock.standalone.StandaloneRunner;
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClient;
@@ -35,7 +35,7 @@ public class StandaloneSpringDataAdvancedApp {
     getStandaloneRunner().execute();
   }
 
-  private static StandaloneRunner getStandaloneRunner() {
+  private static MongockRunner getStandaloneRunner() {
 
     return MongockStandalone.builder()
             .setDriver(SpringDataMongoV3Driver.withDefaultLock(getMainMongoTemplate()))

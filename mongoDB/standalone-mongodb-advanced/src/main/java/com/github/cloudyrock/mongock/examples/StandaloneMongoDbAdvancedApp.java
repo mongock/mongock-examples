@@ -3,8 +3,8 @@ package com.github.cloudyrock.mongock.examples;
 import com.github.cloudyrock.mongock.driver.mongodb.sync.v4.driver.MongoSync4Driver;
 import com.github.cloudyrock.mongock.examples.codec.ZonedDateTimeCodec;
 import com.github.cloudyrock.mongock.examples.events.MongockEventListener;
+import com.github.cloudyrock.mongock.runner.core.executor.MongockRunner;
 import com.github.cloudyrock.standalone.MongockStandalone;
-import com.github.cloudyrock.standalone.StandaloneRunner;
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClient;
@@ -29,7 +29,7 @@ public class StandaloneMongoDbAdvancedApp {
     getStandaloneRunner().execute();
   }
 
-  private static StandaloneRunner getStandaloneRunner() {
+  private static MongockRunner getStandaloneRunner() {
 
     return MongockStandalone.builder()
                             .setDriver(MongoSync4Driver.withDefaultLock(getMainMongoClient(), MONGODB_MAIN_DB_NAME))

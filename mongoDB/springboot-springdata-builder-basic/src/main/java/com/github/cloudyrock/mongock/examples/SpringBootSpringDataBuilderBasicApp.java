@@ -3,6 +3,7 @@ package com.github.cloudyrock.mongock.examples;
 import com.github.cloudyrock.mongock.driver.mongodb.springdata.v3.SpringDataMongoV3Driver;
 import com.github.cloudyrock.mongock.examples.client.ClientRepository;
 import com.github.cloudyrock.springboot.MongockSpringboot;
+import com.github.cloudyrock.springboot.base.MongockApplicationRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
@@ -26,7 +27,7 @@ public class SpringBootSpringDataBuilderBasicApp {
     }
 
     @Bean
-    public MongockSpringboot.MongockApplicationRunner mongockApplicationRunner(
+    public MongockApplicationRunner<Boolean> mongockApplicationRunner(
             ApplicationContext springContext,
             MongoTemplate mongoTemplate,
             ApplicationEventPublisher eventPublisher) {

@@ -5,6 +5,7 @@ import com.github.cloudyrock.mongock.examples.client.ClientRepository;
 import com.github.cloudyrock.mongock.examples.spring.DateToZonedDateTimeConverter;
 import com.github.cloudyrock.mongock.examples.spring.ZonedDateTimeToDateConverter;
 import com.github.cloudyrock.springboot.MongockSpringboot;
+import com.github.cloudyrock.springboot.base.MongockApplicationRunner;
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClient;
@@ -49,7 +50,7 @@ public class SpringBootSpringDataAnnotationAdvancedApp {
     }
     
     @Bean
-    public MongockSpringboot.MongockApplicationRunner mongockApplicationRunner(
+    public MongockApplicationRunner<Boolean> mongockApplicationRunner(
             ApplicationContext springContext,
             MongoTemplate mongoTemplate,
             ApplicationEventPublisher eventPublisher) {

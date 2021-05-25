@@ -1,7 +1,7 @@
 package com.github.cloudyrock.mongock.examples.events;
 
-import com.github.cloudyrock.standalone.event.StandaloneMigrationFailureEvent;
-import com.github.cloudyrock.standalone.event.StandaloneMigrationSuccessEvent;
+import com.github.cloudyrock.mongock.runner.core.event.result.MigrationResult;
+
 
 public class MongockEventListener {
 
@@ -9,11 +9,11 @@ public class MongockEventListener {
     System.out.println("[EVENT LISTENER] - Mongock STARTED successfully");
   }
 
-  public static void onSuccess(StandaloneMigrationSuccessEvent event) {
+  public static void onSuccess(MigrationResult result) {
     System.out.println("[EVENT LISTENER] - Mongock finished successfully");
   }
 
-  public static void onFail(StandaloneMigrationFailureEvent event) {
+  public static void onFail(Exception exception) {
     System.out.println("[EVENT LISTENER] - Mongock finished with failures");
   }
 }

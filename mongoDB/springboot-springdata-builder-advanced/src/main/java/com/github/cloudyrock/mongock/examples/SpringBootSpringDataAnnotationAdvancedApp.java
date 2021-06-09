@@ -50,7 +50,7 @@ public class SpringBootSpringDataAnnotationAdvancedApp {
     }
     
     @Bean
-    public MongockApplicationRunner<Boolean> mongockApplicationRunner(
+    public MongockApplicationRunner mongockApplicationRunner(
             ApplicationContext springContext,
             MongoTemplate mongoTemplate,
             ApplicationEventPublisher eventPublisher) {

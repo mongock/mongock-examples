@@ -27,7 +27,7 @@ public class SpringBootSpringDataBuilderBasicApp {
     }
 
     @Bean
-    public MongockApplicationRunner<Boolean> mongockApplicationRunner(
+    public MongockApplicationRunner mongockApplicationRunner(
             ApplicationContext springContext,
             MongoTemplate mongoTemplate,
             ApplicationEventPublisher eventPublisher) {

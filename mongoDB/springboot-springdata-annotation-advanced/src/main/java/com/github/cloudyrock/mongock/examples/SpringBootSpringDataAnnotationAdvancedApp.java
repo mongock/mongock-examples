@@ -24,6 +24,7 @@ import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 import org.springframework.context.annotation.Primary;
+import org.springframework.data.mongodb.MongoTransactionManager;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
 
@@ -105,7 +106,17 @@ public class SpringBootSpringDataAnnotationAdvancedApp {
       
       return mongoTemplate;
     }
-
+    
+    /**
+     * Transaction Manager.
+     * Needed to allow execution of changeSets in transaction scope.
+     * Only for primary MongoTemplate.
+     */
+    @Bean
+    public MongoTransactionManager transactionManager(MongoTemplate mongoTemplate) {
+        return new MongoTransactionManager(mongoTemplate.getMongoDbFactory());
+    }
+    
     /**
      * Custom converters to map ZonedDateTime.
      */

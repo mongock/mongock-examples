@@ -28,6 +28,7 @@ import org.bson.codecs.pojo.PojoCodecProvider;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.Primary;
+import org.springframework.data.mongodb.MongoTransactionManager;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
 
@@ -53,15 +54,22 @@ public class SpringBootSpringDataAnnotationAdvancedApp {
     public MongockApplicationRunner mongockApplicationRunner(
             ApplicationContext springContext,
             MongoTemplate mongoTemplate,
-            ApplicationEventPublisher eventPublisher) {
+            ApplicationEventPublisher eventPublisher,
+            MongoTransactionManager mongoTransactionManager) {
 
-        return MongockSpringboot.builder()
-                .setDriver(SpringDataMongoV3Driver.withDefaultLock(mongoTemplate))
-                .addChangeLogsScanPackage("com.github.cloudyrock.mongock.examples.changelogs")
-                .setSpringContext(springContext)
-                .setEventPublisher(eventPublisher)
-                .setTrackIgnored(true)
-                .buildApplicationRunner();
+      // Driver
+      SpringDataMongoV3Driver driver = SpringDataMongoV3Driver.withDefaultLock(mongoTemplate);
+      driver.enableTransactionWithTxManager(mongoTransactionManager);
+
+      // Runner
+      return MongockSpringboot.builder()
+              .setDriver(driver)
+              .addChangeLogsScanPackage("com.github.cloudyrock.mongock.examples.changelogs")
+              .setSpringContext(springContext)
+              .setEventPublisher(eventPublisher)
+              .setTrackIgnored(true)
+              .setTransactionEnabled(true)
+              .buildApplicationRunner();
     }
     
     /**
@@ -120,6 +128,16 @@ public class SpringBootSpringDataAnnotationAdvancedApp {
       return mongoTemplate;
     }
 
+    /**
+     * Transaction Manager.
+     * Needed to allow execution of changeSets in transaction scope.
+     * Only for primary MongoTemplate.
+     */
+    @Bean
+    public MongoTransactionManager transactionManager(MongoTemplate mongoTemplate) {
+        return new MongoTransactionManager(mongoTemplate.getMongoDbFactory());
+    }
+    
     /**
      * Custom converters to map ZonedDateTime.
      */

@@ -2,6 +2,7 @@ mongock:
   change-logs-scan-package:
     - com.github.cloudyrock.mongock.examples.changelogs
   trackIgnored: true
+  transactionEnabled: true
   mongo-db:
     read-concern: local
 

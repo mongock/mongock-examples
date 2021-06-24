@@ -4,6 +4,9 @@ import com.github.cloudyrock.mongock.examples.client.ClientRepository;
 import com.github.cloudyrock.springboot.EnableMongock;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.data.mongodb.MongoTransactionManager;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 /**
@@ -24,4 +27,14 @@ public class SpringBootSpringDataAnnotationBasicApp {
     public static SpringApplicationBuilder getSpringAppBuilder() {
         return new SpringApplicationBuilder().sources(SpringBootSpringDataAnnotationBasicApp.class);
     }
+    
+    /**
+     * Transaction Manager.
+     * Needed to allow execution of changeSets in transaction scope.
+     */
+    @Bean
+    public MongoTransactionManager transactionManager(MongoTemplate mongoTemplate) {
+        return new MongoTransactionManager(mongoTemplate.getMongoDbFactory());
+    }
+
 }

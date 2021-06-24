@@ -9,6 +9,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.mongodb.MongoTransactionManager;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
@@ -30,14 +31,30 @@ public class SpringBootSpringDataBuilderBasicApp {
     public MongockApplicationRunner mongockApplicationRunner(
             ApplicationContext springContext,
             MongoTemplate mongoTemplate,
-            ApplicationEventPublisher eventPublisher) {
+            ApplicationEventPublisher eventPublisher,
+            MongoTransactionManager mongoTransactionManager) {
+      
+      // Driver
+      SpringDataMongoV3Driver driver = SpringDataMongoV3Driver.withDefaultLock(mongoTemplate);
+      driver.enableTransactionWithTxManager(mongoTransactionManager);
 
-        return MongockSpringboot.builder()
-                .setDriver(SpringDataMongoV3Driver.withDefaultLock(mongoTemplate))
-                .addChangeLogsScanPackage("com.github.cloudyrock.mongock.examples.changelogs")
-                .setSpringContext(springContext)
-                .setEventPublisher(eventPublisher)
-                .setTrackIgnored(true)
-                .buildApplicationRunner();
+      // Runner
+      return MongockSpringboot.builder()
+              .setDriver(driver)
+              .addChangeLogsScanPackage("com.github.cloudyrock.mongock.examples.changelogs")
+              .setSpringContext(springContext)
+              .setEventPublisher(eventPublisher)
+              .setTrackIgnored(true)
+              .setTransactionEnabled(true)
+              .buildApplicationRunner();
+    }
+    
+    /**
+     * Transaction Manager.
+     * Needed to allow execution of changeSets in transaction scope.
+     */
+    @Bean
+    public MongoTransactionManager transactionManager(MongoTemplate mongoTemplate) {
+        return new MongoTransactionManager(mongoTemplate.getMongoDbFactory());
     }
 }

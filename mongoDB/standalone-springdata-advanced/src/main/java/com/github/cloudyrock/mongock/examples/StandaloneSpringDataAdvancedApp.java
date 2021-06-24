@@ -21,6 +21,7 @@ import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
 import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
+import org.springframework.data.mongodb.MongoTransactionManager;
 import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
 
 public class StandaloneSpringDataAdvancedApp {
@@ -36,15 +37,25 @@ public class StandaloneSpringDataAdvancedApp {
   }
 
   private static MongockRunner getStandaloneRunner() {
+    
+    MongoTemplate mongoTemplate = getMainMongoTemplate();
+    MongoTransactionManager mongoTransactionManager = new MongoTransactionManager(mongoTemplate.getMongoDbFactory());
+    
+    // Driver
+    SpringDataMongoV3Driver driver = SpringDataMongoV3Driver.withDefaultLock(mongoTemplate);
+    driver.enableTransactionWithTxManager(mongoTransactionManager);
 
+    // Runner
     return MongockStandalone.builder()
-            .setDriver(SpringDataMongoV3Driver.withDefaultLock(getMainMongoTemplate()))
+            .setDriver(driver)
             .addChangeLogsScanPackage("com.github.cloudyrock.mongock.examples.changelogs")
             .setMigrationStartedListener(MongockEventListener::onStart)
             .setMigrationSuccessListener(MongockEventListener::onSuccess)
             .setMigrationFailureListener(MongockEventListener::onFail)
             .addDependency("secondaryDb", getSecondaryDb())
             .addDependency("secondaryMongoTemplate", getSecondaryMongoTemplate())
+            .setTrackIgnored(true)
+            .setTransactionEnabled(true)
             .buildRunner();
   }
 

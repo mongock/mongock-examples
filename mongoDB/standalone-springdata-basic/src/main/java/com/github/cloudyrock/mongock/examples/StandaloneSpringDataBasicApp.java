@@ -8,6 +8,7 @@ import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
+import org.springframework.data.mongodb.MongoTransactionManager;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 public class StandaloneSpringDataBasicApp {
@@ -28,13 +29,21 @@ public class StandaloneSpringDataBasicApp {
             .build());
 
     MongoTemplate mongoTemplate = new MongoTemplate(mongoClient, MONGODB_DB_NAME);
+    MongoTransactionManager mongoTransactionManager = new MongoTransactionManager(mongoTemplate.getMongoDbFactory());
+    
+    // Driver
+    SpringDataMongoV3Driver driver = SpringDataMongoV3Driver.withDefaultLock(mongoTemplate);
+    driver.enableTransactionWithTxManager(mongoTransactionManager);
 
+    // Runner
     return MongockStandalone.builder()
-            .setDriver(SpringDataMongoV3Driver.withDefaultLock(mongoTemplate))
+            .setDriver(driver)
             .addChangeLogsScanPackage("com.github.cloudyrock.mongock.examples.changelogs")
             .setMigrationStartedListener(MongockEventListener::onStart)
             .setMigrationSuccessListener(MongockEventListener::onSuccess)
             .setMigrationFailureListener(MongockEventListener::onFail)
+            .setTrackIgnored(true)
+            .setTransactionEnabled(true)
             .buildRunner();
   }
 }

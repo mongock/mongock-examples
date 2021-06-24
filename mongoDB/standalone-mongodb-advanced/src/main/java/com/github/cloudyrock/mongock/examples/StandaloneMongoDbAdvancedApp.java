@@ -38,6 +38,8 @@ public class StandaloneMongoDbAdvancedApp {
                             .setMigrationSuccessListener(MongockEventListener::onSuccess)
                             .setMigrationFailureListener(MongockEventListener::onFail)
                             .addDependency("secondaryDb", getSecondaryDb())
+                            .setTrackIgnored(true)
+                            .setTransactionEnabled(true)
                             .buildRunner();
   }
 

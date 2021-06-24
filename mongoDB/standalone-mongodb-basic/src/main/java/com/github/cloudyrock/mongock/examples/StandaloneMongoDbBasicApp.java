@@ -40,6 +40,8 @@ public class StandaloneMongoDbBasicApp {
                             .setMigrationStartedListener(MongockEventListener::onStart)
                             .setMigrationSuccessListener(MongockEventListener::onSuccess)
                             .setMigrationFailureListener(MongockEventListener::onFail)
+                            .setTrackIgnored(true)
+                            .setTransactionEnabled(true)
                             .buildRunner();
   }
 }

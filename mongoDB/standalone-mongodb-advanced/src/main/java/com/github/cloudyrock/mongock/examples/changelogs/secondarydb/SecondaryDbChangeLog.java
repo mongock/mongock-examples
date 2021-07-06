@@ -14,7 +14,7 @@ import java.util.stream.StreamSupport;
 
 import static com.github.cloudyrock.mongock.examples.StandaloneMongoDbAdvancedApp.PRODUCTS_COLLECTION_NAME;
 
-@ChangeLog(order = "4")
+@ChangeLog(order = "5")
 public class SecondaryDbChangeLog {
   
   @ChangeSet(id = "secondarydb", order = "001", author = "mongock")

@@ -16,7 +16,7 @@ import static com.github.cloudyrock.mongock.examples.SpringBootSpringDataAnnotat
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-@ChangeLog(order = "4")
+@ChangeLog(order = "5")
 public class SecondaryDbChangeLog {
   
   @ChangeSet(id = "secondarydb-with-mongodatabase", order = "001", author = "mongock")

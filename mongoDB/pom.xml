@@ -19,6 +19,7 @@
         <module>standalone-mongodb-advanced</module>
         <module>standalone-springdata-basic</module>
         <module>standalone-springdata-advanced</module>
+        <module>standalone-mysql-basic</module>
     </modules>
     
     <properties>

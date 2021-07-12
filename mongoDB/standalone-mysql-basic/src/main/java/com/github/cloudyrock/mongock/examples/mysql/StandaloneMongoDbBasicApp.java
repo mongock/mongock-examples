@@ -1,6 +1,6 @@
 package com.github.cloudyrock.mongock.examples.mysql;
 
-import com.github.cloudyrock.mongock.driver.jdbc.driver.SqlDriverSimple;
+import com.github.cloudyrock.mongock.driver.sql.driver.SqlDriverSimple;
 import com.github.cloudyrock.mongock.runner.core.executor.MongockRunner;
 import com.github.cloudyrock.standalone.MongockStandalone;
 
@@ -25,14 +25,14 @@ public class StandaloneMongoDbBasicApp {
 
     private static MongockRunner<?> getStandaloneRunner(Connection connection) throws SQLException, ClassNotFoundException {
         return MongockStandalone.builder()
-                .setDriver(SqlDriverSimple.MysqlWithDefaultLock(connection, MYSQL_DB_NAME))
+                .setDriver(SqlDriverSimple.mysqlWithDefaultLock(connection, MYSQL_DB_NAME))
                 .addChangeLogsScanPackage("com.github.cloudyrock.mongock.examples.mysql.changelogs")
                 .addDependency(Connection.class, connection)
 //                            .setMigrationStartedListener(MongockEventListener::onStart)
 //                            .setMigrationSuccessListener(MongockEventListener::onSuccess)
 //                            .setMigrationFailureListener(MongockEventListener::onFail)
                 .setTrackIgnored(true)
-                .setTransactionEnabled(false)
+                .setTransactionEnabled(true)
                 .buildRunner();
     }
 

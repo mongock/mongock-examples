@@ -20,6 +20,7 @@
         <module>standalone-springdata-basic</module>
         <module>standalone-springdata-advanced</module>
         <module>standalone-mysql-basic</module>
+        <module>springboot-mysql-annotation-basic</module>
     </modules>
     
     <properties>

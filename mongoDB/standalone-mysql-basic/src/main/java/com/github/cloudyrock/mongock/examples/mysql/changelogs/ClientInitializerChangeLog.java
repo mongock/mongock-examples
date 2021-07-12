@@ -33,9 +33,23 @@ public class ClientInitializerChangeLog {
     public void dataInitializer(Connection connection) throws SQLException {
         try (Statement statement = connection.createStatement()) {
             statement.executeUpdate(
-                    String.format("INSERT INTO table_example(name) values('basic-example-%s');", LocalDateTime.now())
+                    String.format("INSERT INTO table_example(name) values('basic-example-1-%s');", LocalDateTime.now())
             );
         }
+    }
+
+    @ChangeSet(id = "data-initializer-2", order = "003", author = "mongock")
+    public void dataInitializer2(Connection connection) throws SQLException {
+        try (Statement statement = connection.createStatement()) {
+            statement.executeUpdate(
+                    String.format("INSERT INTO table_example(name) values('basic-example-2-%s');", LocalDateTime.now())
+            );
+        }
+    }
+
+    @ChangeSet(id = "data-initializer-3", order = "003", author = "mongock")
+    public void dataInitializer23(Connection connection) throws SQLException {
+        if(true) throw new RuntimeException("Expected exception");
     }
 
 }

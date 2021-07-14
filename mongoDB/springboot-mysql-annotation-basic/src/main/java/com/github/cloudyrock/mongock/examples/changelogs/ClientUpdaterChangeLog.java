@@ -13,9 +13,4 @@ public class ClientUpdaterChangeLog {
         template.update("INSERT INTO client(name, email) values('name2', 'email2')");
     }
 
-    @ChangeSet(id = "data-updater-2", order = "002", author = "mongock")
-    public void dataInitializer2(@NonLockGuarded JdbcTemplate template) {
-//        if (true) throw new RuntimeException("Expected exception");
-    }
-
 }

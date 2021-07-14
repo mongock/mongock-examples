@@ -15,14 +15,9 @@
         <!-- MONGOCK RUNNER -->
         <dependency>
             <groupId>com.github.cloudyrock.mongock</groupId>
-            <artifactId>mongock-sql-spring-starter</artifactId>
+            <artifactId>mongock-jdbc-springboot-starter</artifactId>
             <version>5.0.3.BETA-SNAPSHOT</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.github.cloudyrock.mongock</groupId>-->
-<!--            <artifactId>mongock-sql-spring-jpa-driver</artifactId>-->
-<!--            <version>5.0.3.BETA-SNAPSHOT</version>-->
-<!--        </dependency>-->
 
 
 

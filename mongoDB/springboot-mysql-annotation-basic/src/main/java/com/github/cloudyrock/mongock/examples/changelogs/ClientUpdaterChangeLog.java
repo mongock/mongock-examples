@@ -10,7 +10,7 @@ public class ClientUpdaterChangeLog {
 
     @ChangeSet(id = "data-updater-1", order = "001", author = "mongock")
     public void dataInitializer1(@NonLockGuarded JdbcTemplate template) {
-        template.update("INSERT INTO user(name, email) values('name2', 'email2')");
+        template.update("INSERT INTO client(name, email) values('name2', 'email2')");
     }
 
     @ChangeSet(id = "data-updater-2", order = "002", author = "mongock")

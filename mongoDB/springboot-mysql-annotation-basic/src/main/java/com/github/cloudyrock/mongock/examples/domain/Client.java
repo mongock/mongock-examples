@@ -3,13 +3,12 @@ package com.github.cloudyrock.mongock.examples.domain;
 
 import org.springframework.data.annotation.Id;
 
-public class User {
+public class Client {
 
-
-    public User() {
+    public Client() {
     }
 
-    public User(String name, String email) {
+    public Client(String name, String email) {
         this.name = name;
         this.email = email;
     }

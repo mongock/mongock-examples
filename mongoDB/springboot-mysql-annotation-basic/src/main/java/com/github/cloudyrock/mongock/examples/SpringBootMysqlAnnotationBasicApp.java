@@ -1,7 +1,7 @@
 package com.github.cloudyrock.mongock.examples;
 
 
-import com.github.cloudyrock.mongock.examples.repository.UserRepository;
+import com.github.cloudyrock.mongock.examples.repository.ClientRepository;
 import com.github.cloudyrock.mongock.jdbc.springboot.EnableMongockJdbc;
 import com.mysql.cj.jdbc.MysqlDataSource;
 import org.springframework.boot.SpringApplication;
@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 
 @SpringBootApplication
 @EnableMongockJdbc
-@EnableJdbcRepositories(basePackageClasses = UserRepository.class)
+@EnableJdbcRepositories(basePackageClasses = ClientRepository.class)
 public class SpringBootMysqlAnnotationBasicApp {
 
     public static void main(String[] args) {

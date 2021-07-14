@@ -9,7 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 public class ClientInitializerChangeLog {
 
     @ChangeSet(id = "user-create-table", order = "001", author = "mongock")
-    public void dataInitializer(@NonLockGuarded JdbcTemplate template)  {
+    public void dataInitializer(JdbcTemplate template)  {
         template.execute("" +
                 "CREATE TABLE client (" +
                 "    id int primary key auto_increment," +
@@ -19,7 +19,7 @@ public class ClientInitializerChangeLog {
     }
 
     @ChangeSet(id = "data-initializer-1", order = "002", author = "mongock")
-    public void dataInitializer1(@NonLockGuarded JdbcTemplate template) {
+    public void dataInitializer1(JdbcTemplate template) {
         template.update("INSERT INTO client(name, email) values('name1', 'email1')");
     }
 

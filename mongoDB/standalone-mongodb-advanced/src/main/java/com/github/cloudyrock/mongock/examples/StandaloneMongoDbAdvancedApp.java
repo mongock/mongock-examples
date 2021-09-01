@@ -2,7 +2,7 @@ package com.github.cloudyrock.mongock.examples;
 
 import io.mongock.driver.mongodb.sync.v4.driver.MongoSync4Driver;
 import com.github.cloudyrock.mongock.examples.codec.ZonedDateTimeCodec;
-import com.github.cloudyrock.mongock.examples.events.MongockEventListener;
+import io.mongock.examples.events.MongockEventListener;
 import io.mongock.runner.core.executor.MongockRunner;
 import io.mongock.runner.standalone.MongockStandalone;
 import com.mongodb.ConnectionString;
@@ -33,7 +33,7 @@ public class StandaloneMongoDbAdvancedApp {
 
     return MongockStandalone.builder()
                             .setDriver(MongoSync4Driver.withDefaultLock(getMainMongoClient(), MONGODB_MAIN_DB_NAME))
-                            .addChangeLogsScanPackage("com.github.cloudyrock.mongock.examples.changelogs")
+                            .addChangeLogsScanPackage("io.mongock.examples.changelogs")
                             .setMigrationStartedListener(MongockEventListener::onStart)
                             .setMigrationSuccessListener(MongockEventListener::onSuccess)
                             .setMigrationFailureListener(MongockEventListener::onFail)

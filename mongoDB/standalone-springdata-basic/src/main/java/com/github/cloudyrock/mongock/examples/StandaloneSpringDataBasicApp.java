@@ -1,7 +1,7 @@
 package com.github.cloudyrock.mongock.examples;
 
 import io.mongock.driver.mongodb.springdata.v3.SpringDataMongoV3Driver;
-import com.github.cloudyrock.mongock.examples.events.MongockEventListener;
+import io.mongock.examples.events.MongockEventListener;
 import io.mongock.runner.core.executor.MongockRunner;
 import io.mongock.runner.standalone.MongockStandalone;
 import com.mongodb.ConnectionString;
@@ -38,7 +38,7 @@ public class StandaloneSpringDataBasicApp {
     // Runner
     return MongockStandalone.builder()
             .setDriver(driver)
-            .addChangeLogsScanPackage("com.github.cloudyrock.mongock.examples.changelogs")
+            .addChangeLogsScanPackage("io.mongock.examples.changelogs")
             .setMigrationStartedListener(MongockEventListener::onStart)
             .setMigrationSuccessListener(MongockEventListener::onSuccess)
             .setMigrationFailureListener(MongockEventListener::onFail)

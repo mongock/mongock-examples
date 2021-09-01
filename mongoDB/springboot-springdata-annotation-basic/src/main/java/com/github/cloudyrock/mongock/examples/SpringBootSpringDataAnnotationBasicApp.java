@@ -1,6 +1,6 @@
 package com.github.cloudyrock.mongock.examples;
 
-import com.github.cloudyrock.mongock.examples.client.ClientRepository;
+import io.mongock.examples.client.ClientRepository;
 import io.mongock.runner.springboot.EnableMongock;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;

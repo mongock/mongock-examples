@@ -1,9 +1,9 @@
 package com.github.cloudyrock.mongock.examples;
 
 import io.mongock.driver.mongodb.springdata.v3.SpringDataMongoV3Driver;
-import com.github.cloudyrock.mongock.examples.client.ClientRepository;
-import com.github.cloudyrock.mongock.examples.spring.DateToZonedDateTimeConverter;
-import com.github.cloudyrock.mongock.examples.spring.ZonedDateTimeToDateConverter;
+import io.mongock.examples.client.ClientRepository;
+import io.mongock.examples.spring.DateToZonedDateTimeConverter;
+import io.mongock.examples.spring.ZonedDateTimeToDateConverter;
 import io.mongock.runner.springboot.MongockSpringboot;
 import io.mongock.runner.springboot.base.MongockApplicationRunner;
 import com.mongodb.ConnectionString;
@@ -64,7 +64,7 @@ public class SpringBootSpringDataAnnotationAdvancedApp {
       // Runner
       return MongockSpringboot.builder()
               .setDriver(driver)
-              .addChangeLogsScanPackage("com.github.cloudyrock.mongock.examples.changelogs")
+              .addChangeLogsScanPackage("io.mongock.examples.changelogs")
               .setSpringContext(springContext)
               .setEventPublisher(eventPublisher)
               .setTrackIgnored(true)

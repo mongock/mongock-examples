@@ -3,7 +3,7 @@ package com.github.cloudyrock.mongock.examples;
 import com.github.cloudyrock.mongock.examples.client.ClientRepository;
 import com.github.cloudyrock.mongock.examples.spring.DateToZonedDateTimeConverter;
 import com.github.cloudyrock.mongock.examples.spring.ZonedDateTimeToDateConverter;
-import com.github.cloudyrock.springboot.EnableMongock;
+import io.mongock.runner.springboot.EnableMongock;
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClient;

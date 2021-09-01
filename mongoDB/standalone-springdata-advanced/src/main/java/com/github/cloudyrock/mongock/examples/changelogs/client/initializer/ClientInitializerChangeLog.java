@@ -2,7 +2,7 @@ package com.github.cloudyrock.mongock.examples.changelogs.client.initializer;
 
 import com.github.cloudyrock.mongock.ChangeLog;
 import com.github.cloudyrock.mongock.ChangeSet;
-import com.github.cloudyrock.mongock.driver.mongodb.springdata.v3.decorator.impl.MongockTemplate;
+import io.mongock.driver.mongodb.springdata.v3.decorator.impl.MongockTemplate;
 import com.github.cloudyrock.mongock.examples.client.Client;
 
 import java.util.stream.Collectors;

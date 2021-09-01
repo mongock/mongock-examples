@@ -1,11 +1,11 @@
 package com.github.cloudyrock.mongock.examples;
 
-import com.github.cloudyrock.mongock.driver.mongodb.springdata.v3.SpringDataMongoV3Driver;
+import io.mongock.driver.mongodb.springdata.v3.SpringDataMongoV3Driver;
 import com.github.cloudyrock.mongock.examples.client.ClientRepository;
 import com.github.cloudyrock.mongock.examples.spring.DateToZonedDateTimeConverter;
 import com.github.cloudyrock.mongock.examples.spring.ZonedDateTimeToDateConverter;
-import com.github.cloudyrock.springboot.MongockSpringboot;
-import com.github.cloudyrock.springboot.base.MongockApplicationRunner;
+import io.mongock.runner.springboot.MongockSpringboot;
+import io.mongock.runner.springboot.base.MongockApplicationRunner;
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClient;

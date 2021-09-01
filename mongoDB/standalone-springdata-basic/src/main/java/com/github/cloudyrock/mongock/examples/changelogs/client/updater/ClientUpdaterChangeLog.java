@@ -3,7 +3,7 @@ package com.github.cloudyrock.mongock.examples.changelogs.client.updater;
 import com.github.cloudyrock.mongock.ChangeLog;
 import com.github.cloudyrock.mongock.ChangeSet;
 import com.github.cloudyrock.mongock.examples.client.Client;
-import com.github.cloudyrock.mongock.driver.mongodb.springdata.v3.decorator.impl.MongockTemplate;
+import io.mongock.driver.mongodb.springdata.v3.decorator.impl.MongockTemplate;
 
 import static com.github.cloudyrock.mongock.examples.StandaloneSpringDataBasicApp.CLIENTS_COLLECTION_NAME;
 

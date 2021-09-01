@@ -1,8 +1,8 @@
 package com.github.cloudyrock.mongock.examples.events;
 
-import com.github.cloudyrock.mongock.runner.core.event.MigrationFailureEvent;
-import com.github.cloudyrock.mongock.runner.core.event.MigrationStartedEvent;
-import com.github.cloudyrock.mongock.runner.core.event.MigrationSuccessEvent;
+import io.mongock.runner.core.event.MigrationFailureEvent;
+import io.mongock.runner.core.event.MigrationStartedEvent;
+import io.mongock.runner.core.event.MigrationSuccessEvent;
 
 public class MongockEventListener {
 

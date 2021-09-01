@@ -2,7 +2,7 @@ package com.github.cloudyrock.mongock.examples.changelogs.secondarydb;
 
 import com.github.cloudyrock.mongock.ChangeLog;
 import com.github.cloudyrock.mongock.ChangeSet;
-import com.github.cloudyrock.mongock.NonLockGuarded;
+import io.changock.migration.api.annotations.NonLockGuarded;
 import com.github.cloudyrock.mongock.examples.product.Product;
 
 import javax.inject.Named;

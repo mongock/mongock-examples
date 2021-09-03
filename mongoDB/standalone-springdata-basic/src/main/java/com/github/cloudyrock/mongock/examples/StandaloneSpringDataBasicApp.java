@@ -1,6 +1,6 @@
 package com.github.cloudyrock.mongock.examples;
 
-import com.github.cloudyrock.mongock.driver.mongodb.springdata.v3.SpringDataMongoV3Driver;
+import io.mongock.driver.mongodb.springdata.v3.SpringDataMongoV3Driver;
 import com.github.cloudyrock.mongock.examples.events.MongockEventListener;
 import io.mongock.runner.core.executor.MongockRunner;
 import io.mongock.runner.standalone.MongockStandalone;

@@ -2,13 +2,14 @@ package com.github.cloudyrock.mongock.examples.changelogs.secondarydb;
 
 import com.github.cloudyrock.mongock.ChangeLog;
 import com.github.cloudyrock.mongock.ChangeSet;
-import com.github.cloudyrock.mongock.NonLockGuarded;
 import com.github.cloudyrock.mongock.examples.product.Product;
 
 import javax.inject.Named;
 import java.util.stream.IntStream;
 
 import static com.github.cloudyrock.mongock.examples.SpringBootSpringDataAnnotationAdvancedApp.PRODUCTS_COLLECTION_NAME;
+
+import io.changock.migration.api.annotations.NonLockGuarded;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 @ChangeLog(order = "4")

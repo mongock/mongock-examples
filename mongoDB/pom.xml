@@ -5,7 +5,7 @@
 
     <name>Mongock examples for MongoDB</name>
     <description>Mongock examples for MongoDB</description>
-    <groupId>com.github.cloudyrock.mongock</groupId>
+    <groupId>io.mongock</groupId>
     <artifactId>mongock-examples-mongodb</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -19,7 +19,6 @@
         <module>standalone-mongodb-advanced</module>
         <module>standalone-springdata-basic</module>
         <module>standalone-springdata-advanced</module>
-        <module>springboot-mysql-annotation-basic</module>
     </modules>
     
     <properties>
@@ -33,7 +32,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         
-        <mongock-version>5.0.3.BETA-SNAPSHOT</mongock-version>
+        <mongock-version>5.0.8.RC-SNAPSHOT</mongock-version>
         
         <spring-boot.version>2.4.0</spring-boot.version>
         <mongodb.spring-data.v3.version>3.0.6.RELEASE</mongodb.spring-data.v3.version>
@@ -45,7 +44,7 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.github.cloudyrock.mongock</groupId>
+                <groupId>io.mongock</groupId>
                 <artifactId>mongock-bom</artifactId>
                 <version>${mongock-version}</version>
                 <type>pom</type>

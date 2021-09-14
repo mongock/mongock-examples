@@ -2,11 +2,11 @@ package com.github.cloudyrock.mongock.examples.changelogs.secondarydb;
 
 import com.github.cloudyrock.mongock.ChangeLog;
 import com.github.cloudyrock.mongock.ChangeSet;
-import com.github.cloudyrock.mongock.NonLockGuarded;
 import com.github.cloudyrock.mongock.driver.mongodb.springdata.v3.decorator.impl.MongockTemplate;
 import com.github.cloudyrock.mongock.examples.product.Product;
 
 import com.mongodb.client.MongoDatabase;
+import io.changock.migration.api.annotations.NonLockGuarded;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 import javax.inject.Named;
@@ -20,7 +20,7 @@ import java.util.stream.StreamSupport;
 public class SecondaryDbChangeLog {
   
   @ChangeSet(id = "secondarydb-with-mongodatabase", order = "001", author = "mongock")
-  public void secondaryDbWithMongoDatabase(MongockTemplate mongockTemplate, @Named("secondaryDb") @NonLockGuarded MongoDatabase secondaryDb) {
+  public void secondaryDbWithMongoDatabase(MongoTemplate mongockTemplate, @Named("secondaryDb") @NonLockGuarded MongoDatabase secondaryDb) {
 
     // To show an example of reading secondary database and writing in main database, we
     // are going to migrate Products from secondaryDb (with MongoDatabase) to main db (with MongockTemplate).

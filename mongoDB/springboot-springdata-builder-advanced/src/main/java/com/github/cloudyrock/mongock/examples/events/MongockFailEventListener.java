@@ -1,6 +1,6 @@
 package com.github.cloudyrock.mongock.examples.events;
 
-import com.github.cloudyrock.springboot.base.events.SpringMigrationFailureEvent;
+import io.mongock.runner.spring.base.events.SpringMigrationFailureEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 

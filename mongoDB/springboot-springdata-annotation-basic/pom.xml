@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.github.cloudyrock.mongock</groupId>
+        <groupId>io.mongock</groupId>
         <artifactId>mongock-examples-mongodb</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
@@ -15,13 +15,13 @@
     <dependencies>
         <!-- MONGOCK RUNNER -->
         <dependency>
-            <groupId>com.github.cloudyrock.mongock</groupId>
+            <groupId>io.mongock</groupId>
             <artifactId>mongock-springboot</artifactId>
         </dependency>
         
         <!-- MONGOCK DRIVER -->
         <dependency>
-            <groupId>com.github.cloudyrock.mongock</groupId>
+            <groupId>io.mongock</groupId>
             <artifactId>mongodb-springdata-v3-driver</artifactId>
         </dependency>
         

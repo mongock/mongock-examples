@@ -1,17 +1,13 @@
 package com.github.cloudyrock.mongock.examples.changelogs.client.initializer;
 
-import com.github.cloudyrock.mongock.ChangeLog;
-import com.github.cloudyrock.mongock.ChangeSet;
 import com.github.cloudyrock.mongock.examples.client.Client;
 import com.github.cloudyrock.mongock.examples.client.ClientRepository;
-import com.mongodb.client.MongoDatabase;
+import io.mongock.api.ChangeLogInfo;
 
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static com.github.cloudyrock.mongock.examples.SpringBootSpringDataAnnotationBasicApp.CLIENTS_COLLECTION_NAME;
-import static com.mongodb.client.model.Filters.in;
-
+@ChangeLogInfo(id="client-initializer", order = "1", author = "mongock_test")
 public class ClientInitializerChangeLog implements io.mongock.api.ChangeLog {
 
   public static final String ID = "client-initializer";
@@ -24,20 +20,7 @@ public class ClientInitializerChangeLog implements io.mongock.api.ChangeLog {
     this.clientRepository = clientRepository;
   }
 
-  @Override
-  public String geId() {
-    return ID;
-  }
 
-  @Override
-  public String getOrder() {
-    return "1";
-  }
-
-  @Override
-  public String getAuthor() {
-    return "mongock";
-  }
 
   @Override
   public void before() {

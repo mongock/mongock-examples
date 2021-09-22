@@ -1,14 +1,15 @@
 package com.github.cloudyrock.mongock.examples.changelogs.client.updater;
 
 import com.github.cloudyrock.mongock.examples.client.Client;
-import io.mongock.api.BasicChangeLog;
-import io.mongock.api.ChangeLogInfo;
+import io.mongock.api.annotations.ChangeUnit;
+import io.mongock.api.annotations.Execution;
+import io.mongock.api.annotations.RollbackExecution;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 import static com.github.cloudyrock.mongock.examples.SpringBootSpringDataAnnotationBasicApp.CLIENTS_COLLECTION_NAME;
 
-@ChangeLogInfo(id="client-initializer-runalways", order = "3", author = "mongock_test", runAlways = true)
-public class ClientUpdaterRunAlwaysChangeLog  implements BasicChangeLog {
+@ChangeUnit(id="client-initializer-runalways", order = "3", author = "mongock_test", runAlways = true)
+public class ClientUpdaterRunAlwaysChangeLog  {
 
   private final MongoTemplate mongoTemplate;
 
@@ -16,9 +17,8 @@ public class ClientUpdaterRunAlwaysChangeLog  implements BasicChangeLog {
     this.mongoTemplate = mongoTemplate;
   }
 
-  @Override
+  @Execution
   public void changeSet() {
-
 
     mongoTemplate.findAll(Client.class, CLIENTS_COLLECTION_NAME)
             .stream()
@@ -26,7 +26,7 @@ public class ClientUpdaterRunAlwaysChangeLog  implements BasicChangeLog {
             .forEach(client -> mongoTemplate.save(client, CLIENTS_COLLECTION_NAME));
   }
 
-  @Override
+  @RollbackExecution
   public void rollback() {
 
     mongoTemplate.findAll(Client.class, CLIENTS_COLLECTION_NAME)

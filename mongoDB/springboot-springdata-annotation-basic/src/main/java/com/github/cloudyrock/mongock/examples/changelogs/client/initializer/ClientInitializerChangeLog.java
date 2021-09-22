@@ -2,13 +2,17 @@ package com.github.cloudyrock.mongock.examples.changelogs.client.initializer;
 
 import com.github.cloudyrock.mongock.examples.client.Client;
 import com.github.cloudyrock.mongock.examples.client.ClientRepository;
-import io.mongock.api.ChangeLogInfo;
+import io.mongock.api.annotations.BeforeExecution;
+import io.mongock.api.annotations.ChangeUnit;
+import io.mongock.api.annotations.Execution;
+import io.mongock.api.annotations.RollbackBeforeExecution;
+import io.mongock.api.annotations.RollbackExecution;
 
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-@ChangeLogInfo(id="client-initializer", order = "1", author = "mongock_test")
-public class ClientInitializerChangeLog implements io.mongock.api.ChangeLog {
+@ChangeUnit(id="client-initializer", order = "1", author = "mongock_test")
+public class ClientInitializerChangeLog {
 
   public static final String ID = "client-initializer";
 
@@ -22,16 +26,16 @@ public class ClientInitializerChangeLog implements io.mongock.api.ChangeLog {
 
 
 
-  @Override
+  @BeforeExecution
   public void before() {
 
   }
 
-  @Override
+  @RollbackBeforeExecution
   public void rollbackBefore() {
   }
 
-  @Override
+  @Execution
   public void changeSet() {
     clientRepository.saveAll(
             IntStream.range(0, INITIAL_CLIENTS)
@@ -40,7 +44,7 @@ public class ClientInitializerChangeLog implements io.mongock.api.ChangeLog {
     );
   }
 
-  @Override
+  @RollbackExecution
   public void rollback() {
     clientRepository.deleteAll();
   }

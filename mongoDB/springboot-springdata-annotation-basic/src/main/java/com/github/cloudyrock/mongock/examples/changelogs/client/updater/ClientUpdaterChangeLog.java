@@ -1,22 +1,15 @@
 package com.github.cloudyrock.mongock.examples.changelogs.client.updater;
 
-import com.github.cloudyrock.mongock.ChangeLog;
-import com.github.cloudyrock.mongock.ChangeSet;
 import com.github.cloudyrock.mongock.examples.client.Client;
-import com.github.cloudyrock.mongock.driver.mongodb.springdata.v3.decorator.impl.MongockTemplate;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
-import io.mongock.api.BasicChangeLog;
-import org.bson.Document;
+import io.mongock.api.annotations.ChangeUnit;
+import io.mongock.api.annotations.Execution;
+import io.mongock.api.annotations.RollbackExecution;
 import org.springframework.data.mongodb.core.MongoTemplate;
-
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 import static com.github.cloudyrock.mongock.examples.SpringBootSpringDataAnnotationBasicApp.CLIENTS_COLLECTION_NAME;
 
-public class ClientUpdaterChangeLog  implements BasicChangeLog {
+@ChangeUnit(id="client-initializer", order = "2", author = "mongock_test", runAlways = true)
+public class ClientUpdaterChangeLog  {
 
   private final MongoTemplate mongoTemplate;
 
@@ -24,27 +17,7 @@ public class ClientUpdaterChangeLog  implements BasicChangeLog {
     this.mongoTemplate = mongoTemplate;
   }
 
-  @Override
-  public String geId() {
-    return "client-updater";
-  }
-
-  @Override
-  public String getOrder() {
-    return "2";
-  }
-
-  @Override
-  public String getAuthor() {
-    return "mongock";
-  }
-
-  @Override
-  public boolean isRunAlways() {
-    return true;
-  }
-
-  @Override
+  @Execution
   public void changeSet() {
 
     mongoTemplate.findAll(Client.class, CLIENTS_COLLECTION_NAME)
@@ -53,7 +26,7 @@ public class ClientUpdaterChangeLog  implements BasicChangeLog {
             .forEach(client -> mongoTemplate.save(client, CLIENTS_COLLECTION_NAME));
   }
 
-  @Override
+  @RollbackExecution
   public void rollback() {
     mongoTemplate.findAll(Client.class, CLIENTS_COLLECTION_NAME)
             .stream()

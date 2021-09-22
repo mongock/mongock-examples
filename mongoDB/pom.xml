@@ -32,7 +32,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         
-        <mongock-version>5.0.8.RC-SNAPSHOT</mongock-version>
+        <mongock-version>5.0.8.RC</mongock-version>
         
         <spring-boot.version>2.4.0</spring-boot.version>
         <mongodb.spring-data.v3.version>3.0.6.RELEASE</mongodb.spring-data.v3.version>

@@ -9,16 +9,22 @@
         <artifactId>mongock-examples-mongodb</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
-    <artifactId>mongock-example-springboot-springdata-annotation-basic</artifactId>
     
+    <artifactId>mongock-example-springboot-springdata-builder-basic</artifactId>
+
     <dependencies>
         <!-- MONGOCK RUNNER -->
+        <!-- MONGOCK RUNNER -->
+        <!--        <dependency>-->
+        <!--            <groupId>io.mongock</groupId>-->
+        <!--            <artifactId>mongock-springboot</artifactId>-->
+        <!--        </dependency>-->
         <dependency>
-            <groupId>io.mongock</groupId>
+            <groupId>io.mongock.professional</groupId>
             <artifactId>mongock-springboot</artifactId>
+            <version>5.0.11.BETA-SNAPSHOT</version>
         </dependency>
-        
+
         <!-- MONGOCK DRIVER -->
         <dependency>
             <groupId>io.mongock</groupId>
@@ -52,7 +58,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.github.cloudyrock.mongock.examples.SpringBootSpringDataAnnotationBasicApp</mainClass>
+                    <mainClass>com.github.cloudyrock.mongock.examples.SpringBootSpringDataBuilderBasicApp</mainClass>
                 </configuration>
 
                 <executions>

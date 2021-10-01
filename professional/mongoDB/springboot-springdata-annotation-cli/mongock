@@ -1,0 +1,3 @@
+#!/bin/sh
+#Generated cli script for application: target/mongock-example-springboot-springdata-annotation-cli-1.0-SNAPSHOT.jar
+ java -jar target/mongock/mongock-example-springboot-springdata-annotation-cli-1.0-SNAPSHOT-mongock-cli.jar "$@"

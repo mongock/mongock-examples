@@ -3,22 +3,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <name>Mongock examples for MongoDB</name>
-    <description>Mongock examples for MongoDB</description>
-    <groupId>io.mongock</groupId>
-    <artifactId>mongock-examples-mongodb</artifactId>
+    <name>Mongock professional examples for MongoDB</name>
+    <description>Mongock professional examples for MongoDB</description>
+    <groupId>io.mongock.professional</groupId>
+    <artifactId>mongock-examples-mongodb-professional</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
   
     <modules>
-        <module>springboot-springdata-annotation-basic</module>
-        <module>springboot-springdata-annotation-advanced</module>
-        <module>springboot-springdata-builder-basic</module>
-        <module>springboot-springdata-builder-advanced</module>
-        <module>standalone-mongodb-basic</module>
-        <module>standalone-mongodb-advanced</module>
-        <module>standalone-springdata-basic</module>
-        <module>standalone-springdata-advanced</module>
+        <module>springboot-springdata-annotation-cli</module>
     </modules>
     
     <properties>
@@ -32,9 +25,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <!-- MONGOCK versions -->
-        <mongock.community.version>5.0.12.RC</mongock.community.version>
-        
+        <!-- MONGOCK VERSIONS -->
+        <mongock.community.version>5.0.13.RC</mongock.community.version>
+        <mongock.professional.version>5.0.14.BETA</mongock.professional.version>
+        <mongock.cli.version>5.0.14.BETA</mongock.cli.version>
+
+
         <spring-boot.version>2.4.0</spring-boot.version>
         <mongodb.spring-data.v3.version>3.0.6.RELEASE</mongodb.spring-data.v3.version>
         <mongodb.driver-sync.version>4.0.5</mongodb.driver-sync.version>

@@ -14,14 +14,9 @@
     
     <dependencies>
         <!-- MONGOCK RUNNER -->
-<!--        <dependency>-->
-<!--            <groupId>io.mongock</groupId>-->
-<!--            <artifactId>mongock-springboot</artifactId>-->
-<!--        </dependency>-->
         <dependency>
-            <groupId>io.mongock.professional</groupId>
+            <groupId>io.mongock</groupId>
             <artifactId>mongock-springboot</artifactId>
-            <version>5.0.12.BETA-SNAPSHOT</version>
         </dependency>
 
 

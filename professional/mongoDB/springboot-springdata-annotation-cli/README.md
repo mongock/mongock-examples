@@ -13,6 +13,7 @@ This example shows how to run Mongock with the professional library and rollback
 - Now, you will probably see two more entries in the `mongockChangeLog` collection, the both rollbacks, the execution and the before in side the class `io.mongock.examples.professional.changelogs.client.initializer.ClientInitializerChangeLog`
 
 ## Development notes
+- This example uses Mongock version 5. To upgrade easily, please see this [guide](https://github.com/mongock/mongock-driver-mongodb/blob/develop/QUICK_UPGRADE_VERSION_5.md)
 - CLI currently only supported for Spring application. We are working to provide the standalone too, and other frameworks as they come.
 - The CLI, like the `io.mongock.professional:mongock-springboot` library, are in BETA version.
 - For the time being, the version for the professional core and the cli are hardcoded in the pom. We'll soon provide a BOM covering these versions.

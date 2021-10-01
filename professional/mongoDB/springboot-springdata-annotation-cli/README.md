@@ -3,7 +3,7 @@
 This example shows how to run Mongock with the professional library and rollback the changes with the undo operation, by using the cli.
 
 ## Steps to run it
-- The following steps assume a MongoDB replicaSet is listening on port 27017. We suggest to checkout [this project](https://github.com/mongock/mongodb-replset-deployment-docker) and follow the readme:
+- The following steps assume a MongoDB replicaSet is listening on port 27017. We suggest to checkout [this repository](https://github.com/mongock/mongodb-replset-deployment-docker) and follow the readme to easily setup your replicaset:
 - run `cd springboot-springdata-annotation-cli/`
 - Build the application  with `mvn clean package` which implicitly generates the mongock script
 - Run the application with `java -jar target/springboot-springdata-annotation-cli-1.0-SNAPSHOT.jar`

@@ -33,7 +33,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- MONGOCK versions -->
-        <mongock.community.version>5.0.12.RC</mongock.community.version>
+        <mongock.community.version>5.0.17.RC</mongock.community.version>
         
         <spring-boot.version>2.4.0</spring-boot.version>
         <mongodb.spring-data.v3.version>3.0.6.RELEASE</mongodb.spring-data.v3.version>

@@ -1,17 +1,18 @@
-package io.mongock.examples.professional.changelogs.client.initializer;
+package io.mongock.professional.examples.changelogs.client.initializer;
 
 import io.mongock.api.annotations.BeforeExecution;
-import io.mongock.examples.professional.client.Client;
-import io.mongock.examples.professional.client.ClientRepository;
 import io.mongock.api.annotations.ChangeUnit;
 import io.mongock.api.annotations.Execution;
 import io.mongock.api.annotations.RollbackBeforeExecution;
 import io.mongock.api.annotations.RollbackExecution;
-import io.mongock.examples.professional.App;
+import io.mongock.professional.examples.client.Client;
 
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import org.springframework.data.mongodb.core.MongoTemplate;
+
+import static io.mongock.professional.examples.SpringBootSpringDataBuilderMultitenantApp.CLIENTS_COLLECTION_NAME;
+import org.bson.Document;
 
 @ChangeUnit(id="client-initializer", order = "1", author = "mongock")
 public class ClientInitializerChangeLog {
@@ -21,19 +22,19 @@ public class ClientInitializerChangeLog {
   @BeforeExecution
   public void beforeExecution(MongoTemplate mongoTemplate) {
       
-      mongoTemplate.createCollection(App.CLIENTS_COLLECTION_NAME);
+      mongoTemplate.createCollection(CLIENTS_COLLECTION_NAME);
   }
   
   @RollbackBeforeExecution
   public void rollbackBeforeExecution(MongoTemplate mongoTemplate) {
       
-      mongoTemplate.dropCollection(App.CLIENTS_COLLECTION_NAME);
+      mongoTemplate.dropCollection(CLIENTS_COLLECTION_NAME);
   }
-
+  
   @Execution
-  public void execution(ClientRepository clientRepository) {
+  public void execution(MongoTemplate mongoTemplate) {
       
-    clientRepository.saveAll(
+    mongoTemplate.insertAll(
             IntStream.range(0, INITIAL_CLIENTS)
                     .mapToObj(ClientInitializerChangeLog::getClient)
                     .collect(Collectors.toList())
@@ -41,9 +42,9 @@ public class ClientInitializerChangeLog {
   }
 
   @RollbackExecution
-  public void rollbackExecution(ClientRepository clientRepository) {
+  public void rollbackExecution(MongoTemplate mongoTemplate) {
       
-    clientRepository.deleteAll();
+      mongoTemplate.remove(new Document(), CLIENTS_COLLECTION_NAME);
   }
 
   private static Client getClient(int i) {

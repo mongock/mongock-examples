@@ -7,17 +7,11 @@ import io.mongock.api.annotations.RollbackExecution;
 import io.mongock.examples.professional.App;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
-@ChangeUnit(id="client-initializer", order = "2", author = "mongock_test", runAlways = true)
+@ChangeUnit(id="client-updater", order = "2", author = "mongock")
 public class ClientUpdaterChangeLog  {
 
-  private final MongoTemplate mongoTemplate;
-
-  public ClientUpdaterChangeLog(MongoTemplate mongoTemplate) {
-    this.mongoTemplate = mongoTemplate;
-  }
-
   @Execution
-  public void changeSet() {
+  public void execution(MongoTemplate mongoTemplate) {
 
     mongoTemplate.findAll(Client.class, App.CLIENTS_COLLECTION_NAME)
             .stream()
@@ -26,12 +20,12 @@ public class ClientUpdaterChangeLog  {
   }
 
   @RollbackExecution
-  public void rollback() {
+  public void rollbackExecution(MongoTemplate mongoTemplate) {
+      
     mongoTemplate.findAll(Client.class, App.CLIENTS_COLLECTION_NAME)
             .stream()
             .map(client -> client.setName(client.getName().substring(0, client.getName().length() - "_updated".length())))
             .forEach(client -> mongoTemplate.save(client, App.CLIENTS_COLLECTION_NAME));
 
   }
-
 }

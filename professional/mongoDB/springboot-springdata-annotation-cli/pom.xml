@@ -10,7 +10,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>mongock-example-springboot-springdata-annotation-cli</artifactId>
+    <artifactId>mongock-example-professional-springboot-springdata-annotation-cli</artifactId>
     
     <dependencies>
         <!-- MONGOCK -->
@@ -27,11 +27,6 @@
             <version>${mongock.professional.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>io.mongock</groupId>
-            <artifactId>mongock-cli-springboot</artifactId>
-            <version>${mongock.cli.version}</version>
-        </dependency>
         <!-- SPRING BOOT -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -66,19 +61,6 @@
                     <execution>
                         <goals>
                             <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <!-- CLI GENERATOR-->
-            <plugin>
-                <groupId>io.mongock</groupId>
-                <artifactId>mongock-cli-generator</artifactId>
-                <version>${mongock.cli.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>generate</goal>
                         </goals>
                     </execution>
                 </executions>

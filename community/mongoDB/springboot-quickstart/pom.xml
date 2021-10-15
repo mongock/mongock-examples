@@ -10,16 +10,18 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <name>springboot-springdata-builder-basic</name>
-    <description>Mongock example: Springboot(builder approach) + springdata + MongoDB(basic)</description>
-    <artifactId>springboot-springdata-builder-basic</artifactId>
-
+    <name>springboot-quickstart</name>
+    <description>Mongock example: Springboot(automatic approach with annotation) + springdata + MongoDB(basic)</description>
+    <artifactId>springboot-springdata-annotation-basic</artifactId>
+    
     <dependencies>
         <!-- MONGOCK RUNNER -->
         <dependency>
             <groupId>io.mongock</groupId>
-                <artifactId>mongock-springboot</artifactId>
+            <artifactId>mongock-springboot</artifactId>
         </dependency>
+
+
         <!-- MONGOCK DRIVER -->
         <dependency>
             <groupId>io.mongock</groupId>
@@ -53,7 +55,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>io.mongock.examples.SpringBootSpringDataBuilderBasicApp</mainClass>
+                    <mainClass>io.mongock.examples.SpringBootSpringDataAnnotationBasicApp</mainClass>
                 </configuration>
 
                 <executions>

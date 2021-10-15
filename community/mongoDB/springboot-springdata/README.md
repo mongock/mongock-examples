@@ -5,14 +5,12 @@
 - [Scope](#scope)
 - [Mongock Autoconfiguration vs Builder](#mongock-autoconfiguration-vs-builder)
 - [CLI](#cli)
-- [Install CLI](#intall-cli)
 
 
 ## Requirements
 - Java 8
 - Maven 3.x
 - MongoDB with ReplicaSet(You can easily setup a MongoDB replicaset with this [repository](https://github.com/mongock/mongodb-replset-deployment-docker))
-
 
 ## Scope
 - How to use Mongock with Springboot and Spring data MongoDB
@@ -55,7 +53,7 @@ You can optionally use the `@MongockCliConfiguration` to tell the CLI explicitly
         MongockAutoConfiguration.class
 })
 //...
-public class SpringBootSpringDataAdvanced {
+public class SpringBootAutoconfigurationApp {
 //...
 }
 ```

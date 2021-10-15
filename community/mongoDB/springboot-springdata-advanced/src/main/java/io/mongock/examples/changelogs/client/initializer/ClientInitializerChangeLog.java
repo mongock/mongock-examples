@@ -32,8 +32,7 @@ public class ClientInitializerChangeLog {
   }
 
   @Execution
-  public void execution(ClientRepository clientRepository) {
-      
+  public void execution(ClientRepository clientRepository, MongoTemplate mongoTemplate) {
     clientRepository.saveAll(
             IntStream.range(0, INITIAL_CLIENTS)
                     .mapToObj(ClientInitializerChangeLog::getClient)

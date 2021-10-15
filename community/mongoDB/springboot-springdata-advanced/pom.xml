@@ -10,7 +10,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <name>springboot-springdata-builder-advanced</name>
+    <name>springboot-springdata-advanced</name>
     <description>Mongock example: Springboot(builder approach) + springdata + MongoDB(advanced)</description>
     <artifactId>springboot-springdata-builder-advanced</artifactId>
 

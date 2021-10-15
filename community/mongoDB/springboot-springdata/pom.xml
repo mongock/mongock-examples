@@ -11,8 +11,8 @@
     </parent>
 
     <name>springboot-springdata</name>
-    <description>Mongock example: Springboot(builder approach) + springdata + MongoDB(advanced)</description>
-    <artifactId>springboot-springdata-advanced</artifactId>
+    <description>Mongock example: Springboot + springdata + MongoDB with more advanced configuration</description>
+    <artifactId>springboot-springdata</artifactId>
 
     <dependencies>
         <!-- MONGOCK RUNNER -->

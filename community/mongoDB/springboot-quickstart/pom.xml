@@ -11,8 +11,8 @@
     </parent>
 
     <name>springboot-quickstart</name>
-    <description>Mongock example: Springboot(automatic approach with annotation) + springdata + MongoDB(basic)</description>
-    <artifactId>springboot-springdata-annotation-basic</artifactId>
+    <description>Mongock example: Quick start with Springboot and springdata MongoDB</description>
+    <artifactId>springboot-quickstart</artifactId>
     
     <dependencies>
         <!-- MONGOCK RUNNER -->

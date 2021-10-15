@@ -11,7 +11,7 @@
     </parent>
 
     <name>standalone-springdata</name>
-    <description>Mongock example: Standalone + springdata + MongoDB(advanced)</description>
+    <description>Mongock example: Standalone + springdata + MongoDB</description>
     <artifactId>standalone-springdata</artifactId>
 
     <dependencies>
@@ -63,6 +63,27 @@
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <shadedArtifactAttached>false</shadedArtifactAttached>
+                            <transformers>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>io.mongock.examples.StandaloneMongoApp</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

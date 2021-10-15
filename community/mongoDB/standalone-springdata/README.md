@@ -12,7 +12,7 @@
 - MongoDB with ReplicaSet(You can easily setup a MongoDB replicaset with this [repository](https://github.com/mongock/mongodb-replset-deployment-docker))
 
 ## Scope
-- How to use Mongock standalone with  MongoDB driver library `mongodb-driver-sync`
+- How to use Mongock standalone with  MongoDB springdata
 - How to inject a custom dependency into the changeUnit. In this case  a secondary database(we have used  MongoDB, but could be any database or remote system) to retrieve data(shouldn't be used as migration-target database)
 - How to use the CLI to run the migration
 
@@ -48,7 +48,7 @@ The easies way is to create an uber jar with `maven-shade-plugin`, as it's shown
 <!--  Remove this section with just the documentation link: https://www.mongock.io/cli/operations#migrate-->
 1. Execute `mvn clean package` inside your application folder.
 2. Open a terminal and locate it inside the unzipped folder from the installation step
-3. Execute `./mongock migrate -aj YOUR_PROJECT_FOLDER/target/standalone-mongodb-sync-1.0-SNAPSHOT.jar`
+3. Execute `./mongock migrate -aj YOUR_PROJECT_FOLDER/target/standalone-springdata-1.0-SNAPSHOT.jar`
 
 > :bulb: The Mongock CLI requires an uber application jar. **Luckily for Springboot users, this is provided by the framework out of the box**
 

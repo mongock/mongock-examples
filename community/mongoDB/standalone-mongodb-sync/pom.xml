@@ -11,8 +11,8 @@
     </parent>
 
     <name>standalone-mongodb-sync</name>
-    <description>Mongock example: Standalone + MongoDB-lib(advanced)</description>
-    <artifactId>standalone-mongodb-advanced</artifactId>
+    <description>Mongock example: Standalone + MongoDB-async</description>
+    <artifactId>standalone-mongodb-sync</artifactId>
 
     <dependencies>
         <!-- MONGOCK RUNNER -->
@@ -47,6 +47,7 @@
         </dependency>
     </dependencies>
 
+
     <build>
         <plugins>
             <plugin>
@@ -56,6 +57,27 @@
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <shadedArtifactAttached>false</shadedArtifactAttached>
+                            <transformers>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>io.mongock.examples.StandaloneMongoApp</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

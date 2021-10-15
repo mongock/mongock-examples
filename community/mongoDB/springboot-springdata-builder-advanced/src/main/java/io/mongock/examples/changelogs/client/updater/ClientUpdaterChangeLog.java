@@ -7,7 +7,7 @@ import io.mongock.api.annotations.RollbackExecution;
 
 import org.springframework.data.mongodb.core.MongoTemplate;
 
-import static io.mongock.examples.SpringBootSpringDataBuilderAdvancedApp.CLIENTS_COLLECTION_NAME;
+import static io.mongock.examples.SpringBootAutoconfigurationApp.CLIENTS_COLLECTION_NAME;
 
 @ChangeUnit(id="client-updater", order = "2", author = "mongock")
 public class ClientUpdaterChangeLog  {

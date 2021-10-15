@@ -54,7 +54,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>io.mongock.examples.SpringBootSpringDataBuilderAdvancedApp</mainClass>
+                    <mainClass>io.mongock.examples.SpringBootAutoconfigurationApp</mainClass>
                 </configuration>
 
                 <executions>

@@ -12,7 +12,6 @@
   
     <modules>
         <module>springboot-springdata-annotation-basic</module>
-        <module>springboot-springdata-annotation-advanced</module>
         <module>springboot-springdata-builder-basic</module>
         <module>springboot-springdata-builder-advanced</module>
         <module>standalone-mongodb-basic</module>

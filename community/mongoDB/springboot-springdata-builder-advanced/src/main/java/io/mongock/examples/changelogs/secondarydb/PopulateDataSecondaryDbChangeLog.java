@@ -5,7 +5,7 @@ import io.mongock.examples.product.Product;
 import javax.inject.Named;
 import java.util.stream.IntStream;
 
-import static io.mongock.examples.SpringBootSpringDataBuilderAdvancedApp.PRODUCTS_COLLECTION_NAME;
+import static io.mongock.examples.SpringBootAutoconfigurationApp.PRODUCTS_COLLECTION_NAME;
 
 import io.changock.migration.api.annotations.NonLockGuarded;
 import io.mongock.api.annotations.ChangeUnit;

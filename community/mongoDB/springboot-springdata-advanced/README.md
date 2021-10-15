@@ -1,16 +1,16 @@
 # Mongock Example for: springboot + spring data
 
-## What this shows
+## Example scope
 - How to use Mongock with Springboot and Spring data MongoDB
 - How to use Mongock with autoconfiguration and/or builder(provided two configuration that can be alternated)
 - How to use a secondary database(in this case MongoDB, but could be any) to retrieve data(shouldn't be used as migration-target database)
 - How to use the CLI to run the migration
 
-## Mongock autoconfiguration VS Builder
+## Mongock Autoconfiguration vs Builder
 Mongock offers these two configuration options with Springboot. Only one of them should be used at a time.
 
 This example contains two SpringBootApplication classes, one for each approach.
-> The `@ComponentScan` annotation with the exclusion, is only added to allow these two configurations to live in the same project without sabotaging each ther.
+> :bulb: The `@ComponentScan` annotation with the exclusion, is only added to allow these two configurations to live in the same project without sabotaging each ther.
 
 ### Autoconfiguration
 It's the recommended approach, reflected in the `SpringbootAutoconfigurationApp` class and activated by default in this example(the generated jar will use this approach).

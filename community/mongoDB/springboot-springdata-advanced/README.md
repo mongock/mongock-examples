@@ -2,7 +2,7 @@
 
 ## Example scope
 - How to use Mongock with Springboot and Spring data MongoDB
-- How to use Mongock with autoconfiguration and/or builder(provided two configuration that can be alternated)
+- How to use Mongock with both alternative approaches: autoconfiguration and builder
 - How to use a secondary database(in this case MongoDB, but could be any) to retrieve data(shouldn't be used as migration-target database)
 - How to use the CLI to run the migration
 

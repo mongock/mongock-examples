@@ -7,5 +7,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableMongock
 public class MongockAutoConfiguration {
+
+
 }
 

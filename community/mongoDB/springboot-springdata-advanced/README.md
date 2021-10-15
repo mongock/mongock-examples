@@ -53,7 +53,7 @@ public class SpringBootSpringDataAdvanced {
 2. Open a terminal and locate it inside the unzipped folder from the installation step
 3. Execute `./mongock migrate -aj YOUR_PROJECT_FOLDER/target/springboot-springdata-advanced-1.0-SNAPSHOT.jar`
 
-> :bulb: The Mongock CLI requires the an uber application jar. **Luckily for Springboot users, this is provided by the framework out of the box**
+> :bulb: The Mongock CLI requires an uber application jar. **Luckily for Springboot users, this is provided by the framework out of the box**
 
 
 The output should look similar to this:

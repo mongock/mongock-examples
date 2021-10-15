@@ -6,9 +6,9 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>standalone-mongodb-advanced</artifactId>
-  <name>standalone-mongodb-sync</name>
-  <description>Mongock example: Standalone + MongoDB-lib(advanced)</description>
+  <artifactId>standalone-springdata</artifactId>
+  <name>standalone-springdata</name>
+  <description>Mongock example: Standalone + springdata + MongoDB</description>
   <build>
     <plugins>
       <plugin>

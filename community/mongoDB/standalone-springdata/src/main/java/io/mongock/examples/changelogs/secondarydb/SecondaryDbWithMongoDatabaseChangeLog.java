@@ -14,7 +14,7 @@ import java.util.stream.StreamSupport;
 import org.bson.Document;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
-import static io.mongock.examples.StandaloneSpringDataAdvancedApp.PRODUCTS_COLLECTION_NAME;
+import static io.mongock.examples.StandaloneSpringdataApp.PRODUCTS_COLLECTION_NAME;
 
 @ChangeUnit(id="secondarydb-with-mongodatabase", order = "5", author="mongock")
 public class SecondaryDbWithMongoDatabaseChangeLog {

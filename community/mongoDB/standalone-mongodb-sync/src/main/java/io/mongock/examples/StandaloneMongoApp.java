@@ -20,7 +20,7 @@ import io.mongock.runner.standalone.MongockStandalone;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 
-public class StandaloneMongoDbAdvancedApp {
+public class StandaloneMongoApp {
 
   public final static String MONGODB_CONNECTION_STRING = "mongodb://localhost:27017/";
   public final static String MONGODB_MAIN_DB_NAME = "test";

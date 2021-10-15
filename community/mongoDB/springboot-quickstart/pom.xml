@@ -55,7 +55,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>io.mongock.examples.SpringBootSpringDataAnnotationBasicApp</mainClass>
+                    <mainClass>io.mongock.examples.QuickStartApp</mainClass>
                 </configuration>
 
                 <executions>

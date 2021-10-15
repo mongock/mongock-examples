@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 import org.bson.Document;
 
-import static io.mongock.examples.StandaloneMongoDbAdvancedApp.PRODUCTS_COLLECTION_NAME;
+import static io.mongock.examples.StandaloneMongoApp.PRODUCTS_COLLECTION_NAME;
 
 @ChangeUnit(id="secondarydb-with-mongodatabase", order = "5", author="mongock")
 public class SecondaryDbWithMongoDatabaseChangeLog {

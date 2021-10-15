@@ -16,7 +16,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @EnableMongock
 @SpringBootApplication
 @EnableMongoRepositories(basePackageClasses = ClientRepository.class)
-public class SpringBootSpringDataAnnotationBasicApp {
+public class QuickStartApp {
 
     public final static String CLIENTS_COLLECTION_NAME = "clientCollection";
 
@@ -25,7 +25,7 @@ public class SpringBootSpringDataAnnotationBasicApp {
     }
 
     public static SpringApplicationBuilder getSpringAppBuilder() {
-        return new SpringApplicationBuilder().sources(SpringBootSpringDataAnnotationBasicApp.class);
+        return new SpringApplicationBuilder().sources(QuickStartApp.class);
     }
     
     /**

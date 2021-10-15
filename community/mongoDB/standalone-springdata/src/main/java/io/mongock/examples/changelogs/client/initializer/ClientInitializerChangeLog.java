@@ -12,7 +12,7 @@ import java.util.stream.IntStream;
 import org.bson.Document;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
-import static io.mongock.examples.StandaloneSpringDataAdvancedApp.CLIENTS_COLLECTION_NAME;
+import static io.mongock.examples.StandaloneSpringdataApp.CLIENTS_COLLECTION_NAME;
 
 @ChangeUnit(id="client-initializer", order = "1", author = "mongock")
 public class ClientInitializerChangeLog {

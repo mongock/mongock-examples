@@ -11,7 +11,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Collectors;
 import org.bson.Document;
 
-import static io.mongock.examples.StandaloneMongoDbAdvancedApp.PRODUCTS_COLLECTION_NAME;
+import static io.mongock.examples.StandaloneMongoApp.PRODUCTS_COLLECTION_NAME;
 import io.mongock.api.annotations.Execution;
 
 @ChangeUnit(id= "populate-data-secondarydb", order = "4", author = "mongock")

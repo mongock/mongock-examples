@@ -1,6 +1,6 @@
 package io.mongock.examples.product;
 
-import io.mongock.examples.StandaloneSpringDataAdvancedApp;
+import io.mongock.examples.StandaloneSpringdataApp;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import java.util.Objects;
 import org.bson.types.ObjectId;
 
-@Document(collection = StandaloneSpringDataAdvancedApp.PRODUCTS_COLLECTION_NAME)
+@Document(collection = StandaloneSpringdataApp.PRODUCTS_COLLECTION_NAME)
 public class Product {
 
   @Id

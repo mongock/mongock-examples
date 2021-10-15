@@ -25,7 +25,7 @@ import org.bson.codecs.pojo.PojoCodecProvider;
 import org.springframework.data.mongodb.MongoTransactionManager;
 import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
 
-public class StandaloneSpringDataAdvancedApp {
+public class StandaloneSpringdataApp {
 
   public final static String MONGODB_CONNECTION_STRING = "mongodb://localhost:27017/";
   public final static String MONGODB_MAIN_DB_NAME = "test";

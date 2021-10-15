@@ -10,7 +10,7 @@ import com.mongodb.client.MongoDatabase;
 import java.util.stream.StreamSupport;
 import org.bson.Document;
 
-import static io.mongock.examples.StandaloneMongoDbAdvancedApp.CLIENTS_COLLECTION_NAME;
+import static io.mongock.examples.StandaloneMongoApp.CLIENTS_COLLECTION_NAME;
 
 @ChangeUnit(id = "client-updater-runAlways", order = "3", author = "mongock", runAlways = true)
 public class ClientUpdaterRunAlwaysChangeLog {

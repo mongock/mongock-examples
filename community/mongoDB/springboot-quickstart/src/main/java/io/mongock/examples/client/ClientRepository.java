@@ -1,10 +1,10 @@
 package io.mongock.examples.client;
 
-import io.mongock.examples.SpringBootSpringDataAnnotationBasicApp;
+import io.mongock.examples.QuickStartApp;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository(SpringBootSpringDataAnnotationBasicApp.CLIENTS_COLLECTION_NAME)
+@Repository(QuickStartApp.CLIENTS_COLLECTION_NAME)
 public interface ClientRepository extends MongoRepository<Client, String> {
 
 }

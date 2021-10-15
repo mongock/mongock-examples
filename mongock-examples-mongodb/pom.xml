@@ -3,16 +3,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <name>Mongock professional examples for MongoDB</name>
-    <description>Mongock professional examples for MongoDB</description>
-    <groupId>io.mongock.professional</groupId>
-    <artifactId>mongock-examples-mongodb-professional</artifactId>
+    <name>Mongock examples for MongoDB</name>
+    <description>Mongock examples for MongoDB</description>
+    <groupId>io.mongock</groupId>
+    <artifactId>mongock-examples-mongodb</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
   
     <modules>
-        <module>springboot-springdata-annotation-cli</module>
-        <module>springboot-springdata-builder-multitenant</module>
+        <module>springboot-quickstart</module>
+        <module>springboot-springdata</module>
+        <module>standalone-mongodb-sync</module>
+        <module>standalone-springdata</module>
+        <module>springboot-springdata-multitenant</module>
         <module>standalone-mongodb-multitenant</module>
     </modules>
     
@@ -27,13 +30,13 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <!-- MONGOCK VERSIONS -->
+        <!-- MONGOCK versions -->
         <mongock.community.version>5.0.19.RC</mongock.community.version>
         <mongock.professional.version>5.0.19.BETA</mongock.professional.version>
-
+        
         <spring-boot.version>2.4.0</spring-boot.version>
         <mongodb.spring-data.v3.version>3.0.6.RELEASE</mongodb.spring-data.v3.version>
-        <mongodb.driver-sync.version>4.0.5</mongodb.driver-sync.version>
+        <mongodb.driver-sync.version>4.3.3</mongodb.driver-sync.version>
         
         <slf4j.version>1.7.30</slf4j.version>
     </properties>
@@ -44,6 +47,14 @@
                 <groupId>io.mongock</groupId>
                 <artifactId>mongock-bom</artifactId>
                 <version>${mongock.community.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>io.mongock.professional</groupId>
+                <artifactId>mongock-professional-bom</artifactId>
+                <version>${mongock.professional.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

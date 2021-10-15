@@ -1,4 +1,0 @@
-mongock:
-  cli:
-    configSources:
-    - io.mongock.examples.professional.App

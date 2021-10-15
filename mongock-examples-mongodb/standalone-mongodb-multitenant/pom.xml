@@ -5,12 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>io.mongock.professional</groupId>
-        <artifactId>mongock-examples-mongodb-professional</artifactId>
+        <groupId>io.mongock</groupId>
+        <artifactId>mongock-examples-mongodb</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    
-    <artifactId>mongock-example-professional-standalone-mongodb-multitenant</artifactId>
+
+    <name>springboot-mongodb-multitenant</name>
+    <description>Mongock example: Standalone + MongoDB-async(multitenant)</description>
+    <artifactId>springboot-mongodb-multitenant</artifactId>
+
 
     <dependencies>        
         <!-- MONGOCK -->

@@ -7,10 +7,10 @@
 - How to use the CLI to run the migration
 
 ## Mongock Autoconfiguration vs Builder
-Mongock offers these two configuration options with Springboot. Only one of them should be used at a time.
+Mongock offers these two configuration options with Springboot. Only one of them should be enabled at a time.
 
 This example contains two SpringBootApplication classes, one for each approach.
-> :bulb: The `@ComponentScan` annotation with the exclusion, is only added to allow these two configurations to live in the same project without sabotaging each ther.
+> :bulb: The `@ComponentScan` annotation with the exclusion is only added in order to allow these two configurations living  in the same project without sabotaging each ther.
 
 ### Autoconfiguration
 It's the recommended approach, reflected in the `SpringbootAutoconfigurationApp` class and activated by default in this example(the generated jar will use this approach).
@@ -49,8 +49,12 @@ public class SpringBootSpringDataAdvanced {
 ### Run the migration with the CLI
 
 <!--  Remove this section with just the documentation link: https://www.mongock.io/cli/operations#migrate-->
-1. Open a terminal and locate it inside the unzipped folder from the installation step
-4. Execute `./mongock migrate -aj YOUR_PROJECT_FOLDER/target/springboot-springdata-advanced-1.0-SNAPSHOT.jar`
+1. Execute `mvn clean package` inside your application folder.
+2. Open a terminal and locate it inside the unzipped folder from the installation step
+3. Execute `./mongock migrate -aj YOUR_PROJECT_FOLDER/target/springboot-springdata-advanced-1.0-SNAPSHOT.jar`
+
+> :bulb: THe Mongock CLI requires the an uber application jar. **Luckily for Springboot users, this is provided by the framework out of the box**
+
 
 The output should look similar to this:
 

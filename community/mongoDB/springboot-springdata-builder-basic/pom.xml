@@ -9,8 +9,10 @@
         <artifactId>mongock-examples-mongodb</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    
-    <artifactId>mongock-example-springboot-springdata-builder-basic</artifactId>
+
+    <name>springboot-springdata-builder-basic</name>
+    <description>Mongock example: Springboot(builder approach) + springdata + MongoDB(basic)</description>
+    <artifactId>springboot-springdata-builder-basic</artifactId>
 
     <dependencies>
         <!-- MONGOCK RUNNER -->

@@ -9,8 +9,10 @@
         <artifactId>mongock-examples-mongodb</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    
-    <artifactId>mongock-example-standalone-mongodb-basic</artifactId>
+
+    <name>standalone-mongodb-basic</name>
+    <description>Mongock example: Standalone + MongoDB-lib(basic)</description>
+    <artifactId>standalone-mongodb-basic</artifactId>
 
     <dependencies>
         <!-- MONGOCK RUNNER -->

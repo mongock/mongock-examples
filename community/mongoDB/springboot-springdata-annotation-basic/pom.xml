@@ -10,7 +10,9 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>mongock-example-springboot-springdata-annotation-basic</artifactId>
+    <name>springboot-springdata-annotation-basic</name>
+    <description>Mongock example: Springboot(automatic approach with annotation) + springdata + MongoDB(basic)</description>
+    <artifactId>springboot-springdata-annotation-basic</artifactId>
     
     <dependencies>
         <!-- MONGOCK RUNNER -->

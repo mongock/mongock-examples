@@ -53,6 +53,8 @@ public class StandaloneSpringDataAdvancedApp {
             .setMigrationStartedListener(MongockEventListener::onStart)
             .setMigrationSuccessListener(MongockEventListener::onSuccess)
             .setMigrationFailureListener(MongockEventListener::onFail)
+            // this secondary db and mongoTemplate are optionally. It just shows how to use another source of data(read)
+            //, but it shouldn't be confused with the main database/mongoTemplate, which is the migration-target.
             .addDependency("secondaryDb", getSecondaryDb())
             .addDependency("secondaryMongoTemplate", getSecondaryMongoTemplate())
             .setTrackIgnored(true)

@@ -11,13 +11,10 @@
     <packaging>pom</packaging>
   
     <modules>
-        <module>springboot-springdata-annotation-basic</module>
-        <module>springboot-springdata-builder-basic</module>
-        <module>springboot-springdata-advanced</module>
-        <module>standalone-mongodb-basic</module>
-        <module>standalone-mongodb-advanced</module>
-        <module>standalone-springdata-basic</module>
-        <module>standalone-springdata-advanced</module>
+        <module>springboot-quickstart</module>
+        <module>springboot-springdata</module>
+        <module>standalone-mongodb-sync</module>
+        <module>standalone-springdata</module>
     </modules>
     
     <properties>
@@ -36,7 +33,7 @@
         
         <spring-boot.version>2.4.0</spring-boot.version>
         <mongodb.spring-data.v3.version>3.0.6.RELEASE</mongodb.spring-data.v3.version>
-        <mongodb.driver-sync.version>4.0.5</mongodb.driver-sync.version>
+        <mongodb.driver-sync.version>4.3.3</mongodb.driver-sync.version>
         
         <slf4j.version>1.7.30</slf4j.version>
     </properties>

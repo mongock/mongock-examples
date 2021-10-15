@@ -12,7 +12,7 @@
 
     <name>springboot-springdata-advanced</name>
     <description>Mongock example: Springboot(builder approach) + springdata + MongoDB(advanced)</description>
-    <artifactId>springboot-springdata-builder-advanced</artifactId>
+    <artifactId>springboot-springdata-advanced</artifactId>
 
     <dependencies>
         <!-- MONGOCK RUNNER -->

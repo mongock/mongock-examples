@@ -5,15 +5,12 @@ import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoDatabase;
-import io.mongock.api.config.MongockConfiguration;
-import io.mongock.driver.api.entry.ChangeEntry;
 import io.mongock.driver.mongodb.sync.v4.driver.MongoSync4Driver;
 import io.mongock.examples.codec.ZonedDateTimeCodec;
 import io.mongock.examples.events.MongockEventListener;
 import io.mongock.runner.core.builder.RunnerBuilder;
 import io.mongock.runner.core.builder.RunnerBuilderProvider;
 import io.mongock.runner.standalone.MongockStandalone;
-import io.mongock.runner.standalone.RunnerStandaloneBuilder;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 

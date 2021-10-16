@@ -10,9 +10,9 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <name>springboot-mongodb-multitenant</name>
+    <name>standalone-mongodb-multitenant</name>
     <description>Mongock example: Standalone + MongoDB-async(multitenant)</description>
-    <artifactId>springboot-mongodb-multitenant</artifactId>
+    <artifactId>standalone-mongodb-multitenant</artifactId>
 
 
     <dependencies>        

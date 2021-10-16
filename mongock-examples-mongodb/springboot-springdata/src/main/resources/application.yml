@@ -1,5 +1,5 @@
 mongock:
-  change-logs-scan-package:
+  migration-scan-package:
     - io.mongock.examples.changelogs
   trackIgnored: true
   transactionEnabled: true

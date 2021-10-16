@@ -16,7 +16,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 public class MongockBuilderConfiguration {
 
 	@Bean
-	public MongockInitializingBeanRunner initializingBeanRunner2(RunnerSpringbootBuilder runnerBuilder) {
+	public MongockInitializingBeanRunner initializingBeanRunner(RunnerSpringbootBuilder runnerBuilder) {
 		// Runner
 		return runnerBuilder.buildInitializingBeanRunner();
 	}

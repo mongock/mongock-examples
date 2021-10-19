@@ -12,11 +12,10 @@
   
     <modules>
         <module>springboot-quickstart</module>
-        <module>springboot-springdata</module>
+        <module>springboot-advance</module>
         <module>standalone-mongodb-sync</module>
         <module>standalone-springdata</module>
         <module>springboot-springdata-multitenant</module>
-        <module>standalone-mongodb-multitenant</module>
     </modules>
     
     <properties>
@@ -31,12 +30,13 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- MONGOCK versions -->
-        <mongock.community.version>5.0.19.RC</mongock.community.version>
-        <mongock.professional.version>5.0.19.BETA</mongock.professional.version>
+        <mongock.community.version>5.0.20.RC</mongock.community.version>
+        <mongock.professional.version>5.0.20.BETA</mongock.professional.version>
         
         <spring-boot.version>2.4.0</spring-boot.version>
-        <mongodb.spring-data.v3.version>3.0.6.RELEASE</mongodb.spring-data.v3.version>
-        <mongodb.driver-sync.version>4.0.5</mongodb.driver-sync.version>
+
+        <mongodb.spring-data.starter.version>2.5.5</mongodb.spring-data.starter.version>
+        <mongodb.driver-sync.version>4.3.3</mongodb.driver-sync.version>
         
         <slf4j.version>1.7.30</slf4j.version>
     </properties>

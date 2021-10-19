@@ -38,16 +38,9 @@
         
         <!-- SPRING DATA -->
         <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-mongodb</artifactId>
-            <version>${mongodb.spring-data.v3.version}</version>
-        </dependency>
-        
-        <!-- MONGODB DRIVER -->
-        <dependency>
-            <groupId>org.mongodb</groupId>
-            <artifactId>mongodb-driver-sync</artifactId>
-            <version>${mongodb.driver-sync.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+            <version>${mongodb.spring-data.starter.version}</version>
         </dependency>
     </dependencies>
 

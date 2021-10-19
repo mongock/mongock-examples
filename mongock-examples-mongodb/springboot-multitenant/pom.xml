@@ -10,9 +10,9 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <name>springboot-springdata-multitenant</name>
+    <name>springboot-multitenant</name>
     <description>Mongock example: Standalone + springdata + MongoDB(multitenant)</description>
-    <artifactId>springboot-springdata-multitenant</artifactId>
+    <artifactId>springboot-multitenant</artifactId>
 
     <dependencies>
         <!-- MONGOCK -->

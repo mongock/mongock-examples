@@ -15,7 +15,7 @@
         <module>springboot-advance</module>
         <module>standalone-mongodb-sync</module>
         <module>standalone-springdata</module>
-        <module>springboot-springdata-multitenant</module>
+        <module>springboot-multitenant</module>
     </modules>
     
     <properties>

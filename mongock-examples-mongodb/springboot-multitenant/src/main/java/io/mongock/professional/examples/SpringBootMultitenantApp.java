@@ -5,13 +5,15 @@ import io.mongock.professional.driver.mongodb.springdata.v3.SpringDataMongoV3Dri
 import io.mongock.professional.examples.spring.DateToZonedDateTimeConverter;
 import io.mongock.professional.examples.spring.ZonedDateTimeToDateConverter;
 import io.mongock.runner.springboot.MongockSpringboot;
-import io.mongock.runner.springboot.RunnerSpringbootBuilderProfessional;
+import io.mongock.runner.springboot.RunnerSpringbootBuilder;
 import io.mongock.runner.springboot.base.MongockApplicationRunner;
+import io.mongock.utils.Constants;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 import org.springframework.data.mongodb.MongoTransactionManager;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
@@ -28,7 +30,7 @@ public class SpringBootMultitenantApp {
     /**
      * Custom converters to map ZonedDateTime.
      */
-    private static final MongoCustomConversions customConversions =new MongoCustomConversions(
+    private static final MongoCustomConversions customConversions = new MongoCustomConversions(
             Arrays.asList(DateToZonedDateTimeConverter.INSTANCE, ZonedDateTimeToDateConverter.INSTANCE)
     );
 
@@ -41,7 +43,7 @@ public class SpringBootMultitenantApp {
     }
 
     @Bean
-    public RunnerSpringbootBuilderProfessional runnerSpringbootBuilderProfessional(ApplicationContext springContext, ApplicationEventPublisher eventPublisher) {
+    public RunnerSpringbootBuilder runnerSpringbootBuilderProfessional(ApplicationContext springContext, ApplicationEventPublisher eventPublisher) {
         // Runner
         return MongockSpringboot.builder()
                 .setDriver(
@@ -58,7 +60,8 @@ public class SpringBootMultitenantApp {
     }
 
     @Bean
-    public MongockApplicationRunner mongockRunner(RunnerSpringbootBuilderProfessional builder) {
+    @Profile(Constants.NON_CLI_PROFILE)
+    public MongockApplicationRunner mongockRunner(RunnerSpringbootBuilder builder) {
         return builder.buildApplicationRunner();
     }
 

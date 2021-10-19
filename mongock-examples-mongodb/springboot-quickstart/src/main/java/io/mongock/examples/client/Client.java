@@ -37,9 +37,6 @@ public class Client {
   @Field("country")
   private String country;
 
-  @Field("activation")
-  private ActivationModel activation;
-
   @Field("deleted")
   private boolean deleted;
   
@@ -50,17 +47,13 @@ public class Client {
     this.dateTime = LocalDateTime.now();
   }
 
-  public Client(String name, String email, String phone, String country) {
-    this(name, email, phone, country, new ActivationModel());
-  }
 
-  public Client(String name, String email, String phone, String country, ActivationModel activation) {
+  public Client(String name, String email, String phone, String country) {
     this();
     this.name = name;
     this.email = email;
     this.phone = phone;
     this.country = country;
-    this.activation = activation;
     this.deleted = false;
     this.counter = 0;
   }
@@ -88,11 +81,6 @@ public class Client {
 
   public Client setCountry(String country) {
     this.country = country;
-    return this;
-  }
-
-  public Client setActivation(ActivationModel activation) {
-    this.activation = activation;
     return this;
   }
 
@@ -131,10 +119,6 @@ public class Client {
     return country;
   }
 
-  public ActivationModel getActivation() {
-    return activation;
-  }
-
   public boolean isDeleted() {
     return deleted;
   }
@@ -168,12 +152,11 @@ public class Client {
             Objects.equals(name, client.name) &&
             Objects.equals(email, client.email) &&
             Objects.equals(phone, client.phone) &&
-            Objects.equals(country, client.country) &&
-            Objects.equals(activation, client.activation);
+            Objects.equals(country, client.country);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, dateTime, name, email, phone, country, activation, deleted, counter);
+    return Objects.hash(id, dateTime, name, email, phone, country, deleted, counter);
   }
 }

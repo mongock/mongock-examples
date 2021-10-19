@@ -1,4 +1,4 @@
-package io.mongock.examples.changelogs.client.initializer;
+package io.mongock.examples.changelogs;
 
 import io.mongock.examples.client.Client;
 import io.mongock.examples.client.ClientRepository;

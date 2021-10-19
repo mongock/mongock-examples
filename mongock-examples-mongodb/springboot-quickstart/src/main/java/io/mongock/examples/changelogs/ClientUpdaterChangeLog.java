@@ -1,4 +1,4 @@
-package io.mongock.examples.changelogs.client.updater;
+package io.mongock.examples.changelogs;
 
 import io.mongock.examples.client.Client;
 import io.mongock.api.annotations.ChangeUnit;
@@ -9,24 +9,25 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 
 import static io.mongock.examples.QuickStartApp.CLIENTS_COLLECTION_NAME;
 
-@ChangeUnit(id="client-updater-runalways", order = "3", author = "mongock", runAlways = true)
-public class ClientUpdaterRunAlwaysChangeLog  {
+@ChangeUnit(id="client-updater", order = "2", author = "mongock")
+public class ClientUpdaterChangeLog  {
 
   @Execution
   public void execution(MongoTemplate mongoTemplate) {
 
     mongoTemplate.findAll(Client.class, CLIENTS_COLLECTION_NAME)
             .stream()
-            .map(client -> client.setCounter(client.getCounter() + 1))
+            .map(client -> client.setName(client.getName() + "_updated"))
             .forEach(client -> mongoTemplate.save(client, CLIENTS_COLLECTION_NAME));
   }
 
   @RollbackExecution
   public void rollbackExecution(MongoTemplate mongoTemplate) {
-
+      
     mongoTemplate.findAll(Client.class, CLIENTS_COLLECTION_NAME)
             .stream()
-            .map(client -> client.setCounter(client.getCounter() - 1))
+            .map(client -> client.setName(client.getName().substring(0, client.getName().length() - "_updated".length())))
             .forEach(client -> mongoTemplate.save(client, CLIENTS_COLLECTION_NAME));
+
   }
 }

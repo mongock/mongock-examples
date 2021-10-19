@@ -17,9 +17,9 @@
 - How to use the CLI to run the migration
 
 ## CLI
+<!--  Remove this section with just the documentation link: https://www.mongock.io/cli-->
 In order to make this application ready to work with the CLI, you need to steps: install the CLI and prepare the app with 3 easy steps.
 ### Install CLI
-<!--  Remove this section with just the documentation link: https://www.mongock.io/cli-->
 1. Download the latest version of the **mongock-cli-LATEST_VERSION.zip** from [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.mongock/mongock-cli/badge.png)](https://repo.maven.apache.org/maven2/io/mongock/mongock-cli/)
 2. Unzip it
 

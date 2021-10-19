@@ -31,7 +31,7 @@
 
         <!-- MONGOCK versions -->
         <mongock.community.version>5.0.20.RC</mongock.community.version>
-        <mongock.professional.version>5.0.20.BETA</mongock.professional.version>
+        <mongock.professional.version>5.0.21.BETA-SNAPSHOT</mongock.professional.version>
         
         <spring-boot.version>2.4.0</spring-boot.version>
 

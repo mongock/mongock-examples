@@ -19,7 +19,6 @@
         <dependency>
             <groupId>io.mongock.professional</groupId>
             <artifactId>mongodb-springdata-v3-driver</artifactId>
-            <version>${mongock.professional.version}</version>
         </dependency>
 
         <!-- io.mongock.professional:mongock-springboot and io.mongock:mongock-cli-springboot versions
@@ -27,7 +26,6 @@
         <dependency>
             <groupId>io.mongock.professional</groupId>
             <artifactId>mongock-springboot</artifactId>
-            <version>${mongock.professional.version}</version>
         </dependency>
         
         <!-- SPRING BOOT -->
@@ -50,7 +48,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>io.mongock.professional.examples.SpringBootSpringDataBuilderMultitenantApp</mainClass>
+                    <mainClass>io.mongock.professional.examples.SpringBootMultitenantApp</mainClass>
                 </configuration>
 
                 <executions>

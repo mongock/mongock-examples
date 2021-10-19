@@ -7,7 +7,7 @@ import io.mongock.api.annotations.RollbackExecution;
 
 import org.springframework.data.mongodb.core.MongoTemplate;
 
-import static io.mongock.professional.examples.SpringBootSpringDataBuilderMultitenantApp.CLIENTS_COLLECTION_NAME;
+import static io.mongock.professional.examples.SpringBootMultitenantApp.CLIENTS_COLLECTION_NAME;
 
 @ChangeUnit(id="client-updater-runalways", order = "3", author = "mongock", runAlways = true)
 public class ClientUpdaterRunAlwaysChangeLog {

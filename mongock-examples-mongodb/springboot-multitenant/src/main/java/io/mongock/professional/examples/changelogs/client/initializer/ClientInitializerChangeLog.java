@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
-import static io.mongock.professional.examples.SpringBootSpringDataBuilderMultitenantApp.CLIENTS_COLLECTION_NAME;
+import static io.mongock.professional.examples.SpringBootMultitenantApp.CLIENTS_COLLECTION_NAME;
 import org.bson.Document;
 
 @ChangeUnit(id="client-initializer", order = "1", author = "mongock")

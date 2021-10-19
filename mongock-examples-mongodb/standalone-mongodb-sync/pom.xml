@@ -33,6 +33,17 @@
             <artifactId>mongodb-driver-sync</artifactId>
             <version>${mongodb.driver-sync.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>bson</artifactId>
+            <version>${mongodb.driver-sync.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongodb-driver-core</artifactId>
+            <version>${mongodb.driver-sync.version}</version>
+        </dependency>
+
         
         <!-- LOGS -->
         <dependency>

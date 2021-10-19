@@ -65,9 +65,10 @@ public class RunnerBuilderProviderImpl implements RunnerBuilderProvider {
 				MongoClientSettings.getDefaultCodecRegistry(),
 				fromProviders(PojoCodecProvider.builder().automatic(true).build()));
 
-		return MongoClients.create(MongoClientSettings.builder()
-				.applyConnectionString(new ConnectionString(connectionString))
-				.codecRegistry(codecRegistry)
-				.build());
+		MongoClientSettings.Builder builder = MongoClientSettings.builder();
+		builder.applyConnectionString(new ConnectionString(connectionString));
+		builder.codecRegistry(codecRegistry);
+		MongoClientSettings build = builder.build();
+		return MongoClients.create(build);
 	}
 }

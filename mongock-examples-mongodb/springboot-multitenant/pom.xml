@@ -10,22 +10,24 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <name>springboot-quickstart</name>
-    <description>Mongock example: Quick start with Springboot and springdata MongoDB</description>
-    <artifactId>springboot-quickstart</artifactId>
-    
+    <name>springboot-multitenant</name>
+    <description>Mongock example: Standalone + springdata + MongoDB(multitenant)</description>
+    <artifactId>springboot-multitenant</artifactId>
+
     <dependencies>
-        <!-- MONGOCK RUNNER -->
+        <!-- MONGOCK -->
         <dependency>
-            <groupId>io.mongock</groupId>
-            <artifactId>mongock-springboot</artifactId>
+            <groupId>io.mongock.professional</groupId>
+            <artifactId>mongodb-springdata-v3-driver</artifactId>
+            <version>${mongock.professional.version}</version>
         </dependency>
 
-
-        <!-- MONGOCK DRIVER -->
+        <!-- io.mongock.professional:mongock-springboot and io.mongock:mongock-cli-springboot versions
+        will be managed by a separete bom -->
         <dependency>
-            <groupId>io.mongock</groupId>
-            <artifactId>mongodb-springdata-v3-driver</artifactId>
+            <groupId>io.mongock.professional</groupId>
+            <artifactId>mongock-springboot</artifactId>
+            <version>${mongock.professional.version}</version>
         </dependency>
         
         <!-- SPRING BOOT -->
@@ -48,7 +50,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>io.mongock.examples.QuickStartApp</mainClass>
+                    <mainClass>io.mongock.professional.examples.SpringBootSpringDataBuilderMultitenantApp</mainClass>
                 </configuration>
 
                 <executions>

@@ -12,6 +12,7 @@
 
 ## Scope
 - Quick guide on how to use Mongock with Springboot with autoconfiguration
+- Quick guide on how to execute the migration with the Mongock CLI
 
 ## CLI
 To use the CLI you don't need to do anything else in this application, just install the CLI in two very easy steps and pass the application as a parameter, so it can take the migration and the dependencies.

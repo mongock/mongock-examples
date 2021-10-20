@@ -1,5 +1,6 @@
 package io.mongock.examples.changelogs.client.updater;
 
+import com.mongodb.client.ClientSession;
 import io.mongock.examples.client.Client;
 import io.mongock.api.annotations.ChangeUnit;
 import io.mongock.api.annotations.Execution;
@@ -16,23 +17,23 @@ import static io.mongock.examples.StandaloneMongoApp.CLIENTS_COLLECTION_NAME;
 public class ClientUpdaterChangeLog {
 
   @Execution
-  public void execution(MongoDatabase mongoDatabase) {
+  public void execution(ClientSession clientSession, MongoDatabase mongoDatabase) {
     
     MongoCollection<Client> clientCollection = mongoDatabase.getCollection(CLIENTS_COLLECTION_NAME, Client.class);
     
     StreamSupport.stream(clientCollection.find().spliterator(), false)
             .map(client -> client.setName(client.getName() + "_updated"))
-            .forEach(client -> clientCollection.replaceOne(getQueryById(client), client));
+            .forEach(client -> clientCollection.replaceOne(clientSession, getQueryById(client), client));
   }
   
   @RollbackExecution
-  public void rollbackExecution(MongoDatabase mongoDatabase) {
+  public void rollbackExecution(ClientSession clientSession, MongoDatabase mongoDatabase) {
     
     MongoCollection<Client> clientCollection = mongoDatabase.getCollection(CLIENTS_COLLECTION_NAME, Client.class);
     
     StreamSupport.stream(clientCollection.find().spliterator(), false)
             .map(client -> client.setName(client.getName().substring(0, client.getName().length() - "_updated".length())))
-            .forEach(client -> clientCollection.replaceOne(getQueryById(client), client));
+            .forEach(client -> clientCollection.replaceOne(clientSession, getQueryById(client), client));
   }
   
   private static Document getQueryById(Client client) {

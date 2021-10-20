@@ -1,5 +1,6 @@
 package io.mongock.examples.changelogs.client.initializer;
 
+import com.mongodb.client.ClientSession;
 import io.mongock.api.annotations.BeforeExecution;
 import io.mongock.api.annotations.ChangeUnit;
 import io.mongock.api.annotations.Execution;
@@ -32,17 +33,17 @@ public class ClientInitializerChangeLog {
   }
 
   @Execution
-  public void execution(MongoDatabase mongoDatabase) {
+  public void execution(ClientSession clientSession, MongoDatabase mongoDatabase) {
     
     mongoDatabase.getCollection(CLIENTS_COLLECTION_NAME, Client.class)
-            .insertMany(IntStream.range(0, INITIAL_CLIENTS)
+            .insertMany(clientSession, IntStream.range(0, INITIAL_CLIENTS)
                     .mapToObj(ClientInitializerChangeLog::getClient)
                     .collect(Collectors.toList()));
   }
   
   @RollbackExecution
-  public void rollbackExecution(MongoDatabase mongoDatabase) {
-    mongoDatabase.getCollection(CLIENTS_COLLECTION_NAME, Client.class).deleteMany(new Document());
+  public void rollbackExecution(ClientSession clientSession, MongoDatabase mongoDatabase) {
+    mongoDatabase.getCollection(CLIENTS_COLLECTION_NAME, Client.class).deleteMany(clientSession, new Document());
   }
 
   private static Client getClient(int i) {

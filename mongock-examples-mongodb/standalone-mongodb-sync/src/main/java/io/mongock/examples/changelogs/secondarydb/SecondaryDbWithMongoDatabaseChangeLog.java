@@ -1,5 +1,6 @@
 package io.mongock.examples.changelogs.secondarydb;
 
+import com.mongodb.client.ClientSession;
 import io.mongock.examples.product.Product;
 import io.mongock.api.annotations.ChangeUnit;
 import io.mongock.api.annotations.Execution;
@@ -19,7 +20,7 @@ import static io.mongock.examples.StandaloneMongoApp.PRODUCTS_COLLECTION_NAME;
 public class SecondaryDbWithMongoDatabaseChangeLog {
   
   @Execution
-  public void execution(MongoDatabase mongoDatabase, @Named("secondaryDb") @NonLockGuarded MongoDatabase secondaryDb) {
+  public void execution(ClientSession clientSession, MongoDatabase mongoDatabase, @Named("secondaryDb") @NonLockGuarded MongoDatabase secondaryDb) {
 
     // To show an example of reading secondary database and writing in main database, we
     // are going to migrate Products from secondaryDb (with MongoDatabase) to main db (with MongockTemplate).
@@ -27,12 +28,12 @@ public class SecondaryDbWithMongoDatabaseChangeLog {
                                           .collect(Collectors.toList());
     
     // We have the read products, so now we'll insert them into the main database.
-    mongoDatabase.getCollection(PRODUCTS_COLLECTION_NAME, Product.class).insertMany(products);
+    mongoDatabase.getCollection(PRODUCTS_COLLECTION_NAME, Product.class).insertMany(clientSession, products);
   }
 
   @RollbackExecution
-  public void rollbackExecution(MongoDatabase mongoDatabase, @Named("secondaryDb") @NonLockGuarded MongoDatabase secondaryDb) {
+  public void rollbackExecution(ClientSession clientSession, MongoDatabase mongoDatabase, @Named("secondaryDb") @NonLockGuarded MongoDatabase secondaryDb) {
     
-    mongoDatabase.getCollection("productsWithMongoDatabase").deleteMany(new Document());
+    mongoDatabase.getCollection("productsWithMongoDatabase").deleteMany(clientSession, new Document());
   }
 }

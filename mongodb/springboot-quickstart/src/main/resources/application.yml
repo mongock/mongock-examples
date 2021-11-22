@@ -1,0 +1,8 @@
+mongock:
+  migration-scan-package:
+    - io.mongock.examples.changelogs
+  transactionEnabled: true
+
+
+
+

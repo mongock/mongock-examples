@@ -13,12 +13,13 @@ public final class DynamoDBUtils {
 	private static final int DEFAULT_WAIT_INTERVAL = 20 * 1000;
 	private DynamoDBUtils(){}
 	public static void waitUntilActive(Table table) throws InterruptedException {
-
+		logger.info("Waiting for table[{}] to be created", table.getTableName());
 		long startTime = System.currentTimeMillis();
 		long endTime = startTime + DEFAULT_WAIT_TIMEOUT;
 		while (System.currentTimeMillis() < endTime) {
 			try {
 				if (TableStatus.ACTIVE.name().equalsIgnoreCase(table.describe().getTableStatus())) {
+					logger.info("Table[{}] successfully created", table.getTableName());
 					return;
 				}
 			} catch (ResourceNotFoundException ex) {
@@ -27,6 +28,8 @@ public final class DynamoDBUtils {
 
 			Thread.sleep(DEFAULT_WAIT_INTERVAL);
 		}
+
+		logger.error("Table[{}] was not created in the given time", table.getTableName());
 	}
 
 }

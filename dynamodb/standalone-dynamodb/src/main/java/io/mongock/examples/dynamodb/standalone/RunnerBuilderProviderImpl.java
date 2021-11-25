@@ -35,8 +35,7 @@ public class RunnerBuilderProviderImpl implements RunnerBuilderProvider {
 		DynamoDB dynamoDB = new DynamoDB(client);
 		DynamoDBMapper mapper = new DynamoDBMapper(client, config);
 		return MongockStandalone.builder()
-				//It requires `Companion` token because it's implemented in Kotlin.
-				.setDriver(DynamoDBDriver.Companion.withDefaultLock(client))
+				.setDriver(DynamoDBDriver.withDefaultLock(client))
 				.addMigrationScanPackage("io.mongock.examples.dynamodb.standalone.migration")
 				.setMigrationStartedListener(MongockEventListener::onStart)
 				.setMigrationSuccessListener(MongockEventListener::onSuccess)

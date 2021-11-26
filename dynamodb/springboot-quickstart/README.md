@@ -8,7 +8,8 @@
 ## Requirements
 - Java 8
 - Maven 3.x
-- MongoDB with ReplicaSet(You can easily setup a MongoDB replicaset with this [repository](https://github.com/mongock/mongodb-replset-deployment-docker))
+- AWS account
+- Added AWS_ACCESS_KEY and AWS_SECRET_KEY to environment variables
 
 ## Scope
 - Quick guide on how to use Mongock with Springboot with autoconfiguration
@@ -32,7 +33,6 @@ To use the CLI you don't need to do anything else in this application, just inst
 3. Execute `./mongock migrate -aj YOUR_PROJECT_FOLDER/target/springboot-quickstart-1.0-SNAPSHOT.jar`
 
 > :bulb: The Mongock CLI requires an uber application jar. **Luckily for Springboot users, this is provided by the framework out of the box**
-
 
 The output should look similar to this:
 

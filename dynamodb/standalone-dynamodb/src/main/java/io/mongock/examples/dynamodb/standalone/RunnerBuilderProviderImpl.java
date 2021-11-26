@@ -17,8 +17,12 @@ import io.mongock.runner.standalone.MongockStandalone;
 
 public class RunnerBuilderProviderImpl implements RunnerBuilderProvider {
 
-	private static final String SERVICE_ENDPOINT = "dynamodb.eu-west-1.amazonaws.com";
-	private static final String REGION = "eu-west-1";
+	private static final String SERVICE_ENDPOINT = System.getenv("AWS_ACCESS_KEY") != null
+			? System.getenv("AWS_SERVICE_ENDPOINT")
+			: "dynamodb.eu-west-1.amazonaws.com";
+	private static final String REGION = System.getenv("AWS_REGION") != null
+			? System.getenv("AWS_REGION")
+			: "eu-west-1";
 	private static final String ACCESS_KEY = System.getenv("AWS_ACCESS_KEY");
 	private static final String SECRET_KEY = System.getenv("AWS_SECRET_KEY");
 
@@ -47,7 +51,12 @@ public class RunnerBuilderProviderImpl implements RunnerBuilderProvider {
 
 	/**
 	 * Main AmazonDynamoDBClient for Mongock to work.
-	 * It gets the AWS credentials from ENV variable: AWS_ACCESS_KEY and AWS_SECRET_KEY
+	 *
+	 * AWS_ACCESS_KEY: It's retrieved from ENV variable(mandatory)
+	 * AWS_SECRET_KEY: It's retrieved from ENV variable(mandatory)
+	 * AWS_SERVICE_ENDPOINT: It's retrieved from ENV variable(default value: dynamodb.eu-west-1.amazonaws.com)
+	 * AWS_REGION: It's retrieved from ENV variable(default value: eu-west-1)
+	 *
 	 */
 	private static AmazonDynamoDBClient getMainDynamoDBClient() {
 		return (AmazonDynamoDBClient) AmazonDynamoDBClientBuilder.standard()

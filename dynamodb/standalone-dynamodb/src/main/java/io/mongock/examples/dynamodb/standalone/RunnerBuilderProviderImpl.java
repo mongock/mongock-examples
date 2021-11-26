@@ -17,7 +17,7 @@ import io.mongock.runner.standalone.MongockStandalone;
 
 public class RunnerBuilderProviderImpl implements RunnerBuilderProvider {
 
-	private static final String SERVICE_ENDPOINT = System.getenv("AWS_ACCESS_KEY") != null
+	private static final String SERVICE_ENDPOINT = System.getenv("AWS_SERVICE_ENDPOINT") != null
 			? System.getenv("AWS_SERVICE_ENDPOINT")
 			: "dynamodb.eu-west-1.amazonaws.com";
 	private static final String REGION = System.getenv("AWS_REGION") != null

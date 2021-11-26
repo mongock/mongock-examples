@@ -12,6 +12,7 @@
   
     <modules>
         <module>standalone-dynamodb</module>
+        <module>springboot-quickstart</module>
     </modules>
     
     <properties>
@@ -25,14 +26,27 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- MONGOCK versions -->
-        <mongock.community.version>5.0.26-SNAPSHOT</mongock.community.version>
+        <mongock.community.version>5.0.27-SNAPSHOT</mongock.community.version>
         <mongock.professional.version>5.0.21.BETA</mongock.professional.version>
-        
-        <spring-boot.version>2.4.0</spring-boot.version>
 
-        
-        <slf4j.version>1.7.30</slf4j.version>
+        <aws-java-sdk-dynamodb.version>1.12.111</aws-java-sdk-dynamodb.version>
+        <spring-boot.version>2.4.0</spring-boot.version>
+        <slf4j.version>1.7.32</slf4j.version>
     </properties>
+
+    <dependencies>
+        <!-- LOGS -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+    </dependencies>
     
     <dependencyManagement>
         <dependencies>

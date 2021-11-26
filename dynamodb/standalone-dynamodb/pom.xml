@@ -29,28 +29,13 @@
         <dependency>
             <groupId>io.mongock</groupId>
             <artifactId>dynamodb-driver</artifactId>
-            <version>5.0.26.BETA-SNAPSHOT</version>
         </dependency>
-
 
         <dependency>
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-java-sdk-dynamodb</artifactId>
-            <version>1.12.104</version>
+            <version>${aws-java-sdk-dynamodb.version}</version>
         </dependency>
-
-        <!-- LOGS -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
-
     </dependencies>
 
 

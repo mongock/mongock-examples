@@ -36,16 +36,14 @@ public class RunnerBuilderProviderImpl implements RunnerBuilderProvider {
 	@Override
 	public RunnerBuilder getBuilder() {
 		AmazonDynamoDBClient client = getMainDynamoDBClient();
-		DynamoDB dynamoDB = new DynamoDB(client);
-		DynamoDBMapper mapper = new DynamoDBMapper(client, config);
 		return MongockStandalone.builder()
 				.setDriver(DynamoDBDriver.withDefaultLock(client))
 				.addMigrationScanPackage("io.mongock.examples.dynamodb.standalone.migration")
 				.setMigrationStartedListener(MongockEventListener::onStart)
 				.setMigrationSuccessListener(MongockEventListener::onSuccess)
 				.setMigrationFailureListener(MongockEventListener::onFail)
-				.addDependency(mapper)
-				.addDependency(dynamoDB)
+				.addDependency(new DynamoDBMapper(client, config))
+				.addDependency(new DynamoDB(client))
 				.addDependency(client);
 	}
 

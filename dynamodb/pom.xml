@@ -58,6 +58,9 @@
                 <scope>import</scope>
             </dependency>
 
+
+
+
             <dependency>
                 <groupId>io.mongock.professional</groupId>
                 <artifactId>mongock-professional-bom</artifactId>

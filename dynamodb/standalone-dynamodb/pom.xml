@@ -29,6 +29,7 @@
         <dependency>
             <groupId>io.mongock</groupId>
             <artifactId>dynamodb-driver</artifactId>
+            <version>5.0.27.BETA-SNAPSHOT</version>
         </dependency>
 
         <dependency>

@@ -25,7 +25,7 @@
         <dependency>
             <groupId>io.mongock</groupId>
             <artifactId>dynamodb-springboot-driver</artifactId>
-            <version>5.0.27.BETA-SNAPSHOT</version>
+            <version>5.0.27.BETA</version>
         </dependency>
         
         <!-- SPRING BOOT -->

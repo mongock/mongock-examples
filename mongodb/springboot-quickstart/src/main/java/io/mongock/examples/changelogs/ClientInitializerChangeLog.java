@@ -1,7 +1,5 @@
 package io.mongock.examples.changelogs;
 
-import com.mongodb.client.FindIterable;
-import com.mongodb.client.MongoDatabase;
 import io.mongock.examples.client.Client;
 import io.mongock.examples.client.ClientRepository;
 import io.mongock.api.annotations.BeforeExecution;
@@ -12,8 +10,6 @@ import io.mongock.api.annotations.RollbackExecution;
 
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-
-import org.bson.Document;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 import static io.mongock.examples.QuickStartApp.CLIENTS_COLLECTION_NAME;
@@ -25,8 +21,8 @@ public class ClientInitializerChangeLog {
   
   @BeforeExecution
   public void beforeExecution(MongoTemplate mongoTemplate) {
-      
-//      mongoTemplate.createCollection(CLIENTS_COLLECTION_NAME);
+
+      mongoTemplate.createCollection(CLIENTS_COLLECTION_NAME);
   }
   
   @RollbackBeforeExecution
@@ -36,11 +32,7 @@ public class ClientInitializerChangeLog {
   }
 
   @Execution
-  public void execution(ClientRepository clientRepository, MongoDatabase database) {
-
-    FindIterable<Document> boxes = database.getCollection("boxCollection").find(new Document());
-    //parser your boxes iterable to a Box.class java collection(you obviously need to map values like String(100kg) to Double(100))
-    // and then perform an update to override the items in your collection
+  public void execution(ClientRepository clientRepository) {
       
     clientRepository.saveAll(
             IntStream.range(0, INITIAL_CLIENTS)

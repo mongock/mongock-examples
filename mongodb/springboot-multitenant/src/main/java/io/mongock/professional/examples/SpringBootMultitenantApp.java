@@ -45,18 +45,19 @@ public class SpringBootMultitenantApp {
     @Bean
     public RunnerSpringbootBuilder runnerSpringbootBuilderProfessional(ApplicationContext springContext, ApplicationEventPublisher eventPublisher) {
         // Runner
-        return MongockSpringboot.builder()
-                .setDriver(
-                        SpringDataMongoV3DriverProfessional.multiTenant()
-                                .addTenant(getDriver("test1"))
-                                .addTenant(getDriver("test2"))
-                                .addTenant(getDriver("test3"))
-                )
-                .addMigrationScanPackage("io.mongock.professional.examples.changelogs")
-                .setSpringContext(springContext)
-                .setEventPublisher(eventPublisher)
-                .setTrackIgnored(true)
-                .setTransactionEnabled(true);
+//        return MongockSpringboot.builder()
+//                .setDriver(
+//                        SpringDataMongoV3DriverProfessional.multiTenant()
+//                                .addTenant(getDriver("test1"))
+//                                .addTenant(getDriver("test2"))
+//                                .addTenant(getDriver("test3"))
+//                )
+//                .addMigrationScanPackage("io.mongock.professional.examples.changelogs")
+//                .setSpringContext(springContext)
+//                .setEventPublisher(eventPublisher)
+//                .setTrackIgnored(true)
+//                .setTransactionEnabled(true);
+        return null;
     }
 
     @Bean

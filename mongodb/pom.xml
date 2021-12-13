@@ -30,8 +30,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- MONGOCK versions -->
-        <mongock.community.version>5.0.31-SNAPSHOT</mongock.community.version>
-        <mongock.professional.version>5.0.22.BETA-SNAPSHOT</mongock.professional.version>
+        <mongock.version>5.0.31</mongock.version>
         
         <spring-boot.version>2.4.0</spring-boot.version>
 
@@ -45,16 +44,8 @@
         <dependencies>
             <dependency>
                 <groupId>io.mongock</groupId>
-                <artifactId>mongock-community-bom</artifactId>
-                <version>${mongock.community.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>io.mongock.professional</groupId>
-                <artifactId>mongock-professional-bom</artifactId>
-                <version>${mongock.professional.version}</version>
+                <artifactId>mongock-bom</artifactId>
+                <version>${mongock.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

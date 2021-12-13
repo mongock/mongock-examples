@@ -30,7 +30,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- MONGOCK versions -->
-        <mongock.community.version>5.0.30</mongock.community.version>
+        <mongock.community.version>5.0.31-SNAPSHOT</mongock.community.version>
         <mongock.professional.version>5.0.21.BETA</mongock.professional.version>
         
         <spring-boot.version>2.4.0</spring-boot.version>

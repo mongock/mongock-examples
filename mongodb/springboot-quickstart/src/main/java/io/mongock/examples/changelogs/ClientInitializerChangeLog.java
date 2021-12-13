@@ -21,7 +21,7 @@ public class ClientInitializerChangeLog {
   
   @BeforeExecution
   public void beforeExecution(MongoTemplate mongoTemplate) {
-      
+
       mongoTemplate.createCollection(CLIENTS_COLLECTION_NAME);
   }
   

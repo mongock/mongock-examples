@@ -26,7 +26,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- MONGOCK versions -->
-        <mongock.version>5.0.32</mongock.version>
+        <mongock.version>5.0.33</mongock.version>
 
         <aws-java-sdk-dynamodb.version>1.12.111</aws-java-sdk-dynamodb.version>
         <spring-boot.version>2.4.0</spring-boot.version>

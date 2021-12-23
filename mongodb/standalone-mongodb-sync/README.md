@@ -53,8 +53,8 @@ The easies way is to create an uber jar with `maven-shade-plugin`, as it's shown
 > :bulb: The Mongock CLI requires an uber application jar. **Luckily for Springboot users, this is provided by the framework out of the box**
 
 
-The output should look similar to this:
+<!--The output should look similar to this:
 
-![cli migrate](./images/cli-migrate.png)
+![cli migrate](./images/cli-migrate.png)-->
 
 

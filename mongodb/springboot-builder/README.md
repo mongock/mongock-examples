@@ -1,4 +1,4 @@
-# Mongock Example for: springboot + spring data
+# Mongock Example for: springboot + spring data (using builder)
 
 ## Table of content
 - [Requirements](#requirements)
@@ -11,7 +11,7 @@
 - MongoDB with ReplicaSet(You can easily setup a MongoDB replicaset with this [repository](https://github.com/mongock/mongodb-replset-deployment-docker))
 
 ## Scope
-- Quick guide on how to use Mongock with Springboot with autoconfiguration
+- Quick guide on how to use Mongock with Springboot using builder
 - Quick guide on how to execute the migration with the Mongock CLI
 
 ## CLI
@@ -29,7 +29,7 @@ To use the CLI you don't need to do anything else in this application, just inst
 <!--  Remove this section with just the documentation link: https://www.mongock.io/cli/operations#migrate-->
 1. Execute `mvn clean package` inside your application folder.
 2. Open a terminal and locate it inside the unzipped folder from the installation step
-3. Execute `./mongock migrate -aj YOUR_PROJECT_FOLDER/target/springboot-quickstart-1.0-SNAPSHOT.jar`
+3. Execute `./mongock migrate -aj YOUR_PROJECT_FOLDER/target/springboot-builder-1.0-SNAPSHOT.jar`
 
 > :bulb: The Mongock CLI requires an uber application jar. **Luckily for Springboot users, this is provided by the framework out of the box**
 

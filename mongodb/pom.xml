@@ -12,6 +12,7 @@
   
     <modules>
         <module>springboot-quickstart</module>
+        <module>springboot-builder</module>
         <module>springboot-advance</module>
         <module>standalone-mongodb-sync</module>
         <module>standalone-springdata</module>

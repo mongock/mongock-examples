@@ -34,8 +34,8 @@ To use the CLI you don't need to do anything else in this application, just inst
 > :bulb: The Mongock CLI requires an uber application jar. **Luckily for Springboot users, this is provided by the framework out of the box**
 
 
-The output should look similar to this:
+<!--The output should look similar to this:
 
-![cli migrate](./images/cli-migrate.png)
+![cli migrate](./images/cli-migrate.png)-->
 
 

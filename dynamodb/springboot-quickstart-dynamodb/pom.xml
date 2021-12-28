@@ -10,9 +10,9 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <name>springboot-quickstart</name>
+    <name>springboot-quickstart-dynamodb</name>
     <description>Mongock example: Quick start with Springboot and springdata MongoDB</description>
-    <artifactId>springboot-quickstart</artifactId>
+    <artifactId>springboot-quickstart-dynamodb</artifactId>
     
     <dependencies>
         <!-- MONGOCK RUNNER -->

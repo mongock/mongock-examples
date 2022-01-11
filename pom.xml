@@ -7,7 +7,7 @@
     <description>Mongock examples</description>
     <groupId>io.mongock</groupId>
     <artifactId>mongock-examples</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>5.0.35-SNAPSHOT</version>
     <packaging>pom</packaging>
   
     <modules>
@@ -27,7 +27,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- MONGOCK versions -->
-        <mongock.version>5.0.34</mongock.version>
+        <mongock.version>5.0.35</mongock.version>
         
         <spring-boot.version>2.4.0</spring-boot.version>
 

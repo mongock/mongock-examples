@@ -18,7 +18,7 @@
 To use the CLI you don't need to do anything else in this application, just install the CLI in two very easy steps and pass the application as a parameter, so it can take the migration and the dependencies.
 
 ### Install CLI
-<!--  Remove this section with just the documentation link: https://www.mongock.io/cli-->
+<!--  Remove this section with just the documentation link: https://docs.mongock.io/cli-->
 1. Download the latest version of the **mongock-cli-LATEST_VERSION.zip** from [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.mongock/mongock-cli/badge.png)](https://repo.maven.apache.org/maven2/io/mongock/mongock-cli/)
 2. Unzip it
 
@@ -26,7 +26,7 @@ To use the CLI you don't need to do anything else in this application, just inst
 
 ### Run the migration with the CLI
 
-<!--  Remove this section with just the documentation link: https://www.mongock.io/cli/operations#migrate-->
+<!--  Remove this section with just the documentation link: https://docs.mongock.io/cli/operations#migrate-->
 1. Execute `mvn clean package` inside your application folder.
 2. Open a terminal and locate it inside the unzipped folder from the installation step
 3. Execute `./mongock migrate -aj YOUR_PROJECT_FOLDER/target/springboot-builder-1.0-SNAPSHOT.jar`

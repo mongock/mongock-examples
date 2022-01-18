@@ -17,7 +17,7 @@
 - How to use the CLI to run the migration
 
 ## CLI
-<!--  Remove this section with just the documentation link: https://www.mongock.io/cli-->
+<!--  Remove this section with just the documentation link: https://docs.mongock.io/cli-->
 In order to make this application ready to work with the CLI, you need to steps: install the CLI and prepare the app with 3 easy steps.
 ### Install CLI
 1. Download the latest version of the **mongock-cli-LATEST_VERSION.zip** from [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.mongock/mongock-cli/badge.png)](https://repo.maven.apache.org/maven2/io/mongock/mongock-cli/)
@@ -45,7 +45,7 @@ The easies way is to create an uber jar with `maven-shade-plugin`, as it's shown
 
 ### Run the migration with the CLI
 
-<!--  Remove this section with just the documentation link: https://www.mongock.io/cli/operations#migrate-->
+<!--  Remove this section with just the documentation link: https://docs.mongock.io/cli/operations#migrate-->
 1. Execute `mvn clean package` inside your application folder.
 2. Open a terminal and locate it inside the unzipped folder from the installation step
 3. Execute `./mongock migrate -aj YOUR_PROJECT_FOLDER/target/standalone-mongodb-sync-1.0-SNAPSHOT.jar`

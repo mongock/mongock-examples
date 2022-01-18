@@ -25,7 +25,7 @@ In this example we should how to use the builder approach, as it's a bit more cu
 Also in the module `springboot-quickstart` in this multiproject, you can find an example with Mongock autconfiguration.
 
 ## CLI
-<!--  Remove this section with just the documentation link: https://www.mongock.io/cli-->
+<!--  Remove this section with just the documentation link: https://docs.mongock.io/cli-->
 To use the CLI you don't need to do anything else in this application, just install the CLI in two very easy steps and pass the application as a parameter, so it can take the migration and the dependencies.
 
 ### Install CLI

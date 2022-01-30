@@ -1,8 +1,8 @@
 mongock:
   migration-scan-package:
     - io.mongock.examples.changelogs
-  trackIgnored: true
-  transactionEnabled: true
+  track-ignored: true
+  transaction-enabled: true
   runner-type: InitializingBean
   mongo-db:
     read-concern: local

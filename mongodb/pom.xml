@@ -24,6 +24,7 @@
         <module>standalone-springdata</module>
         <module>springboot-multitenant</module>
         <module>standalone-reactive</module>
+        <module>springboot-reactive</module>
     </modules>
 
     <properties>
@@ -35,7 +36,7 @@
 
         <mongodb.driver-sync.version>4.3.3</mongodb.driver-sync.version>
         <mongodb-reactivestreams.version>4.4.1</mongodb-reactivestreams.version>
-        <mongodb.spring-data.starter.version>2.5.5</mongodb.spring-data.starter.version>
+        <mongodb.spring-data.starter.version>2.6.3</mongodb.spring-data.starter.version>
     </properties>
 
 

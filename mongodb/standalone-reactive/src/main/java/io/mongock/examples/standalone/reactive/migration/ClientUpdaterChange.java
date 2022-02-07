@@ -1,4 +1,4 @@
-package io.mongock.examples.standalone.reactive.migration.updater;
+package io.mongock.examples.standalone.reactive.migration;
 
 import com.mongodb.client.result.UpdateResult;
 import com.mongodb.reactivestreams.client.ClientSession;
@@ -20,8 +20,8 @@ import static io.mongock.examples.standalone.reactive.StandaloneReactiveApp.CLIE
 
 
 @ChangeUnit(id = "client-updater", order = "2", author = "mongock")
-public class ClientUpdaterChangeLog {
-  private static Logger logger = LoggerFactory.getLogger(ClientUpdaterChangeLog.class);
+public class ClientUpdaterChange {
+  private static Logger logger = LoggerFactory.getLogger(ClientUpdaterChange.class);
 
   @Execution
   public void execution(ClientSession clientSession, MongoDatabase mongoDatabase) {

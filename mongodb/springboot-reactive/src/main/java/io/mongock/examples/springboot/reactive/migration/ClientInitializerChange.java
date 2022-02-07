@@ -1,4 +1,4 @@
-package io.mongock.examples.standalone.reactive.migration.initializer;
+package io.mongock.examples.springboot.reactive.migration;
 
 
 import com.mongodb.client.result.DeleteResult;
@@ -12,7 +12,7 @@ import io.mongock.api.annotations.RollbackBeforeExecution;
 import io.mongock.api.annotations.RollbackExecution;
 import io.mongock.driver.mongodb.reactive.util.MongoSubscriberSync;
 import io.mongock.driver.mongodb.reactive.util.SubscriberSync;
-import io.mongock.examples.standalone.reactive.client.Client;
+import io.mongock.examples.springboot.reactive.client.Client;
 import org.bson.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,14 +20,14 @@ import org.slf4j.LoggerFactory;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static io.mongock.examples.standalone.reactive.StandaloneReactiveApp.CLIENTS_COLLECTION_NAME;
+import static io.mongock.examples.springboot.reactive.SpringbootReactiveApp.CLIENTS_COLLECTION_NAME;
 
 
 @ChangeUnit(id = "client-initializer", order = "1", author = "mongock")
-public class ClientInitializerChangeLog {
+public class ClientInitializerChange {
 
     public final static int INITIAL_CLIENTS = 10;
-    private static Logger logger = LoggerFactory.getLogger(ClientInitializerChangeLog.class);
+    private static Logger logger = LoggerFactory.getLogger(ClientInitializerChange.class);
 
     @BeforeExecution
     public void beforeExecution(MongoDatabase mongoDatabase) {
@@ -48,14 +48,14 @@ public class ClientInitializerChangeLog {
         SubscriberSync<InsertManyResult> subscriber = new MongoSubscriberSync<>();
         mongoDatabase.getCollection(CLIENTS_COLLECTION_NAME, Client.class)
                 .insertMany(clientSession, IntStream.range(0, INITIAL_CLIENTS)
-                        .mapToObj(ClientInitializerChangeLog::getClient)
+                        .mapToObj(ClientInitializerChange::getClient)
                         .collect(Collectors.toList()))
                 .subscribe(subscriber);
+
         InsertManyResult result = subscriber.getFirst();
         logger.info("ClientInitializerChangeLog.execution wasAcknowledged: {}", result.wasAcknowledged());
         result.getInsertedIds()
-                .entrySet()
-                .forEach(entry -> logger.info("update id[{}] : {}", entry.getKey(), entry.getValue()));
+                .forEach((key, value) -> logger.info("update id[{}] : {}", key, value));
     }
 
     @RollbackExecution

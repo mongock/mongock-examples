@@ -52,9 +52,6 @@ public class SpringbootReactiveApp {
                 MongoClientSettings.getDefaultCodecRegistry(),
                 fromProviders(PojoCodecProvider.builder().automatic(true).build()));
 
-
-
-
         return MongoClients.create(MongoClientSettings.builder()
                 .applyConnectionString(new ConnectionString(MONGODB_CONNECTION_STRING))
                 .codecRegistry(codecRegistry)

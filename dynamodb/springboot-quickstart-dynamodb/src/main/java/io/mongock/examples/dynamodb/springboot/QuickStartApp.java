@@ -22,32 +22,11 @@ import org.springframework.context.annotation.Bean;
 @EnableMongock
 @SpringBootApplication
 public class QuickStartApp {
-    private static final String SERVICE_ENDPOINT = System.getenv("AWS_SERVICE_ENDPOINT") != null
-            ? System.getenv("AWS_SERVICE_ENDPOINT")
-            : "dynamodb.eu-west-1.amazonaws.com";
-    private static final String REGION = System.getenv("AWS_REGION") != null
-            ? System.getenv("AWS_REGION")
-            : "eu-west-1";
+    private static final String SERVICE_ENDPOINT = "dynamodb.eu-west-1.amazonaws.com";
+    private static final String REGION = "eu-west-1";
     private static final String ACCESS_KEY = System.getenv("AWS_ACCESS_KEY");
     private static final String SECRET_KEY = System.getenv("AWS_SECRET_KEY");
 
-    public static void main(String[] args) {
-        getSpringAppBuilder().run(args);
-    }
-
-    public static SpringApplicationBuilder getSpringAppBuilder() {
-        return new SpringApplicationBuilder().sources(QuickStartApp.class);
-    }
-
-    /**
-     * Main AmazonDynamoDBClient for Mongock to work.
-     *
-     * AWS_ACCESS_KEY: It's retrieved from ENV variable(mandatory)
-     * AWS_SECRET_KEY: It's retrieved from ENV variable(mandatory)
-     * AWS_SERVICE_ENDPOINT: It's retrieved from ENV variable(default value: dynamodb.eu-west-1.amazonaws.com)
-     * AWS_REGION: It's retrieved from ENV variable(default value: eu-west-1)
-     *
-     */
     @Bean
     public AmazonDynamoDBClient amazonDynamoDBClient() {
         return (AmazonDynamoDBClient) AmazonDynamoDBClientBuilder.standard()
@@ -62,7 +41,7 @@ public class QuickStartApp {
                 .builder()
                 .withConsistentReads(DynamoDBMapperConfig.ConsistentReads.CONSISTENT)
                 .withPaginationLoadingStrategy(DynamoDBMapperConfig.PaginationLoadingStrategy.EAGER_LOADING)
-                .withTableNameOverride(DynamoDBMapperConfig.TableNameOverride.withTableNameReplacement(Client.TABLE_NAME))
+                .withTableNameOverride(DynamoDBMapperConfig.TableNameOverride.withTableNameReplacement(Customer.TABLE_NAME))
                 .build();
         return new DynamoDBMapper(client, config);
     }
@@ -72,4 +51,15 @@ public class QuickStartApp {
         return new DynamoDB(client);
     }
 
+
+
+
+
+    public static void main(String[] args) {
+        getSpringAppBuilder().run(args);
+    }
+
+    public static SpringApplicationBuilder getSpringAppBuilder() {
+        return new SpringApplicationBuilder().sources(QuickStartApp.class);
+    }
 }

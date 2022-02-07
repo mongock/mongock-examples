@@ -20,7 +20,7 @@
     <dependencies>
         <!-- MONGOCK RUNNER -->
         <dependency>
-            <groupId>io.mongock</groupId>
+            <groupId>io.mongock.professional</groupId>
             <artifactId>mongock-springboot</artifactId>
         </dependency>
 

@@ -17,7 +17,7 @@
     <dependencies>
         <!-- MONGOCK RUNNER -->
         <dependency>
-            <groupId>io.mongock</groupId>
+            <groupId>io.mongock.professional</groupId>
             <artifactId>mongock-springboot</artifactId>
         </dependency>
 
@@ -49,7 +49,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>io.mongock.examples.QuickStartApp</mainClass>
+                    <mainClass>io.mongock.examples.dynamodb.springboot.QuickStartApp</mainClass>
                 </configuration>
 
                 <executions>

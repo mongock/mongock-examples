@@ -14,8 +14,8 @@ import io.mongock.api.annotations.Execution;
 import io.mongock.api.annotations.RollbackBeforeExecution;
 import io.mongock.api.annotations.RollbackExecution;
 import io.mongock.driver.dynamodb.repository.DynamoDBTransactionItems;
-import io.mongock.examples.dynamodb.springboot.Client;
-import io.mongock.examples.dynamodb.springboot.DynamoDBUtils;
+import io.mongock.driver.dynamodb.util.DynamoDBUtils;
+import io.mongock.examples.dynamodb.springboot.Customer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,7 +32,7 @@ public class ClientInitializerChangeUnit {
 	@BeforeExecution
 	public void createTable(DynamoDBMapper mapper,
 							DynamoDB dynamoDB) throws InterruptedException {
-		CreateTableRequest createTableRequest = mapper.generateCreateTableRequest(Client.class);
+		CreateTableRequest createTableRequest = mapper.generateCreateTableRequest(Customer.class);
 		Table table = dynamoDB.createTable(createTableRequest.withProvisionedThroughput(new ProvisionedThroughput(50L, 50L)));
 		DynamoDBUtils.waitUntilActive(table);
 	}
@@ -42,7 +42,7 @@ public class ClientInitializerChangeUnit {
 	@RollbackBeforeExecution
 	public void removeTable(DynamoDB dynamoDB) {
 		try {
- 			Table table = dynamoDB.getTable(Client.TABLE_NAME);
+ 			Table table = dynamoDB.getTable(Customer.TABLE_NAME);
 			if (table != null) {
 				table.delete();
 			}
@@ -52,10 +52,10 @@ public class ClientInitializerChangeUnit {
 	}
 
 	@Execution
-	public void execution(DynamoDBTransactionItems transactionItems) {
+	public void execution(DynamoDBTransactionItems transactionItems, DynamoDBMapper mapper) {
 
 		for(int i = 0 ; i< CLIENTS_COUNTER; i++) {
-			Put put = new Put().withTableName(Client.TABLE_NAME).withItem(getClient(i));
+			Put put = new Put().withTableName(Customer.TABLE_NAME).withItem(getClient(i));
 			logger.debug("Added element to transactionItems: " + put);
 			transactionItems.add(new TransactWriteItem().withPut(put));
 		}

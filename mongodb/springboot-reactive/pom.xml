@@ -2,18 +2,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
     <parent>
-        <artifactId>dynamodb</artifactId>
+        <artifactId>mongodb</artifactId>
         <groupId>io.mongock</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+    <modelVersion>4.0.0</modelVersion>
 
-    <name>springboot-quickstart-dynamodb</name>
-    <description>Mongock example: Quick start with Springboot and springdata MongoDB</description>
-    <artifactId>springboot-quickstart-dynamodb</artifactId>
-    
+    <artifactId>springboot-reactive</artifactId>
+    <description>Mongock example: Quick start with Springboot and MongoDB reactive</description>
+
     <dependencies>
         <!-- MONGOCK RUNNER -->
         <dependency>
@@ -21,25 +19,43 @@
             <artifactId>mongock-springboot</artifactId>
         </dependency>
 
+
         <!-- MONGOCK DRIVER -->
         <dependency>
             <groupId>io.mongock</groupId>
-            <artifactId>dynamodb-springboot-driver</artifactId>
+            <artifactId>mongodb-reactive-driver</artifactId>
         </dependency>
-        
+
+        <!-- MONGODB DRIVER -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>
+            <version>${mongodb.spring-data.starter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongodb-driver-reactivestreams</artifactId>
+            <version>${mongodb-reactivestreams.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongodb-driver-core</artifactId>
+            <version>${mongodb-reactivestreams.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>bson</artifactId>
+            <version>${mongodb-reactivestreams.version}</version>
+        </dependency>
+
         <!-- SPRING BOOT -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-
-
-        <dependency>
-            <groupId>com.amazonaws</groupId>
-            <artifactId>aws-java-sdk-dynamodb</artifactId>
-            <version>${aws-java-sdk-dynamodb.version}</version>
-        </dependency>
+        <!-- SPRING DATA -->
 
     </dependencies>
 
@@ -49,7 +65,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>io.mongock.examples.dynamodb.springboot.QuickStartApp</mainClass>
+                    <mainClass>io.mongock.examples.springboot.reactive.SpringbootReactiveApp</mainClass>
                 </configuration>
 
                 <executions>

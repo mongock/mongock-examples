@@ -7,8 +7,8 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 import java.util.Objects;
 
 
-@DynamoDBTable(tableName = Client.TABLE_NAME)
-public class Client {
+@DynamoDBTable(tableName = Customer.TABLE_NAME)
+public class Customer {
 
   public static final String TABLE_NAME = "CLIENTS";
 
@@ -33,9 +33,9 @@ public class Client {
   @DynamoDBAttribute
   private int counter;
 
-  public Client() {}
+  public Customer() {}
 
-  public Client(String clientId, String name, String email, String phone, String country) {
+  public Customer(String clientId, String name, String email, String phone, String country) {
     this.clientId = clientId;
     this.name = name;
     this.email = email;
@@ -105,8 +105,8 @@ public class Client {
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
-    Client client = (Client) o;
-    return deleted == client.deleted && counter == client.counter && Objects.equals(clientId, client.clientId) && Objects.equals(name, client.name) && Objects.equals(email, client.email) && Objects.equals(phone, client.phone) && Objects.equals(country, client.country);
+    Customer customer = (Customer) o;
+    return deleted == customer.deleted && counter == customer.counter && Objects.equals(clientId, customer.clientId) && Objects.equals(name, customer.name) && Objects.equals(email, customer.email) && Objects.equals(phone, customer.phone) && Objects.equals(country, customer.country);
   }
 
   @Override

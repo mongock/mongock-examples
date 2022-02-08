@@ -8,9 +8,9 @@
     </properties>
 
     <parent>
-        <groupId>io.mongock</groupId>
+        <groupId>io.mongock.examples</groupId>
         <artifactId>mongodb</artifactId>
-        <version>1.0-SNAPSHOT</version>
+         <version>5.0.35-SNAPSHOT</version>
     </parent>
 
     <name>springboot-quickstart</name>

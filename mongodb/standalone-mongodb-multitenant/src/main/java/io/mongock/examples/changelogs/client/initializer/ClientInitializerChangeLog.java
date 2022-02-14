@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import org.bson.Document;
 
-import static io.mongock.examples.StandaloneMongoApp.CLIENTS_COLLECTION_NAME;
+import static io.mongock.examples.StandaloneMultiTenantApp.CLIENTS_COLLECTION_NAME;
 
 @ChangeUnit(id="client-initializer", order = "1", author = "mongock")
 public class ClientInitializerChangeLog {

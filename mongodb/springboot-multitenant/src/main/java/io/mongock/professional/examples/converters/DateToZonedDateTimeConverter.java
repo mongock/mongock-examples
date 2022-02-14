@@ -1,4 +1,4 @@
-package io.mongock.professional.examples.spring;
+package io.mongock.professional.examples.converters;
 
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.data.convert.ReadingConverter;

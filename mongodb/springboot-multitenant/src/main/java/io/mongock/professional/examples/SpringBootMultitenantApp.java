@@ -1,9 +1,10 @@
 package io.mongock.professional.examples;
 
 import com.mongodb.client.MongoClients;
-import io.mongock.professional.driver.mongodb.springdata.v3.SpringDataMongoV3DriverProfessional;
+import io.mongock.driver.mongodb.springdata.v3.SpringDataMongoV3Driver;
 import io.mongock.professional.examples.spring.DateToZonedDateTimeConverter;
 import io.mongock.professional.examples.spring.ZonedDateTimeToDateConverter;
+import io.mongock.professional.runner.common.multitenant.wrapper.MultiTenant;
 import io.mongock.runner.springboot.MongockSpringboot;
 import io.mongock.runner.springboot.RunnerSpringbootBuilder;
 import io.mongock.runner.springboot.base.MongockApplicationRunner;
@@ -43,19 +44,17 @@ public class SpringBootMultitenantApp {
     }
 
     @Bean
-    public RunnerSpringbootBuilder runnerSpringbootBuilderProfessional(ApplicationContext springContext, ApplicationEventPublisher eventPublisher) {
+    public RunnerSpringbootBuilder runnerSpringbootBuilderProfessional(ApplicationContext springContext) {
         // Runner
+//        SpringDataMongoV3DriverProfessional.multiTenant()
+//                .addTenant(getDriver("test1"))
+//                .addTenant(getDriver("test2"))
+//                .addTenant(getDriver("test3"))
+
         return MongockSpringboot.builder()
-                .setDriver(
-                        SpringDataMongoV3DriverProfessional.multiTenant()
-                                .addTenant(getDriver("test1"))
-                                .addTenant(getDriver("test2"))
-                                .addTenant(getDriver("test3"))
-                )
+                .setMultiTenant(MultiTenant.withDrivers())
                 .addMigrationScanPackage("io.mongock.professional.examples.changelogs")
                 .setSpringContext(springContext)
-                .setEventPublisher(eventPublisher)
-                .setTrackIgnored(true)
                 .setTransactionEnabled(true);
     }
 
@@ -65,10 +64,10 @@ public class SpringBootMultitenantApp {
         return builder.buildApplicationRunner();
     }
 
-    private SpringDataMongoV3DriverProfessional getDriver(String dbName) {
+    private SpringDataMongoV3Driver getDriver(String dbName) {
         MongoTemplate mongoTemplate = this.generateMongoTemplate(dbName);
-        SpringDataMongoV3DriverProfessional driver = SpringDataMongoV3DriverProfessional.withDefaultLock(mongoTemplate);
-        driver.enableTransactionWithTxManager(new MongoTransactionManager(mongoTemplate.getMongoDbFactory()));
+        SpringDataMongoV3Driver driver = SpringDataMongoV3Driver.withDefaultLock(mongoTemplate);
+        driver.enableTransaction();
         return driver;
     }
 

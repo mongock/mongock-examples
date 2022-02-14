@@ -5,23 +5,25 @@ import io.mongock.api.annotations.ChangeUnit;
 import io.mongock.api.annotations.Execution;
 import io.mongock.api.annotations.RollbackBeforeExecution;
 import io.mongock.api.annotations.RollbackExecution;
+
 import io.mongock.professional.examples.client.Client;
+import io.mongock.professional.examples.client.ClientRepository;
+import org.springframework.data.mongodb.core.MongoTemplate;
 
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import org.springframework.data.mongodb.core.MongoTemplate;
 
 import static io.mongock.professional.examples.SpringBootMultitenantApp.CLIENTS_COLLECTION_NAME;
-import org.bson.Document;
+
 
 @ChangeUnit(id="client-initializer", order = "1", author = "mongock")
-public class ClientInitializerChangeLog {
+public class ClientInitializerChangeUnit {
 
   public final static int INITIAL_CLIENTS = 10;
   
   @BeforeExecution
   public void beforeExecution(MongoTemplate mongoTemplate) {
-      
+
       mongoTemplate.createCollection(CLIENTS_COLLECTION_NAME);
   }
   
@@ -30,21 +32,21 @@ public class ClientInitializerChangeLog {
       
       mongoTemplate.dropCollection(CLIENTS_COLLECTION_NAME);
   }
-  
+
   @Execution
-  public void execution(MongoTemplate mongoTemplate) {
+  public void execution(ClientRepository clientRepository) {
       
-    mongoTemplate.insertAll(
+    clientRepository.saveAll(
             IntStream.range(0, INITIAL_CLIENTS)
-                    .mapToObj(ClientInitializerChangeLog::getClient)
+                    .mapToObj(ClientInitializerChangeUnit::getClient)
                     .collect(Collectors.toList())
     );
   }
 
   @RollbackExecution
-  public void rollbackExecution(MongoTemplate mongoTemplate) {
+  public void rollbackExecution(ClientRepository clientRepository) {
       
-      mongoTemplate.remove(new Document(), CLIENTS_COLLECTION_NAME);
+    clientRepository.deleteAll();
   }
 
   private static Client getClient(int i) {

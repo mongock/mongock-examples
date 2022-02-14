@@ -1,6 +1,5 @@
 package io.mongock.professional.examples.client;
 
-import io.mongock.professional.examples.SpringBootMultitenantApp;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.CompoundIndex;
 import org.springframework.data.mongodb.core.index.CompoundIndexes;
@@ -10,7 +9,9 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-@Document(collection = SpringBootMultitenantApp.CLIENTS_COLLECTION_NAME)
+import static io.mongock.professional.examples.SpringBootMultitenantApp.CLIENTS_COLLECTION_NAME;
+
+@Document(collection = CLIENTS_COLLECTION_NAME)
 @CompoundIndexes({
     @CompoundIndex(def = "{'name':1, 'deleted':1}", name = "user_name_idx"),
     @CompoundIndex(def = "{'email':1, 'deleted':1}", name = "user_email_idx"),
@@ -37,9 +38,6 @@ public class Client {
   @Field("country")
   private String country;
 
-  @Field("activation")
-  private ActivationModel activation;
-
   @Field("deleted")
   private boolean deleted;
   
@@ -50,17 +48,13 @@ public class Client {
     this.dateTime = LocalDateTime.now();
   }
 
-  public Client(String name, String email, String phone, String country) {
-    this(name, email, phone, country, new ActivationModel());
-  }
 
-  public Client(String name, String email, String phone, String country, ActivationModel activation) {
+  public Client(String name, String email, String phone, String country) {
     this();
     this.name = name;
     this.email = email;
     this.phone = phone;
     this.country = country;
-    this.activation = activation;
     this.deleted = false;
     this.counter = 0;
   }
@@ -88,11 +82,6 @@ public class Client {
 
   public Client setCountry(String country) {
     this.country = country;
-    return this;
-  }
-
-  public Client setActivation(ActivationModel activation) {
-    this.activation = activation;
     return this;
   }
 
@@ -131,10 +120,6 @@ public class Client {
     return country;
   }
 
-  public ActivationModel getActivation() {
-    return activation;
-  }
-
   public boolean isDeleted() {
     return deleted;
   }
@@ -168,12 +153,11 @@ public class Client {
             Objects.equals(name, client.name) &&
             Objects.equals(email, client.email) &&
             Objects.equals(phone, client.phone) &&
-            Objects.equals(country, client.country) &&
-            Objects.equals(activation, client.activation);
+            Objects.equals(country, client.country);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, dateTime, name, email, phone, country, activation, deleted, counter);
+    return Objects.hash(id, dateTime, name, email, phone, country, deleted, counter);
   }
 }

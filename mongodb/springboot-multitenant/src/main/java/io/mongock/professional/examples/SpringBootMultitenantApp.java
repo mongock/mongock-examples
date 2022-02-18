@@ -36,12 +36,10 @@ public class SpringBootMultitenantApp {
     public RunnerSpringbootBuilder runnerSpringbootBuilderProfessional(MongoTemplate mongoTemplate,
                                                                        ApplicationContext springContext,
                                                                        TenantManager tenantManager) {
-        MultiTenant multiTenant = MultiTenant.withTenants(
-                buildDriverTemplate(mongoTemplate),
-                tenantManager);
+        ;
 
         return MongockSpringboot.builder()
-                .setMultiTenant(multiTenant)
+                .setDriverMultiTenant(buildDriverTemplate(mongoTemplate), tenantManager)
                 .addMigrationScanPackage("io.mongock.professional.examples.changelogs")
                 .setSpringContext(springContext)
                 .setTransactionEnabled(true);

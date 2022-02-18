@@ -3,7 +3,6 @@ package io.mongock.professional.examples;
 import io.mongock.driver.mongodb.springdata.v3.SpringDataMongoV3Driver;
 import io.mongock.professional.examples.client.ClientRepository;
 import io.mongock.professional.runner.common.multitenant.selector.TenantManager;
-import io.mongock.professional.runner.common.multitenant.wrapper.MultiTenant;
 import io.mongock.runner.springboot.MongockSpringboot;
 import io.mongock.runner.springboot.RunnerSpringbootBuilder;
 import io.mongock.runner.springboot.base.MongockInitializingBeanRunner;
@@ -23,7 +22,6 @@ public class SpringBootMultitenantApp {
     public final static String CLIENTS_COLLECTION_NAME = "clientCollection";
 
 
-
     public static void main(String[] args) {
         getSpringAppBuilder().run(args);
     }
@@ -36,10 +34,10 @@ public class SpringBootMultitenantApp {
     public RunnerSpringbootBuilder runnerSpringbootBuilderProfessional(MongoTemplate mongoTemplate,
                                                                        ApplicationContext springContext,
                                                                        TenantManager tenantManager) {
-        ;
-
+        SpringDataMongoV3Driver driver = SpringDataMongoV3Driver.withDefaultLock(mongoTemplate);
+        driver.enableTransaction();
         return MongockSpringboot.builder()
-                .setDriverMultiTenant(buildDriverTemplate(mongoTemplate), tenantManager)
+                .setDriverMultiTenant(driver, tenantManager)
                 .addMigrationScanPackage("io.mongock.professional.examples.changelogs")
                 .setSpringContext(springContext)
                 .setTransactionEnabled(true);
@@ -49,12 +47,6 @@ public class SpringBootMultitenantApp {
     @Profile(Constants.NON_CLI_PROFILE)
     public MongockInitializingBeanRunner mongockRunner(RunnerSpringbootBuilder builder) {
         return builder.buildInitializingBeanRunner();
-    }
-
-    private SpringDataMongoV3Driver buildDriverTemplate(MongoTemplate mongoTemplate) {
-        SpringDataMongoV3Driver driver = SpringDataMongoV3Driver.withDefaultLock(mongoTemplate);
-        driver.enableTransaction();
-        return driver;
     }
 
 

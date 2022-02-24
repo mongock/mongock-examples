@@ -1,4 +1,4 @@
-package io.mongock.professional.examples.client;
+package io.mongock.examples.client;
 
 public class ActivationModel {
     private String status;

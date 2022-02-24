@@ -1,66 +1,52 @@
-package io.mongock.professional.examples.client;
+package io.mongock.examples.client;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.CompoundIndex;
-import org.springframework.data.mongodb.core.index.CompoundIndexes;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
-
-import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.util.Objects;
+import org.bson.codecs.pojo.annotations.BsonId;
+import org.bson.types.ObjectId;
 
-import static io.mongock.professional.examples.SpringBootMultitenantApp.CLIENTS_COLLECTION_NAME;
-
-@Document(collection = CLIENTS_COLLECTION_NAME)
-@CompoundIndexes({
-    @CompoundIndex(def = "{'name':1, 'deleted':1}", name = "user_name_idx"),
-    @CompoundIndex(def = "{'email':1, 'deleted':1}", name = "user_email_idx"),
-    @CompoundIndex(def = "{'phone':1, 'deleted':1}", name = "user_phone_idx"),
-    @CompoundIndex(def = "{'country':1, 'deleted':1, 'activation.status':1}", name = "user_country_activation_idx")
-})
 public class Client {
 
-  @Id
-  private String id;
+  @BsonId
+  private ObjectId id;
 
-  @Field
-  private LocalDateTime dateTime;
+  private ZonedDateTime dateTime;
 
-  @Field("name")
   private String name;
 
-  @Field("email")
   private String email;
 
-  @Field("phone")
   private String phone;
 
-  @Field("country")
   private String country;
 
-  @Field("deleted")
+  private ActivationModel activation;
+
   private boolean deleted;
   
-  @Field("counter")
   private int counter;
 
   public Client() {
-    this.dateTime = LocalDateTime.now();
+    this.dateTime = ZonedDateTime.now();
   }
 
-
   public Client(String name, String email, String phone, String country) {
+    this(name, email, phone, country, new ActivationModel());
+  }
+
+  public Client(String name, String email, String phone, String country, ActivationModel activation) {
     this();
     this.name = name;
     this.email = email;
     this.phone = phone;
     this.country = country;
+    this.activation = activation;
     this.deleted = false;
     this.counter = 0;
   }
 
   // setters returning 'this' for fluent use in stream. Shouldn't be taken as precedent
-  public Client setId(String id) {
+  public Client setId(ObjectId id) {
     this.id = id;
     return this;
   }
@@ -85,12 +71,17 @@ public class Client {
     return this;
   }
 
+  public Client setActivation(ActivationModel activation) {
+    this.activation = activation;
+    return this;
+  }
+
   public Client setDeleted(boolean deleted) {
     this.deleted = deleted;
     return this;
   }
 
-  public Client setDateTime(LocalDateTime dateTime) {
+  public Client setDateTime(ZonedDateTime dateTime) {
     this.dateTime = dateTime;
     return this;
   }
@@ -100,7 +91,7 @@ public class Client {
     return this;
   }
 
-  public String getId() {
+  public ObjectId getId() {
     return id;
   }
 
@@ -120,11 +111,15 @@ public class Client {
     return country;
   }
 
+  public ActivationModel getActivation() {
+    return activation;
+  }
+
   public boolean isDeleted() {
     return deleted;
   }
 
-  public LocalDateTime getDateTime() {
+  public ZonedDateTime getDateTime() {
     return dateTime;
   }
   
@@ -153,11 +148,12 @@ public class Client {
             Objects.equals(name, client.name) &&
             Objects.equals(email, client.email) &&
             Objects.equals(phone, client.phone) &&
-            Objects.equals(country, client.country);
+            Objects.equals(country, client.country) &&
+            Objects.equals(activation, client.activation);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, dateTime, name, email, phone, country, deleted, counter);
+    return Objects.hash(id, dateTime, name, email, phone, country, activation, deleted, counter);
   }
 }

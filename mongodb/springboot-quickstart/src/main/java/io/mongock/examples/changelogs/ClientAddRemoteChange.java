@@ -1,6 +1,5 @@
 package io.mongock.examples.changelogs;
 
-import com.mongodb.client.ClientSession;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import io.mongock.api.annotations.ChangeUnit;

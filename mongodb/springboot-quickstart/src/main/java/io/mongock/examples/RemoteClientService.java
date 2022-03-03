@@ -11,6 +11,6 @@ public class RemoteClientService {
         return Arrays.asList(
                 new Document().append("name", "remote-client-1").append("surname", "Henricks").append("type", "remote"),
                 new Document().append("name", "remote-client-2").append("surname", "Wilson").append("type", "remote")
-                );
+        );
     }
 }

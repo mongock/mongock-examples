@@ -10,7 +10,7 @@ import io.mongock.api.annotations.RollbackExecution;
 import static io.mongock.examples.QuickStartApp.CLIENTS_COLLECTION_NAME;
 
 @ChangeUnit(id = "client-create-collection", order = "1", author = "mongock", transactional = false)
-public class ClientInitializerChange {
+public class ClientCreateCollectionChange {
 
     @Execution
     public void execution(MongoDatabase mongoDatabase) {

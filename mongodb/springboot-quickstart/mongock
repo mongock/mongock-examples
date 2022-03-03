@@ -1,0 +1,9 @@
+#!/bin/sh
+#Generated cli script
+ java -jar cli/mongock-cli-5.0.23.BETA-SNAPSHOT.jar \
+ --cli-spring-jar cli/lib/mongock-cli-springboot-5.0.23.BETA-SNAPSHOT.jar \
+ --cli-core-jar cli/lib/mongock-cli-core-5.0.23.BETA-SNAPSHOT.jar \
+ --mongock-core-jar cli/lib/mongock-runner-core-5.0.37-SNAPSHOT.jar \
+ -aj target/springboot-quickstart-5.0.35-SNAPSHOT.jar \
+ "$@"  \
+  \

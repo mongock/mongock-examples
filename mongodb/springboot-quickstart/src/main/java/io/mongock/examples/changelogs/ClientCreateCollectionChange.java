@@ -19,7 +19,7 @@ public class ClientCreateCollectionChange {
     }
 
     @RollbackExecution
-    public void rollbackExecution(ClientSession clientSession, MongoDatabase mongoDatabase) {
+    public void rollbackExecution(MongoDatabase mongoDatabase) {
         mongoDatabase.getCollection(CLIENTS_COLLECTION_NAME).drop();
     }
 

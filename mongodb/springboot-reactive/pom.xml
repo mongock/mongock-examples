@@ -5,7 +5,7 @@
     <parent>
         <groupId>io.mongock.examples</groupId>
         <artifactId>mongodb</artifactId>
-         <version>5.0.35-SNAPSHOT</version>
+         <version>5.0.39-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -15,7 +15,7 @@
     <dependencies>
         <!-- MONGOCK RUNNER -->
         <dependency>
-            <groupId>io.mongock.professional</groupId>
+            <groupId>io.mongock</groupId>
             <artifactId>mongock-springboot</artifactId>
         </dependency>
 

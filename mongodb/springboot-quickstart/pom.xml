@@ -10,7 +10,7 @@
     <parent>
         <groupId>io.mongock.examples</groupId>
         <artifactId>mongodb</artifactId>
-         <version>5.0.35-SNAPSHOT</version>
+         <version>5.0.39-SNAPSHOT</version>
     </parent>
 
     <name>springboot-quickstart</name>
@@ -20,7 +20,7 @@
     <dependencies>
         <!-- MONGOCK RUNNER -->
         <dependency>
-            <groupId>io.mongock.professional</groupId>
+            <groupId>io.mongock</groupId>
             <artifactId>mongock-springboot</artifactId>
         </dependency>
 

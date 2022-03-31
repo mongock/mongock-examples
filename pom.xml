@@ -27,7 +27,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- MONGOCK versions -->
-        <mongock.version>5.0.39</mongock.version>
+        <mongock.version>5.0.40-SNAPSHOT</mongock.version>
 
         <spring-boot.version>2.4.13</spring-boot.version>
 

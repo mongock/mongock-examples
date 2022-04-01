@@ -39,7 +39,7 @@ public class SpringBootMultitenantApp {
         
         /*********************************************************************************
         *  NOTE: You must provide a valid LICENSE KEY for Mongock Professional to work.  *
-        *        For further details please visit: https://mongock.io                    *
+        *        For further details please visit: https://mongock.io/download           *
         **********************************************************************************/
         return MongockSpringboot.builder()
                 .setLicenseKey("*** PUT YOUR MONGOCK PROFESSIONAL LICENSE KEY HERE ***")

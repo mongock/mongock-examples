@@ -7,7 +7,6 @@ import com.mongodb.client.MongoClients;
 import io.mongock.driver.mongodb.sync.v4.driver.MongoSync4Driver;
 import io.mongock.examples.codec.ZonedDateTimeCodec;
 import io.mongock.examples.events.MongockEventListener;
-import io.mongock.professional.runner.common.multitenant.wrapper.MultiTenant;
 import io.mongock.runner.core.builder.RunnerBuilder;
 import io.mongock.runner.core.builder.RunnerBuilderProvider;
 import io.mongock.runner.standalone.MongockStandalone;
@@ -27,7 +26,12 @@ public class RunnerBuilderProviderImpl implements RunnerBuilderProvider {
 
         MongoClient mongoClient = buildMongoClientWithCodecs(MONGODB_CONNECTION_STRING);
 
+        /*********************************************************************************
+        *  NOTE: You must provide a valid LICENSE KEY for Mongock Professional to work.  *
+        *        For further details please visit: https://license.mongock.io            *
+        **********************************************************************************/
         return MongockStandalone.builder()
+                .setLicenseKey("*** PUT YOUR MONGOCK PROFESSIONAL LICENSE KEY HERE ***")
                 .setDriverMultiTenant(
                         getDriver(mongoClient, "tenant-1"),
                         getDriver(mongoClient, "tenant-2"))

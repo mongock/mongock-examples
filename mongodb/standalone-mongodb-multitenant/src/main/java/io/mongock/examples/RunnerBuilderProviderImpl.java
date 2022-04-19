@@ -28,7 +28,7 @@ public class RunnerBuilderProviderImpl implements RunnerBuilderProvider {
 
         /*********************************************************************************
         *  NOTE: You must provide a valid LICENSE KEY for Mongock Professional to work.  *
-        *        For further details please visit: https://license.mongock.io            *
+        *        For further details please visit: https://mongock.io/setup-license      *
         **********************************************************************************/
         return MongockStandalone.builder()
                 .setLicenseKey("*** PUT YOUR MONGOCK PROFESSIONAL LICENSE KEY HERE ***")

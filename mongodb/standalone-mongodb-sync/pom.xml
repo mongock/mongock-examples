@@ -7,7 +7,7 @@
     <parent>
         <groupId>io.mongock.examples</groupId>
         <artifactId>mongodb</artifactId>
-         <version>5.0.39-SNAPSHOT</version>
+         <version>5.0.41-SNAPSHOT</version>
     </parent>
 
     <name>standalone-mongodb-sync</name>

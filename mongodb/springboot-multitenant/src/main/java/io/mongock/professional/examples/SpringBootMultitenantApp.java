@@ -36,7 +36,13 @@ public class SpringBootMultitenantApp {
                                                                        TenantManager tenantManager) {
         SpringDataMongoV3Driver driver = SpringDataMongoV3Driver.withDefaultLock(mongoTemplate);
         driver.enableTransaction();
+        
+        /*********************************************************************************
+        *  NOTE: You must provide a valid LICENSE KEY for Mongock Professional to work.  *
+        *        For further details please visit: https://mongock.io/setup-license      *
+        **********************************************************************************/
         return MongockSpringboot.builder()
+                .setLicenseKey("*** PUT YOUR MONGOCK PROFESSIONAL LICENSE KEY HERE ***")
                 .setDriverMultiTenant(driver, tenantManager)
                 .addMigrationScanPackage("io.mongock.professional.examples.changelogs")
                 .setSpringContext(springContext)

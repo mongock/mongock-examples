@@ -18,34 +18,34 @@ import org.springframework.data.mongodb.core.MongoTemplate;
  * - Uncomment line 19(@EnableMongock)
  * - Comment the beans for mongock runner and builder. In other words leave the MongockConfiguration class empty.
  */
-//@EnableMongock
+@EnableMongock
 @Configuration
 public class MongockConfiguration {
 
-	@Bean
-	public MongockInitializingBeanRunner initializingBeanRunner(RunnerSpringbootBuilder runnerBuilder) {
-		// Runner
-		return runnerBuilder.buildInitializingBeanRunner();
-	}
-
-	/**
-	 * The Mongock CLI requires the RunnerBuilder bean
-	 */
-	@Bean
-	public RunnerSpringbootBuilder runnerBuilder(ApplicationContext springContext,
-												 ApplicationEventPublisher eventPublisher,
-												 MongoTemplate mongoTemplate,
-												 MongoTransactionManager mongoTransactionManager) {
-		// Driver
-		SpringDataMongoV3Driver driver = SpringDataMongoV3Driver.withDefaultLock(mongoTemplate);
-		driver.enableTransactionWithTxManager(mongoTransactionManager);
-
-		return MongockSpringboot.builder()
-				.setDriver(driver)
-				.addMigrationScanPackage("io.mongock.examples.changelogs")
-				.setSpringContext(springContext)
-				.setEventPublisher(eventPublisher)
-				.setTrackIgnored(true)
-				.setTransactionEnabled(true);
-	}
+//	@Bean
+//	public MongockInitializingBeanRunner initializingBeanRunner(RunnerSpringbootBuilder runnerBuilder) {
+//		// Runner
+//		return runnerBuilder.buildInitializingBeanRunner();
+//	}
+//
+//	/**
+//	 * The Mongock CLI requires the RunnerBuilder bean
+//	 */
+//	@Bean
+//	public RunnerSpringbootBuilder runnerBuilder(ApplicationContext springContext,
+//												 ApplicationEventPublisher eventPublisher,
+//												 MongoTemplate mongoTemplate,
+//												 MongoTransactionManager mongoTransactionManager) {
+//		// Driver
+//		SpringDataMongoV3Driver driver = SpringDataMongoV3Driver.withDefaultLock(mongoTemplate);
+//		driver.enableTransactionWithTxManager(mongoTransactionManager);
+//
+//		return MongockSpringboot.builder()
+//				.setDriver(driver)
+//				.addMigrationScanPackage("io.mongock.examples.changelogs")
+//				.setSpringContext(springContext)
+//				.setEventPublisher(eventPublisher)
+//				.setTrackIgnored(true)
+//				.setTransactionEnabled(true);
+//	}
 }

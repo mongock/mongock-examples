@@ -1,6 +1,6 @@
 mongock:
   migration-scan-package:
-    - io.mongock.examples.changelogs
+    - io.mongock.examples.changeunits
   transactionEnabled: true
 
 

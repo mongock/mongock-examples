@@ -1,4 +1,4 @@
-package io.mongock.examples.changelogs;
+package io.mongock.examples.changeunits;
 
 import io.mongock.examples.client.Client;
 import io.mongock.api.annotations.ChangeUnit;
@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import static io.mongock.examples.QuickStartApp.CLIENTS_COLLECTION_NAME;
 
 @ChangeUnit(id="client-updater", order = "2", author = "mongock")
-public class ClientUpdaterChangeLog  {
+public class ClientUpdaterChangeUnit {
 
   @Execution
   public void execution(MongoTemplate mongoTemplate) {

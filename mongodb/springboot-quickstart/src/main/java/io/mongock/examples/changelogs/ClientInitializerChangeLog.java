@@ -19,20 +19,28 @@ public class ClientInitializerChangeLog {
 
   public final static int INITIAL_CLIENTS = 10;
   
+  private MongoTemplate mongoTemplate;
+  private ClientRepository clientRepository;
+  
+  public ClientInitializerChangeLog(MongoTemplate mongoTemplate, ClientRepository clientRepository) {
+    this.mongoTemplate = mongoTemplate;
+    this.clientRepository = clientRepository;
+  }
+  
   @BeforeExecution
-  public void beforeExecution(MongoTemplate mongoTemplate) {
+  public void beforeExecution() {
 
       mongoTemplate.createCollection(CLIENTS_COLLECTION_NAME);
   }
   
   @RollbackBeforeExecution
-  public void rollbackBeforeExecution(MongoTemplate mongoTemplate) {
+  public void rollbackBeforeExecution() {
       
       mongoTemplate.dropCollection(CLIENTS_COLLECTION_NAME);
   }
 
   @Execution
-  public void execution(ClientRepository clientRepository) {
+  public void execution() {
       
     clientRepository.saveAll(
             IntStream.range(0, INITIAL_CLIENTS)
@@ -42,7 +50,7 @@ public class ClientInitializerChangeLog {
   }
 
   @RollbackExecution
-  public void rollbackExecution(ClientRepository clientRepository) {
+  public void rollbackExecution() {
       
     clientRepository.deleteAll();
   }

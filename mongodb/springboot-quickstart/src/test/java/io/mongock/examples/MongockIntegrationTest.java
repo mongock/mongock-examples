@@ -19,6 +19,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Quick example of integration testing with Mongock migration with Springboot
+ *
+ * This class extends from MongockSpringbootJUnit5IntegrationTestBase which provides the following
+ * - BeforeEach method(automatically called): Resets mongock to allow re-utilization(not recommended in production) and build the runner
+ * - AfterEach method(automatically called): Cleans both Mongock repository(lock and changeLogs)
+ * - executeMongock method: To perform the Mongock migration
+ * - @TestPropertySource(properties = {"mongock.runner-type=NONE"}) : To prevent Mongock for injecting(and automatically execute) the Mongock runner bean.
  */
 @ContextConfiguration(initializers = MongoInitializer.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)

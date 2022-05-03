@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  - AfterEach method(automatically called): Cleans both Mongock repositories(lock and migration)
  - Dependency injections: It ensures the required dependencies(Mongock builder, connectionDriver, etc.) are injected
  - executeMongock() method: To perform the Mongock migration
- - @TestPropertySource(properties = {"mongock.runner-type=NONE"}): To prevent Mongock from injecting(and automatically executing) the Mongock runner bean. This is important as it won't allow multiple execution otherwise.
+ - @TestPropertySource(properties = {"mongock.runner-type=NONE"}): To prevent Mongock from injecting(and automatically executing) the Mongock runner bean. This is important to allow multiple Mongock runner's executions.
  */
 @ContextConfiguration(initializers = MongoInitializer.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)

@@ -34,6 +34,8 @@
 
 
         <slf4j.version>1.7.32</slf4j.version>
+        
+        <maven.test.skip>false</maven.test.skip>
     </properties>
     
     <dependencyManagement>
@@ -77,5 +79,14 @@
             </plugins>
         </pluginManagement>
     </build>
+    
+    <profiles>
+        <profile>
+            <id>no-test</id>
+            <properties>
+                <maven.test.skip>true</maven.test.skip>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>

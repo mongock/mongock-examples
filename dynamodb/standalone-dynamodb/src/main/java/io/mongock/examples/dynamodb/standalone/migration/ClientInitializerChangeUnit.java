@@ -7,6 +7,7 @@ import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.amazonaws.services.dynamodbv2.model.CreateTableRequest;
 import com.amazonaws.services.dynamodbv2.model.ProvisionedThroughput;
 import com.amazonaws.services.dynamodbv2.model.Put;
+import com.amazonaws.services.dynamodbv2.model.ResourceNotFoundException;
 import com.amazonaws.services.dynamodbv2.model.TransactWriteItem;
 import io.mongock.api.annotations.BeforeExecution;
 import io.mongock.api.annotations.ChangeUnit;
@@ -30,24 +31,26 @@ public class ClientInitializerChangeUnit {
 
 
 	@BeforeExecution
-	public void createTable(DynamoDBMapper mapper,
-							DynamoDB dynamoDB) throws InterruptedException {
-		CreateTableRequest createTableRequest = mapper.generateCreateTableRequest(Client.class);
-		Table table = dynamoDB.createTable(createTableRequest.withProvisionedThroughput(new ProvisionedThroughput(50L, 50L)));
-		DynamoDBUtils.waitUntilActive(table);
+	public void createTable(DynamoDBMapper mapper, DynamoDB dynamoDB) throws InterruptedException {
+		try {
+			Table table = dynamoDB.getTable(Client.TABLE_NAME);
+			table.describe();
+		} catch (ResourceNotFoundException ex) {
+			logger.info("Creating table[{}}", Client.TABLE_NAME);
+			CreateTableRequest createTableRequest = mapper.generateCreateTableRequest(Client.class);
+			Table table = dynamoDB.createTable(createTableRequest.withProvisionedThroughput(new ProvisionedThroughput(50L, 50L)));
+			DynamoDBUtils.waitUntilActive(table);
+		}
 	}
-
-
 
 	@RollbackBeforeExecution
 	public void removeTable(DynamoDB dynamoDB) {
 		try {
- 			Table table = dynamoDB.getTable(Client.TABLE_NAME);
-			if (table != null) {
-				table.delete();
-			}
-		} catch (Exception ex) {
-			logger.error(ex.getMessage(), ex);
+			Table table = dynamoDB.getTable(Client.TABLE_NAME);
+			table.describe();
+			table.delete();
+		} catch (ResourceNotFoundException ex) {
+			logger.info("Not deleting table[{}} because it doesn't exist", Client.TABLE_NAME);
 		}
 	}
 

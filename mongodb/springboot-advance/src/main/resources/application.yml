@@ -1,6 +1,6 @@
 mongock:
   migration-scan-package:
-    - io.mongock.examples.changelogs
+    - io.mongock.examples.mongodb.springboot.advance.migration
   track-ignored: true
   transaction-enabled: true
   runner-type: InitializingBean

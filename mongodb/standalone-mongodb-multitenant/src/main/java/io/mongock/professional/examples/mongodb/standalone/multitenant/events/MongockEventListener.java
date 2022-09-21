@@ -1,4 +1,4 @@
-package io.mongock.examples.mongodb.standalone.multitenant.events;
+package io.mongock.professional.examples.mongodb.standalone.multitenant.events;
 
 import io.mongock.runner.core.event.MigrationFailureEvent;
 import io.mongock.runner.core.event.MigrationStartedEvent;

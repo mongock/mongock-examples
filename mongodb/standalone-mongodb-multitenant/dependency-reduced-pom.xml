@@ -29,7 +29,7 @@
               <shadedArtifactAttached>false</shadedArtifactAttached>
               <transformers>
                 <transformer>
-                  <mainClass>io.mongock.examples.mongodb.standalone.multitenant.StandaloneMultiTenantApp</mainClass>
+                  <mainClass>io.mongock.professional.examples.mongodb.standalone.multitenant.StandaloneMultiTenantApp</mainClass>
                 </transformer>
               </transformers>
             </configuration>

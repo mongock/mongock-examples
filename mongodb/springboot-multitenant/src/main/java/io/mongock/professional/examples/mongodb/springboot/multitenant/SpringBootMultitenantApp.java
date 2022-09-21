@@ -44,7 +44,7 @@ public class SpringBootMultitenantApp {
         return MongockSpringboot.builder()
                 .setLicenseKey("*** PUT YOUR MONGOCK PROFESSIONAL LICENSE KEY HERE ***")
                 .setDriverMultiTenant(driver, tenantManager)
-                .addMigrationScanPackage("io.mongock.professional.examples.changelogs")
+                .addMigrationScanPackage("io.mongock.professional.examples.mongodb.springboot.multitenant")
                 .setSpringContext(springContext)
                 .setTransactionEnabled(true);
     }

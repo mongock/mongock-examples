@@ -1,15 +1,16 @@
-package io.mongock.examples.mongodb.standalone.multitenant;
+package io.mongock.professional.examples.mongodb.standalone.multitenant;
 
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import io.mongock.driver.mongodb.sync.v4.driver.MongoSync4Driver;
-import io.mongock.examples.mongodb.standalone.multitenant.codec.ZonedDateTimeCodec;
-import io.mongock.examples.mongodb.standalone.multitenant.events.MongockEventListener;
+import io.mongock.professional.examples.mongodb.standalone.multitenant.codec.ZonedDateTimeCodec;
+import io.mongock.professional.examples.mongodb.standalone.multitenant.events.MongockEventListener;
 import io.mongock.runner.core.builder.RunnerBuilder;
 import io.mongock.runner.core.builder.RunnerBuilderProvider;
 import io.mongock.runner.standalone.MongockStandalone;
+import org.bson.codecs.configuration.CodecRegistries;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 
@@ -35,7 +36,7 @@ public class RunnerBuilderProviderImpl implements RunnerBuilderProvider {
                 .setDriverMultiTenant(
                         getDriver(mongoClient, "tenant-1"),
                         getDriver(mongoClient, "tenant-2"))
-                .addMigrationScanPackage("io.mongock.examples.mongodb.standalone.multitenant.migration")
+                .addMigrationScanPackage("io.mongock.professional.examples.mongodb.standalone.multitenant.migration")
                 .setMigrationStartedListener(MongockEventListener::onStart)
                 .setMigrationSuccessListener(MongockEventListener::onSuccess)
                 .setMigrationFailureListener(MongockEventListener::onFail)
@@ -55,7 +56,7 @@ public class RunnerBuilderProviderImpl implements RunnerBuilderProvider {
      */
     private static MongoClient buildMongoClientWithCodecs(String connectionString) {
 
-        CodecRegistry codecRegistry = fromRegistries(fromCodecs(new ZonedDateTimeCodec()),
+        CodecRegistry codecRegistry = fromRegistries(CodecRegistries.fromCodecs(new ZonedDateTimeCodec()),
                 MongoClientSettings.getDefaultCodecRegistry(),
                 fromProviders(PojoCodecProvider.builder().automatic(true).build()));
 

@@ -1,4 +1,4 @@
-package io.mongock.examples.mongodb.standalone.multitenant;
+package io.mongock.professional.examples.mongodb.standalone.multitenant;
 
 import io.mongock.api.annotations.MongockCliConfiguration;
 

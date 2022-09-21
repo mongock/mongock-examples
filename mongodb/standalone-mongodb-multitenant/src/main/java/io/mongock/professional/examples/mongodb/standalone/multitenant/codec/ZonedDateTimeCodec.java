@@ -1,4 +1,4 @@
-package io.mongock.examples.mongodb.standalone.multitenant.codec;
+package io.mongock.professional.examples.mongodb.standalone.multitenant.codec;
 
 import java.time.Instant;
 import java.time.ZoneId;

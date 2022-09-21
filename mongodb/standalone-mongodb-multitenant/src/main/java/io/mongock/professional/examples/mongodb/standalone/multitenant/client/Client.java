@@ -1,4 +1,4 @@
-package io.mongock.examples.mongodb.standalone.multitenant.client;
+package io.mongock.professional.examples.mongodb.standalone.multitenant.client;
 
 import java.time.ZonedDateTime;
 import java.util.Objects;

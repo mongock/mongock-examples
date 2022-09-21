@@ -1,4 +1,4 @@
-package io.mongock.examples.mongodb.standalone.multitenant.product;
+package io.mongock.professional.examples.mongodb.standalone.multitenant.product;
 
 import java.util.Objects;
 import org.bson.codecs.pojo.annotations.BsonId;

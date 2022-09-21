@@ -17,7 +17,7 @@ import java.util.stream.StreamSupport;
 import org.bson.Document;
 
 @ChangeUnit(id="secondarydb-with-mongodatabase", order = "5", author="mongock")
-public class SecondaryDbWithMongoDatabaseChangeLog {
+public class SecondaryDbWithMongoDatabaseChangeUnit {
   
   @Execution
   public void execution(ClientSession clientSession, MongoDatabase mongoDatabase, @Named("secondaryDb") @NonLockGuarded MongoDatabase secondaryDb) {

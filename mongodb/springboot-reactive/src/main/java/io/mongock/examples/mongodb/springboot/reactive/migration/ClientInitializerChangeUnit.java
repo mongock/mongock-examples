@@ -23,10 +23,10 @@ import java.util.stream.IntStream;
 
 
 @ChangeUnit(id = "client-initializer", order = "1", author = "mongock")
-public class ClientInitializerChange {
+public class ClientInitializerChangeUnit {
 
     public final static int INITIAL_CLIENTS = 10;
-    private static Logger logger = LoggerFactory.getLogger(ClientInitializerChange.class);
+    private static Logger logger = LoggerFactory.getLogger(ClientInitializerChangeUnit.class);
 
     @BeforeExecution
     public void beforeExecution(MongoDatabase mongoDatabase) {
@@ -47,7 +47,7 @@ public class ClientInitializerChange {
         SubscriberSync<InsertManyResult> subscriber = new MongoSubscriberSync<>();
         mongoDatabase.getCollection(SpringbootReactiveApp.CLIENTS_COLLECTION_NAME, Client.class)
                 .insertMany(clientSession, IntStream.range(0, INITIAL_CLIENTS)
-                        .mapToObj(ClientInitializerChange::getClient)
+                        .mapToObj(ClientInitializerChangeUnit::getClient)
                         .collect(Collectors.toList()))
                 .subscribe(subscriber);
 

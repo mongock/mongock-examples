@@ -1,7 +1,8 @@
-package io.mongock.examples.mongodb.standalone.springdata.migration.initializer;
+package io.mongock.examples.mongodb.springboot.advance.migration.client.initializer;
 
-import io.mongock.examples.mongodb.standalone.springdata.StandaloneSpringdataApp;
-import io.mongock.examples.mongodb.standalone.springdata.client.Client;
+import io.mongock.examples.mongodb.springboot.advance.application.SpringBootAdvanceApp;
+import io.mongock.examples.mongodb.springboot.advance.client.Client;
+import io.mongock.examples.mongodb.springboot.advance.client.ClientRepository;
 import io.mongock.api.annotations.BeforeExecution;
 import io.mongock.api.annotations.ChangeUnit;
 import io.mongock.api.annotations.Execution;
@@ -11,40 +12,38 @@ import io.mongock.api.annotations.RollbackExecution;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import org.bson.Document;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 @ChangeUnit(id="client-initializer", order = "1", author = "mongock")
-public class ClientInitializerChangeLog {
+public class ClientInitializerChangeUnit {
 
   public final static int INITIAL_CLIENTS = 10;
   
   @BeforeExecution
   public void beforeExecution(MongoTemplate mongoTemplate) {
       
-      mongoTemplate.createCollection(StandaloneSpringdataApp.CLIENTS_COLLECTION_NAME);
+      mongoTemplate.createCollection(SpringBootAdvanceApp.CLIENTS_COLLECTION_NAME);
   }
   
   @RollbackBeforeExecution
   public void rollbackBeforeExecution(MongoTemplate mongoTemplate) {
       
-      mongoTemplate.dropCollection(StandaloneSpringdataApp.CLIENTS_COLLECTION_NAME);
+      mongoTemplate.dropCollection(SpringBootAdvanceApp.CLIENTS_COLLECTION_NAME);
   }
 
   @Execution
-  public void execution(MongoTemplate mongoTemplate) {
-      
-    mongoTemplate.insertAll(
+  public void execution(ClientRepository clientRepository, MongoTemplate mongoTemplate) {
+    clientRepository.saveAll(
             IntStream.range(0, INITIAL_CLIENTS)
-                    .mapToObj(ClientInitializerChangeLog::getClient)
+                    .mapToObj(ClientInitializerChangeUnit::getClient)
                     .collect(Collectors.toList())
     );
   }
 
   @RollbackExecution
-  public void rollbackExecution(MongoTemplate mongoTemplate) {
+  public void rollbackExecution(ClientRepository clientRepository) {
       
-    mongoTemplate.remove(new Document(), StandaloneSpringdataApp.CLIENTS_COLLECTION_NAME);
+    clientRepository.deleteAll();
   }
 
   private static Client getClient(int i) {

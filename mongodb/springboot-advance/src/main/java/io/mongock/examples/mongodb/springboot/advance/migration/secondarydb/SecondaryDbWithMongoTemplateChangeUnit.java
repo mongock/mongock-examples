@@ -14,7 +14,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import static io.mongock.examples.mongodb.springboot.advance.application.SpringBootAdvanceApp.PRODUCTS_COLLECTION_NAME;
 
 @ChangeUnit(id="secondarydb-with-mongotemplate", order = "6", author="mongock")
-public class SecondaryDbWithMongoTemplateChangeLog {
+public class SecondaryDbWithMongoTemplateChangeUnit {
   
   @Execution
   public void execution(MongoTemplate mongoTemplate, @Named("secondaryMongoTemplate") @NonLockGuarded MongoTemplate secondaryTemplate) {

@@ -15,7 +15,7 @@ import org.bson.Document;
 import static io.mongock.examples.mongodb.standalone.multitenant.StandaloneMultiTenantApp.CLIENTS_COLLECTION_NAME;
 
 @ChangeUnit(id = "client-updater", order = "2", author = "mongock")
-public class ClientUpdaterChangeLog {
+public class ClientUpdaterChangeUnit {
 
   @Execution
   public void execution(ClientSession clientSession, MongoDatabase mongoDatabase) {

@@ -9,7 +9,7 @@ import io.mongock.api.annotations.RollbackExecution;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 @ChangeUnit(id="client-updater-runalways", order = "3", author = "mongock", runAlways = true)
-public class ClientUpdaterRunAlwaysChangeLog  {
+public class ClientUpdaterRunAlwaysChangeUnit {
 
   @Execution
   public void execution(MongoTemplate mongoTemplate) {

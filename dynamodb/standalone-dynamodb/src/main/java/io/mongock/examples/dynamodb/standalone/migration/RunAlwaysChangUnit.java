@@ -8,9 +8,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @ChangeUnit(id = "client-run-always", order = "2", author = "mongock", runAlways = true)
-public class RunAlwaysCU {
+public class RunAlwaysChangUnit {
 
-	private static final Logger logger = LoggerFactory.getLogger(RunAlwaysCU.class);
+	private static final Logger logger = LoggerFactory.getLogger(RunAlwaysChangUnit.class);
 
 	@Execution
 	public void execution(DynamoDBTransactionItems transactionItems) {

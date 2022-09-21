@@ -16,7 +16,7 @@ import org.bson.Document;
 import io.mongock.api.annotations.Execution;
 
 @ChangeUnit(id= "populate-data-secondarydb", order = "4", author = "mongock")
-public class PopulateDataSecondaryDbChangeLog {
+public class PopulateDataSecondaryDbChangeUnit {
   
   public final static int INITIAL_PRODUCTS = 10;
 
@@ -28,7 +28,7 @@ public class PopulateDataSecondaryDbChangeLog {
     // lock and transactions.    
     secondaryDb.getCollection(StandaloneMongoApp.PRODUCTS_COLLECTION_NAME, Product.class)
             .insertMany(IntStream.range(0, INITIAL_PRODUCTS)
-                    .mapToObj(PopulateDataSecondaryDbChangeLog::getProduct)
+                    .mapToObj(PopulateDataSecondaryDbChangeUnit::getProduct)
                     .collect(Collectors.toList()));
   }
   

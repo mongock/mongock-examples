@@ -14,7 +14,7 @@ import org.bson.Document;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 @ChangeUnit(id="secondarydb-with-mongotemplate", order = "6", author="mongock")
-public class SecondaryDbWithMongoTemplateChangeLog {
+public class SecondaryDbWithMongoTemplateChangeUnit {
   
   @Execution
   public void execution(MongoTemplate mongoTemplate, @Named("secondaryMongoTemplate") @NonLockGuarded MongoTemplate secondaryTemplate) {

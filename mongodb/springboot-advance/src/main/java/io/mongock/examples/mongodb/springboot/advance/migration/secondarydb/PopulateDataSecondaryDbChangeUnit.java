@@ -14,7 +14,7 @@ import org.bson.Document;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 @ChangeUnit(id= "populate-data-secondarydb", order = "4", author = "mongock")
-public class PopulateDataSecondaryDbChangeLog {
+public class PopulateDataSecondaryDbChangeUnit {
   
   public final static int INITIAL_PRODUCTS = 10;
 
@@ -25,7 +25,7 @@ public class PopulateDataSecondaryDbChangeLog {
     // But we should only use secondary databases for read, because they won't be managed by Mongock
     // lock and transactions.
     IntStream.range(0, INITIAL_PRODUCTS)
-             .mapToObj(PopulateDataSecondaryDbChangeLog::getProduct)
+             .mapToObj(PopulateDataSecondaryDbChangeUnit::getProduct)
              .forEach(product -> secondaryTemplate.insert(product, SpringBootAdvanceApp.PRODUCTS_COLLECTION_NAME));
   }
   

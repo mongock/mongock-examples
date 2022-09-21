@@ -1,4 +1,4 @@
-package io.mongock.examples.mongodb.standalone.multitenant.migration.initializer;
+package io.mongock.examples.mongodb.standalone.mondogb.sync.migration.initializer;
 
 import com.mongodb.client.ClientSession;
 import io.mongock.api.annotations.BeforeExecution;
@@ -7,17 +7,16 @@ import io.mongock.api.annotations.Execution;
 import io.mongock.api.annotations.RollbackBeforeExecution;
 import io.mongock.api.annotations.RollbackExecution;
 
-import io.mongock.examples.mongodb.standalone.multitenant.client.Client;
+import io.mongock.examples.mongodb.standalone.mondogb.sync.client.Client;
 import com.mongodb.client.MongoDatabase;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-
 import org.bson.Document;
 
-import static io.mongock.examples.mongodb.standalone.multitenant.StandaloneMultiTenantApp.CLIENTS_COLLECTION_NAME;
+import static io.mongock.examples.mongodb.standalone.mondogb.sync.StandaloneMongoApp.CLIENTS_COLLECTION_NAME;
 
 @ChangeUnit(id="client-initializer", order = "1", author = "mongock")
-public class ClientInitializerChangeLog {
+public class ClientInitializerChangeUnit {
 
   public final static int INITIAL_CLIENTS = 10;
   
@@ -38,7 +37,7 @@ public class ClientInitializerChangeLog {
     
     mongoDatabase.getCollection(CLIENTS_COLLECTION_NAME, Client.class)
             .insertMany(clientSession, IntStream.range(0, INITIAL_CLIENTS)
-                    .mapToObj(ClientInitializerChangeLog::getClient)
+                    .mapToObj(ClientInitializerChangeUnit::getClient)
                     .collect(Collectors.toList()));
   }
   

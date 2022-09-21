@@ -15,7 +15,7 @@ import java.util.stream.IntStream;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 @ChangeUnit(id="client-initializer", order = "1", author = "mongock")
-public class ClientInitializerChangeLog {
+public class ClientInitializerChangeUnit {
 
   public final static int INITIAL_CLIENTS = 10;
   
@@ -36,7 +36,7 @@ public class ClientInitializerChangeLog {
       
     clientRepository.saveAll(
             IntStream.range(0, INITIAL_CLIENTS)
-                    .mapToObj(ClientInitializerChangeLog::getClient)
+                    .mapToObj(ClientInitializerChangeUnit::getClient)
                     .collect(Collectors.toList())
     );
   }

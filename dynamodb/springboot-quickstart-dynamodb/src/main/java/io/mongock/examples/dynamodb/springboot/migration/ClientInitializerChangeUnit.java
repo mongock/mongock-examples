@@ -23,9 +23,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 @ChangeUnit(id = "client-initializer", order = "1", author = "mongock")
-public class ClientInitializerCU {
+public class ClientInitializerChangeUnit {
 
-	private static final Logger logger = LoggerFactory.getLogger(ClientInitializerCU.class);
+	private static final Logger logger = LoggerFactory.getLogger(ClientInitializerChangeUnit.class);
 	private final static int CLIENTS_COUNTER = 24;
 
 

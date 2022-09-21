@@ -14,7 +14,7 @@ import java.util.stream.StreamSupport;
 import org.bson.Document;
 
 @ChangeUnit(id = "client-updater-runAlways", order = "3", author = "mongock", runAlways = true)
-public class ClientUpdaterRunAlwaysChangeLog {
+public class ClientUpdaterRunAlwaysChangeUnit {
 
   @Execution
   public void execution(ClientSession clientSession, MongoDatabase mongoDatabase) {

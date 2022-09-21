@@ -1,10 +1,10 @@
-package io.mongock.examples;
+package io.mongock.examples.mongodb.springboot.quickstart;
 
 import com.mongodb.client.MongoDatabase;
 import io.mongock.api.exception.MongockException;
+import io.mongock.examples.mongodb.springboot.quickstart.config.MongoInitializer;
 import io.mongock.examples.mongodb.springboot.quickstart.migration.ClientInitializerChangeUnit;
 import io.mongock.examples.mongodb.springboot.quickstart.client.ClientRepository;
-import io.mongock.examples.config.MongoInitializer;
 import io.mongock.test.springboot.junit5.MongockSpringbootJUnit5IntegrationTestBase;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;

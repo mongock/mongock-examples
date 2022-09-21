@@ -1,4 +1,4 @@
-package io.mongock.examples.config;
+package io.mongock.examples.mongodb.springboot.quickstart.config;
 
 import org.springframework.boot.test.util.TestPropertyValues;
 import org.springframework.context.ApplicationContextInitializer;

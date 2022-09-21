@@ -1,4 +1,4 @@
-package io.mongock.examples.migration;
+package io.mongock.examples.mongodb.springboot.quickstart.migration;
 
 import io.mongock.examples.mongodb.springboot.quickstart.client.Client;
 import io.mongock.examples.mongodb.springboot.quickstart.client.ClientRepository;

@@ -2,8 +2,8 @@ package io.mongock.examples;
 
 import com.mongodb.client.MongoDatabase;
 import io.mongock.api.exception.MongockException;
-import io.mongock.examples.changeunits.ClientInitializerChangeUnit;
-import io.mongock.examples.client.ClientRepository;
+import io.mongock.examples.mongodb.springboot.quickstart.migration.ClientInitializerChangeUnit;
+import io.mongock.examples.mongodb.springboot.quickstart.client.ClientRepository;
 import io.mongock.examples.config.MongoInitializer;
 import io.mongock.test.springboot.junit5.MongockSpringbootJUnit5IntegrationTestBase;
 import org.junit.jupiter.api.AfterEach;
@@ -14,7 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.mongodb.MongoDatabaseFactory;
 import org.springframework.test.context.ContextConfiguration;
 
-import static io.mongock.examples.QuickStartApp.CLIENTS_COLLECTION_NAME;
+import static io.mongock.examples.mongodb.springboot.quickstart.QuickStartApp.CLIENTS_COLLECTION_NAME;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**

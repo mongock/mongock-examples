@@ -65,7 +65,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>io.mongock.examples.springboot.reactive.SpringbootReactiveApp</mainClass>
+                    <mainClass>io.mongock.examples.mongodb.springboot.reactive.SpringbootReactiveApp</mainClass>
                 </configuration>
 
                 <executions>

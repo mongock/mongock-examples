@@ -29,7 +29,7 @@
               <shadedArtifactAttached>false</shadedArtifactAttached>
               <transformers>
                 <transformer>
-                  <mainClass>io.mongock.examples.StandaloneMongoApp</mainClass>
+                  <mainClass>io.mongock.examples.mongodb.standalone.mondogb.sync.StandaloneMongoApp</mainClass>
                 </transformer>
               </transformers>
             </configuration>

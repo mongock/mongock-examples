@@ -71,7 +71,7 @@
                             <transformers>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>io.mongock.examples.StandaloneSpringdataApp</mainClass>
+                                    <mainClass>io.mongock.examples.mongodb.standalone.springdata.StandaloneSpringdataApp</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>

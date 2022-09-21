@@ -29,7 +29,7 @@
               <shadedArtifactAttached>false</shadedArtifactAttached>
               <transformers>
                 <transformer>
-                  <mainClass>io.mongock.examples.StandaloneSpringdataApp</mainClass>
+                  <mainClass>io.mongock.examples.mongodb.standalone.springdata.StandaloneSpringdataApp</mainClass>
                 </transformer>
               </transformers>
             </configuration>

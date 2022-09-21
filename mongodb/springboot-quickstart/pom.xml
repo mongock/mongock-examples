@@ -113,7 +113,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>io.mongock.examples.QuickStartApp</mainClass>
+                    <mainClass>io.mongock.examples.mongodb.springboot.quickstart.QuickStartApp</mainClass>
                 </configuration>
 
                 <executions>

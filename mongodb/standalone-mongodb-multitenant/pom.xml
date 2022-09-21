@@ -83,7 +83,7 @@
                             <transformers>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>io.mongock.examples.StandaloneMultiTenantApp</mainClass>
+                                    <mainClass>io.mongock.examples.mongodb.standalone.multitenant.StandaloneMultiTenantApp</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>

@@ -35,16 +35,8 @@ public class RunnerBuilderProviderImpl implements RunnerBuilderProvider {
 
 	@Override
 	public RunnerBuilder getBuilder() {
-		MongoTemplate mongoTemplate = getMainMongoTemplate();
-		MongoTransactionManager mongoTransactionManager = new MongoTransactionManager(mongoTemplate.getMongoDbFactory());
-
-		// Driver
-		SpringDataMongoV3Driver driver = SpringDataMongoV3Driver.withDefaultLock(mongoTemplate);
-		driver.enableTransactionWithTxManager(mongoTransactionManager);
-
-		// Runner
-		RunnerStandaloneBuilder runnerStandaloneBuilder = MongockStandalone.builder()
-				.setDriver(driver)
+		return MongockStandalone.builder()
+				.setDriver(SpringDataMongoV3Driver.withDefaultLock(getMainMongoTemplate()))
 				.addMigrationScanPackage("io.mongock.examples.mongodb.standalone.springdata.migration")
 				.setMigrationStartedListener(MongockEventListener::onStart)
 				.setMigrationSuccessListener(MongockEventListener::onSuccess)
@@ -55,7 +47,6 @@ public class RunnerBuilderProviderImpl implements RunnerBuilderProvider {
 				.addDependency("secondaryMongoTemplate", getSecondaryMongoTemplate())
 				.setTrackIgnored(true)
 				.setTransactionEnabled(true);
-		return runnerStandaloneBuilder;
 	}
 
 	/**

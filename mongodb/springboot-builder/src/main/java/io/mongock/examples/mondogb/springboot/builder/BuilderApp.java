@@ -32,15 +32,9 @@ public class BuilderApp {
     
     @Bean
     public MongockApplicationRunner mongockApplicationRunner(ApplicationContext springContext,
-                                                              MongoTemplate mongoTemplate,
-                                                              MongoTransactionManager mongoTransactionManager) {
-      
-        // Driver
-	SpringDataMongoV3Driver driver = SpringDataMongoV3Driver.withDefaultLock(mongoTemplate);
-	driver.enableTransactionWithTxManager(mongoTransactionManager);
-      
+                                                              MongoTemplate mongoTemplate) {
         return MongockSpringboot.builder()
-                .setDriver(driver)
+                .setDriver(SpringDataMongoV3Driver.withDefaultLock(mongoTemplate))
                 .addMigrationScanPackage("io.mongock.examples.mondogb.springboot.builder.migration")
                 .setEventPublisher(springContext)
                 .setSpringContext(springContext)

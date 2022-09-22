@@ -47,7 +47,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>io.mongock.examples.application.SpringBootAdvanceApp</mainClass>
+                    <mainClass>io.mongock.examples.mongodb.springboot.advance.application.SpringBootAdvanceApp</mainClass>
                 </configuration>
 
                 <executions>

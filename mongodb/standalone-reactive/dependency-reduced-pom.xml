@@ -29,7 +29,7 @@
               <shadedArtifactAttached>false</shadedArtifactAttached>
               <transformers>
                 <transformer>
-                  <mainClass>io.mongock.examples.standalone.reactive.StandaloneReactiveApp</mainClass>
+                  <mainClass>io.mongock.examples.mongodb.standalone.reactive.StandaloneReactiveApp</mainClass>
                 </transformer>
               </transformers>
             </configuration>

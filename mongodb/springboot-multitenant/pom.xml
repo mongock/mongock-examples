@@ -48,7 +48,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>io.mongock.professional.examples.SpringBootMultitenantApp</mainClass>
+                    <mainClass>io.mongock.professional.examples.mongodb.springboot.multitenant.SpringBootMultitenantApp</mainClass>
                 </configuration>
 
                 <executions>

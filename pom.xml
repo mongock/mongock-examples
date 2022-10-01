@@ -14,6 +14,7 @@
     <modules>
         <module>mongodb</module>
         <module>dynamodb</module>
+        <module>remote</module>
     </modules>
     
     <properties>
@@ -28,7 +29,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- MONGOCK versions -->
-        <mongock.version>5.1.6</mongock.version>
+        <mongock.version>5.1.7-SNAPSHOT</mongock.version>
 
         <spring-boot.version>2.4.13</spring-boot.version>
 

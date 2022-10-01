@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <parent>
-    <artifactId>dynamodb</artifactId>
+    <artifactId>remote</artifactId>
     <groupId>io.mongock.examples</groupId>
     <version>5.1.5-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>standalone-dynamodb</artifactId>
-  <name>standalone-dynamodb</name>
-  <description>Mongock example: Standalone + DynamoDB</description>
+  <artifactId>standalone-remote</artifactId>
   <build>
     <plugins>
       <plugin>
@@ -29,7 +27,7 @@
               <shadedArtifactAttached>false</shadedArtifactAttached>
               <transformers>
                 <transformer>
-                  <mainClass>io.mongock.examples.dynamodb.standalone.StandaloneDynamoDBApp</mainClass>
+                  <mainClass>io.mongock.examples.remote.standalone.RemoteStandaloneApp</mainClass>
                 </transformer>
               </transformers>
             </configuration>

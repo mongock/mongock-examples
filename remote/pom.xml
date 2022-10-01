@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>mongock-parent</artifactId>
+        <groupId>io.mongock.examples</groupId>
+        <version>5.1.5-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>remote</artifactId>
+
+    <name>Mongock examples for Remote driver</name>
+    <description>Mongock examples for Remote driver</description>
+    <modules>
+        <module>standalone-remote</module>
+    </modules>
+    <packaging>pom</packaging>
+
+</project>

@@ -12,11 +12,9 @@ import io.mongock.examples.mongodb.standalone.springdata.spring.ZonedDateTimeToD
 import io.mongock.runner.core.builder.RunnerBuilder;
 import io.mongock.runner.core.builder.RunnerBuilderProvider;
 import io.mongock.runner.standalone.MongockStandalone;
-import io.mongock.runner.standalone.RunnerStandaloneBuilder;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 import org.springframework.core.convert.converter.Converter;
-import org.springframework.data.mongodb.MongoTransactionManager;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
 import org.springframework.data.mongodb.core.convert.MongoCustomConversions;
@@ -35,8 +33,12 @@ public class RunnerBuilderProviderImpl implements RunnerBuilderProvider {
 
 	@Override
 	public RunnerBuilder getBuilder() {
+          
+                SpringDataMongoV3Driver driver = SpringDataMongoV3Driver.withDefaultLock(getMainMongoTemplate());
+                driver.enableTransaction();
+          
 		return MongockStandalone.builder()
-				.setDriver(SpringDataMongoV3Driver.withDefaultLock(getMainMongoTemplate()))
+				.setDriver(driver)
 				.addMigrationScanPackage("io.mongock.examples.mongodb.standalone.springdata.migration")
 				.setMigrationStartedListener(MongockEventListener::onStart)
 				.setMigrationSuccessListener(MongockEventListener::onSuccess)

@@ -24,6 +24,7 @@
 aws_access_key_id=''
 aws_secret_access_key=''
 ```
+- Optionally, for data visualization in development environment we recommend using [dynamodb-admin](https://www.npmjs.com/package/dynamodb-admin)
 
 ## CLI
 <!--  Remove this section with just the documentation link: https://docs.mongock.io/cli-->

@@ -24,6 +24,7 @@
 aws_access_key_id=''
 aws_secret_access_key=''
 ```
+- Optionally, for data visualization in development environment we recommend using [dynamodb-admin](https://www.npmjs.com/package/dynamodb-admin)
 
 ## CLI
 To use the CLI you don't need to do anything else in this application, just install the CLI in two very easy steps and pass the application as a parameter, so it can take the migration and the dependencies.

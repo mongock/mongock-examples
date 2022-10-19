@@ -49,7 +49,7 @@ public class RunnerBuilderProviderImpl implements RunnerBuilderProvider {
         return (AmazonDynamoDBClient) AmazonDynamoDBClientBuilder.standard()
                 .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(
                         "http://localhost:8000",
-                        Regions.EU_WEST_1.getName()))
+                        Regions.US_EAST_1.getName()))
                 .build();
     }
 

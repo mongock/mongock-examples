@@ -5,16 +5,25 @@
 - [Scope](#scope)
 - [CLI](#cli)
 
-
 ## Requirements
 - Java 8
 - Maven 3.x
-- MongoDB with ReplicaSet(You can easily setup a MongoDB replicaset with this [repository](https://github.com/mongock/mongodb-replset-deployment-docker))
+- Docker
 
 ## Scope
-- How to use Mongock standalone with  MongoDB driver library `mongodb-driver-sync`
-- How to inject a custom dependency into the changeUnit. In this case  a secondary database(we have used  MongoDB, but could be any database or remote system) to retrieve data(shouldn't be used as migration-target database)
-- How to use the CLI to run the migration
+- Quick guide on how to use Mongock with Springboot with autoconfiguration
+- Quick guide on how to execute the migration with the Mongock CLI
+
+## Set up
+### DynamoDB locally
+- Run `docker run -d -p 8000:8000 --name dynamodb amazon/dynamodb-local`
+- Check DynamoDB is running fine with `docker logs -f dynamodb`
+- Create file `~/.aws/credentials` and add
+```
+[default]
+aws_access_key_id=''
+aws_secret_access_key=''
+```
 
 ## CLI
 <!--  Remove this section with just the documentation link: https://docs.mongock.io/cli-->
@@ -39,7 +48,7 @@ public class StandaloneMongoApp {
 
 ### Generate the jar
 
-The CLI needs the application jar build and packed with the jar libraries that will needed in the migration. This means, of course the mongodb library, but also any library from which the changeUnits use classes.
+The CLI needs the application jar build and packed with the jar libraries that will needed in the migration. This means any library from which the changeUnits use classes.
 
 The easies way is to create an uber jar with `maven-shade-plugin`, as it's shown in the pom.xml file.
 
@@ -48,7 +57,7 @@ The easies way is to create an uber jar with `maven-shade-plugin`, as it's shown
 <!--  Remove this section with just the documentation link: https://docs.mongock.io/cli/operations#migrate-->
 1. Execute `mvn clean package` inside your application folder.
 2. Open a terminal and locate it inside the unzipped folder from the installation step
-3. Execute `./mongock migrate -aj YOUR_PROJECT_FOLDER/target/standalone-mongodb-sync-5.1.5-SNAPSHOT.jar`
+3. Execute `./mongock migrate -aj YOUR_PROJECT_FOLDER/target/standalone-dynamodb-5.1.5-SNAPSHOT.jar`
 
 > :bulb: The Mongock CLI requires an uber application jar. **Luckily for Springboot users, this is provided by the framework out of the box**
 
@@ -56,5 +65,3 @@ The easies way is to create an uber jar with `maven-shade-plugin`, as it's shown
 <!--The output should look similar to this:
 
 ![cli migrate](./images/cli-migrate.png)-->
-
-

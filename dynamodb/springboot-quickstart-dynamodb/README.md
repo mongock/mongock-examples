@@ -17,7 +17,7 @@
 ## Set up
 ### DynamoDB locally
 - Run `docker run -d -p 8000:8000 --name dynamodb amazon/dynamodb-local`
-- Check DynamoDB is running fin with `docker logs -f dynamodb`
+- Check DynamoDB is running fine with `docker logs -f dynamodb`
 - Create file `~/.aws/credentials` and add
 ```
 [default]
@@ -40,7 +40,7 @@ To use the CLI you don't need to do anything else in this application, just inst
 <!--  Remove this section with just the documentation link: https://docs.mongock.io/cli/operations#migrate-->
 1. Execute `mvn clean package` inside your application folder.
 2. Open a terminal and locate it inside the unzipped folder from the installation step
-3. Execute `./mongock migrate -aj YOUR_PROJECT_FOLDER/target/springboot-quickstart-1.0-SNAPSHOT.jar`
+3. Execute `./mongock migrate -aj YOUR_PROJECT_FOLDER/target/springboot-quickstart-5.1.5-SNAPSHOT.jar`
 
 > :bulb: The Mongock CLI requires an uber application jar. **Luckily for Springboot users, this is provided by the framework out of the box**
 

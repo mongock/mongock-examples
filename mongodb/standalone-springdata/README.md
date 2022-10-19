@@ -48,7 +48,7 @@ The easies way is to create an uber jar with `maven-shade-plugin`, as it's shown
 <!--  Remove this section with just the documentation link: https://docs.mongock.io/cli/operations#migrate-->
 1. Execute `mvn clean package` inside your application folder.
 2. Open a terminal and locate it inside the unzipped folder from the installation step
-3. Execute `./mongock migrate -aj YOUR_PROJECT_FOLDER/target/standalone-springdata-1.0-SNAPSHOT.jar`
+3. Execute `./mongock migrate -aj YOUR_PROJECT_FOLDER/target/standalone-springdata-5.1.5-SNAPSHOT.jar`
 
 > :bulb: The Mongock CLI requires an uber application jar. **Luckily for Springboot users, this is provided by the framework out of the box**
 

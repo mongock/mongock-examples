@@ -8,12 +8,22 @@
 ## Requirements
 - Java 8
 - Maven 3.x
-- AWS account
-- Added AWS_ACCESS_KEY and AWS_SECRET_KEY to environment variables
+- Docker
 
 ## Scope
 - Quick guide on how to use Mongock with Springboot with autoconfiguration
 - Quick guide on how to execute the migration with the Mongock CLI
+
+## Set up
+### DynamoDB locally
+- Run `docker run -d -p 8000:8000 --name dynamodb amazon/dynamodb-local`
+- Check DynamoDB is running fin with `docker logs -f dynamodb`
+- Create file `~/.aws/credentials` and add
+```
+[default]
+aws_access_key_id=''
+aws_secret_access_key=''
+```
 
 ## CLI
 To use the CLI you don't need to do anything else in this application, just install the CLI in two very easy steps and pass the application as a parameter, so it can take the migration and the dependencies.

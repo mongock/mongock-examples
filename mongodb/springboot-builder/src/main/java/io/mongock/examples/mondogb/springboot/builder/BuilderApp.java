@@ -57,6 +57,6 @@ public class BuilderApp {
                 .readPreference(ReadPreference.primary())
                 .writeConcern(WriteConcern.MAJORITY.withJournal(true))
                 .build();
-        return new MongoTransactionManager(mongoTemplate.getMongoDbFactory(), transactionalOptions);
+        return new MongoTransactionManager(mongoTemplate.getMongoDatabaseFactory(), transactionalOptions);
     }
 }

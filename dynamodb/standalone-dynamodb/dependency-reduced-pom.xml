@@ -3,7 +3,7 @@
   <parent>
     <artifactId>dynamodb</artifactId>
     <groupId>io.mongock.examples</groupId>
-    <version>5.1.5-SNAPSHOT</version>
+    <version>5.2.1-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>standalone-dynamodb</artifactId>
@@ -39,7 +39,7 @@
     </plugins>
   </build>
   <properties>
-    <maven.compiler.target>8</maven.compiler.target>
     <maven.compiler.source>8</maven.compiler.source>
+    <maven.compiler.target>8</maven.compiler.target>
   </properties>
 </project>

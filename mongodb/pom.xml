@@ -22,6 +22,7 @@
         <module>standalone-springdata</module>
         <module>standalone-reactive</module>
         <module>springboot-reactive</module>
+        <module>springboot3-springdata4-jdk17</module>
 
         <!-- PROFESSIONAL -->
 

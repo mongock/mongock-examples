@@ -1,0 +1,16 @@
+spring:
+  data:
+    couchbase:
+      bucket-name: bucket
+  couchbase:
+    connection-string: couchbase://localhost:11210
+    username: Administrator
+    password: password
+
+mongock:
+  enabled: true
+  index-creation: true
+  couchbase:
+    collection: examplecollection
+    scope: examplescope
+  migration-scan-package: io.mongock.examples.couchbase.springboot.migration

@@ -29,7 +29,7 @@
               <shadedArtifactAttached>false</shadedArtifactAttached>
               <transformers>
                 <transformer>
-                  <mainClass>io.mongock.examples.dynamodb.standalone.StandaloneDynamoDBApp</mainClass>
+                  <mainClass>io.mongock.examples.couchbase.StandaloneCouchbaseApp</mainClass>
                 </transformer>
               </transformers>
             </configuration>

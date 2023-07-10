@@ -7,7 +7,7 @@
     <description>Mongock examples</description>
     <groupId>io.mongock.examples</groupId>
     <artifactId>mongock-parent</artifactId>
-    <version>5.3.1-SNAPSHOT</version>
+    <version>5.3.2-SNAPSHOT</version>
 
     <packaging>pom</packaging>
   
@@ -29,7 +29,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- MONGOCK versions -->
-        <mongock.version>5.3.1</mongock.version>
+        <mongock.version>5.3.2</mongock.version>
 
         <spring-boot.version>2.4.13</spring-boot.version>
 

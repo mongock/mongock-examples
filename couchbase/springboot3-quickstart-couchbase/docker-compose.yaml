@@ -1,0 +1,65 @@
+version: '3.3'
+services:
+  couchbase:
+    ports:
+      - '8091-8096:8091-8096'
+      - '11210-11211:11210-11211'
+    image: couchbase
+    volumes:
+      - .docker-data/couchbase:/opt/couchbase/var
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://couchbase:8091" ]
+      interval: 5s
+      timeout: 2s
+      retries: 6
+    networks:
+      - example-app-network
+  
+  couchbase-cluster-setup:
+    image: alpine/httpie
+    container_name: couchbase-cluster-setup
+    depends_on:
+      couchbase:
+        condition: service_healthy
+    command: "-vv --ignore-stdin -f POST http://couchbase:8091/clusterInit password=password username=Administrator sendStats=false clusterName=sps services=kv,n1ql,index port=SAME"
+    networks:
+      - example-app-network
+      
+  couchbase-indexes-setup:
+    image: alpine/httpie
+    container_name: couchbase-indexes-setup
+    depends_on:
+      - couchbase-cluster-setup
+    command: "-vv --ignore-stdin -a Administrator:password -f POST http://couchbase:8091/settings/indexes indexerThreads=4 numReplica=0 redistributeIndexes=false maxRollbackPoints=2 storageMode=plasma enablePageBloomFilter=false"
+    networks:
+      - example-app-network
+        
+  couchbase-bucket-setup:
+    image: alpine/httpie
+    container_name: couchbase-bucket-setup
+    depends_on: 
+      - couchbase-cluster-setup
+    command: "-vv --ignore-stdin -a Administrator:password -f POST http://couchbase:8091/pools/default/buckets name=bucket bucketType=couchbase ramQuota=256"
+    networks:
+      - example-app-network
+      
+  couchbase-scope-setup:
+    image: alpine/httpie
+    container_name: couchbase-scope-setup
+    depends_on:
+      - couchbase-bucket-setup
+    command: "-vv --ignore-stdin -a Administrator:password -f POST http://couchbase:8091/pools/default/buckets/bucket/scopes name=examplescope"
+    networks:
+      - example-app-network
+        
+  couchbase-collection-setup:
+    image: alpine/httpie
+    container_name: couchbase-collection-setup
+    depends_on:
+      - couchbase-scope-setup
+    command: "-vv --ignore-stdin -a Administrator:password -f POST http://couchbase:8091/pools/default/buckets/bucket/scopes/examplescope/collections name=examplecollection maxTTL=0"
+    networks:
+      - example-app-network
+
+networks:
+  example-app-network:

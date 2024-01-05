@@ -17,6 +17,7 @@
     <modules>
         <module>standalone-couchbase</module>
         <module>springboot-quickstart-couchbase</module>
+        <module>springboot3-quickstart-couchbase</module>
     </modules>
     
     <properties>
@@ -30,7 +31,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- MONGOCK versions -->
-        <couchbase-java-client.version>3.4.3</couchbase-java-client.version>
+        <couchbase-java-client.version>3.5.1</couchbase-java-client.version>
         <reactor-core.version>3.5.0</reactor-core.version>
     </properties>
 

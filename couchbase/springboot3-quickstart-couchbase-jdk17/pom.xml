@@ -19,12 +19,12 @@
     <parent>
         <groupId>io.mongock.examples</groupId>
         <artifactId>couchbase</artifactId>
-        <version>5.3.6-SNAPSHOT</version>
+        <version>5.4.0-SNAPSHOT</version>
     </parent>
 
-    <name>springboot3-quickstart-couchbase</name>
+    <name>springboot3-quickstart-couchbase-jdk17</name>
     <description>Mongock example: Quick start with Springboot3 and springdata Couchbase</description>
-    <artifactId>springboot3-quickstart-couchbase</artifactId>
+    <artifactId>springboot3-quickstart-couchbase-jdk17</artifactId>
 
     <dependencyManagement>
         <dependencies>
@@ -49,7 +49,6 @@
         <dependency>
             <groupId>io.mongock</groupId>
             <artifactId>couchbase-springboot-v3-driver</artifactId>
-            <version>5.3.6-SNAPSHOT</version>
         </dependency>
         
         <!-- SPRING BOOT -->

@@ -16,7 +16,7 @@
     <parent>
         <groupId>io.mongock.examples</groupId>
         <artifactId>mongodb</artifactId>
-         <version>5.4.0-SNAPSHOT</version>
+         <version>5.4.1-SNAPSHOT</version>
     </parent>
 
     <name>springboot3-reactive-jdk17</name>

@@ -1,16 +1,9 @@
 package io.mongock.examples.mongodb.springboot3.springdata4;
 
-import com.mongodb.ReadConcern;
-import com.mongodb.ReadPreference;
-import com.mongodb.TransactionOptions;
-import com.mongodb.WriteConcern;
 import io.mongock.examples.mongodb.springboot3.springdata4.client.ClientRepository;
 import io.mongock.runner.springboot.EnableMongock;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.context.annotation.Bean;
-import org.springframework.data.mongodb.MongoTransactionManager;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 /**
@@ -30,19 +23,5 @@ public class App {
 
     public static SpringApplicationBuilder getSpringAppBuilder() {
         return new SpringApplicationBuilder().sources(App.class);
-    }
-    
-    /**
-     * Transaction Manager.
-     * Needed to allow execution of changeSets in transaction scope.
-     */
-    @Bean
-    public MongoTransactionManager transactionManager(MongoTemplate mongoTemplate) {
-        TransactionOptions transactionalOptions = TransactionOptions.builder()
-                .readConcern(ReadConcern.MAJORITY)
-                .readPreference(ReadPreference.primary())
-                .writeConcern(WriteConcern.MAJORITY.withJournal(true))
-                .build();
-        return new MongoTransactionManager(mongoTemplate.getMongoDatabaseFactory(), transactionalOptions);
     }
 }

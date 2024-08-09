@@ -32,7 +32,7 @@ public class RunnerBuilderProviderImpl implements RunnerBuilderProvider {
 				.setMigrationSuccessListener(MongockEventListener::onSuccess)
 				.setMigrationFailureListener(MongockEventListener::onFail)
 				.setTrackIgnored(true)
-				.setTransactionEnabled(true);
+				.setTransactional(true);
 	}
 
 	/**

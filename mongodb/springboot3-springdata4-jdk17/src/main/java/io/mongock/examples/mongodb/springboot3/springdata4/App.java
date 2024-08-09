@@ -31,18 +31,4 @@ public class App {
     public static SpringApplicationBuilder getSpringAppBuilder() {
         return new SpringApplicationBuilder().sources(App.class);
     }
-    
-    /**
-     * Transaction Manager.
-     * Needed to allow execution of changeSets in transaction scope.
-     */
-    @Bean
-    public MongoTransactionManager transactionManager(MongoTemplate mongoTemplate) {
-        TransactionOptions transactionalOptions = TransactionOptions.builder()
-                .readConcern(ReadConcern.MAJORITY)
-                .readPreference(ReadPreference.primary())
-                .writeConcern(WriteConcern.MAJORITY.withJournal(true))
-                .build();
-        return new MongoTransactionManager(mongoTemplate.getMongoDatabaseFactory(), transactionalOptions);
-    }
 }

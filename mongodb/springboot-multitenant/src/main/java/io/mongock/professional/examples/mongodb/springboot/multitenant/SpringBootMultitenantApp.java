@@ -46,7 +46,7 @@ public class SpringBootMultitenantApp {
                 .setDriverMultiTenant(driver, tenantManager)
                 .addMigrationScanPackage("io.mongock.professional.examples.mongodb.springboot.multitenant")
                 .setSpringContext(springContext)
-                .setTransactionEnabled(true);
+                .setTransactional(true);
     }
 
     @Bean

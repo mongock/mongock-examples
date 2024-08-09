@@ -1,8 +1,7 @@
 mongock:
   migration-scan-package:
     - io.mongock.examples.mongodb.springboot.quickstart.migration
-  transactionEnabled: true
-
+  transactional: true
 
 
 

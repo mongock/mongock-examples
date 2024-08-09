@@ -42,7 +42,7 @@ public class SpringbootReactiveApp {
                 .setDriver(MongoReactiveDriver.withDefaultLock(reactiveMongoClient, "test"))
                 .addMigrationScanPackage("io.mongock.examples.mongodb.springboot.reactive.migration")
                 .setSpringContext(context)
-                .setTransactionEnabled(true)
+                .setTransactional(true)
                 .buildInitializingBeanRunner();
     }
 

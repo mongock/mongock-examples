@@ -34,7 +34,7 @@ public class RunnerBuilderProviderImpl implements RunnerBuilderProvider {
 				.setMigrationFailureListener(MongockEventListener::onFail)
 				.addDependency("secondaryDb", getSecondaryDb())
 				.setTrackIgnored(true)
-				.setTransactionEnabled(true);
+				.setTransactional(true);
 	}
 
 	/**

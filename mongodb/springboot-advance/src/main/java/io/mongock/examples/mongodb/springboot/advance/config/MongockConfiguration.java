@@ -39,6 +39,6 @@ public class MongockConfiguration {
                 .setSpringContext(springContext)
                 .setEventPublisher(eventPublisher)
                 .setTrackIgnored(true)
-                .setTransactionEnabled(true);
+                .setTransactional(true);
     }
 }

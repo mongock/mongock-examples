@@ -48,7 +48,7 @@ public class RunnerBuilderProviderImpl implements RunnerBuilderProvider {
 				.addDependency("secondaryDb", getSecondaryDb())
 				.addDependency("secondaryMongoTemplate", getSecondaryMongoTemplate())
 				.setTrackIgnored(true)
-				.setTransactionEnabled(true);
+				.setTransactional(true);
 	}
 
 	/**

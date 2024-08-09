@@ -11,15 +11,15 @@
         <maven.compiler.target>17</maven.compiler.target>
         <maven.compiler.source>17</maven.compiler.source>
 
-        <spring-boot.version>3.1.7</spring-boot.version>
-        <couchbase-java-client.version>3.5.1</couchbase-java-client.version>
+        <spring-boot.version>3.3.2</spring-boot.version>
+        <couchbase-java-client.version>3.7.1</couchbase-java-client.version>
         <slf4j.version>2.0.10</slf4j.version>
     </properties>
 
     <parent>
         <groupId>io.mongock.examples</groupId>
         <artifactId>couchbase</artifactId>
-        <version>5.4.4-SNAPSHOT</version>
+        <version>5.5.0-SNAPSHOT</version>
     </parent>
 
     <name>springboot3-quickstart-couchbase-jdk17</name>

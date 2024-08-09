@@ -2,7 +2,7 @@ mongock:
   migration-scan-package:
     - io.mongock.examples.mongodb.springboot.advance.migration
   track-ignored: true
-  transaction-enabled: true
+  transactional: true
   runner-type: InitializingBean
   mongo-db:
     read-concern: local

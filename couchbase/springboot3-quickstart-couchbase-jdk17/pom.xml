@@ -19,7 +19,7 @@
     <parent>
         <groupId>io.mongock.examples</groupId>
         <artifactId>couchbase</artifactId>
-        <version>5.5.0-SNAPSHOT</version>
+        <version>5.5.1-SNAPSHOT</version>
     </parent>
 
     <name>springboot3-quickstart-couchbase-jdk17</name>
